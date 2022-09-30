@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import './EventForm.css'
 
 function EventForm() {
+
+    const dispatch = useDispatch();
 
     // local state of information to be submitted
     const [event, setEvent] = useState({ title: '', date: '', image: '', info: '', references: '', category_id: '' })
@@ -22,6 +25,10 @@ function EventForm() {
     // handle dispatch of information
     const submit = () => {
         console.log(event)
+        dispatch({
+            type: 'POST_EVENT',
+            payload: event
+        })
     }
 
     return (
