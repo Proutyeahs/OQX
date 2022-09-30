@@ -1,3 +1,5 @@
+-- Database name OQX_app
+
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
