@@ -4,15 +4,17 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 //MUI stuff here
-// import Button from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import { IconButton } from '@mui/material';
- import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu
- import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'; //back button
+
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'; //back button
 import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined'; //political/legal timeline
- import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined'; //business/cultural timeline
- import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined'; //health/science timeline 
-
-
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined'; //business/cultural timeline
+import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined'; //health/science timeline 
+//MUI MENU THINGS
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu
 
 
 
@@ -20,12 +22,24 @@ import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlin
 function Nav() {
   const user = useSelector((store) => store.user);
 
+  //menu stuff
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+  
   return (
     <div className="nav">
       <Link to="/home">
         <h2 className="nav-title">OQX</h2>
       </Link>
-      
+
       <Link className="navLink" to="/user">
         <IconButton aria-label="back">
           <ArrowBackOutlinedIcon />
@@ -51,11 +65,47 @@ function Nav() {
         </IconButton>
       </Link>
 
-      <Link className="navLink" to="/user">
+      {/* <Link className="navLink" to="/user">
         <IconButton aria-label="menu">
           <MenuRoundedIcon />
         </IconButton>
-      </Link>
+      </Link> */}
+
+      <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
+            <IconButton aria-label="menu">
+          <MenuRoundedIcon />
+        </IconButton>
+      </Button>
+
+
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>
+        <Link to="/about">
+          About
+        </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>Sponsors</MenuItem>
+        <MenuItem onClick={handleClose}>Resources</MenuItem>
+        <MenuItem onClick={handleClose}>Login/Register/Logout</MenuItem>
+      </Menu>
+    </div>
+
+
 
       <div>
         {/* If no user is logged in, show these links */}
@@ -85,9 +135,7 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+
       </div>
     </div>
   );
