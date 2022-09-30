@@ -12,8 +12,9 @@ function* postEvent(action) {
 }
 
 function* getEvent(action) {
+    console.log(action.payload)
     try{
-        const details = yield axios.get(`/api/event`)
+        const details = yield axios.get(`/api/event/${action.payload}`)
         yield put({type : 'SET_EVENT', payload : details.data})
     } catch (err){
         console.log(err)

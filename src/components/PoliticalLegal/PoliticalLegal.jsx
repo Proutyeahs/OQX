@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 
-function BusinessCultural() {
+function PoliticalLegal() {
 
     const dispatch = useDispatch();
 
@@ -12,7 +12,7 @@ function BusinessCultural() {
     useEffect(() => {
         dispatch({
           type: 'GET_EVENT',
-          payload: 3
+          payload: 1
         })
       }, [])
 
@@ -25,4 +25,4 @@ function BusinessCultural() {
     )
 }
 
-export default BusinessCultural;
+export default PoliticalLegal;

@@ -29,11 +29,13 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
+    console.log("B/C", req.params)
     const query = `
     SELECT * FROM "timeline"
+    WHERE "timeline".category_id = $1
   ;`;
-    pool.query(query).then(result => {
+    pool.query(query, [req.params.id]).then(result => {
         console.log("timeline", result.rows)
         res.send(result.rows)
     }).catch(err => {
