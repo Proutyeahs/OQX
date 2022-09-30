@@ -29,4 +29,17 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/', (req, res) => {
+    const query = `
+    SELECT * FROM "timeline"
+  ;`;
+    pool.query(query).then(result => {
+        console.log("timeline", result.rows)
+        res.send(result.rows)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
 module.exports = router;

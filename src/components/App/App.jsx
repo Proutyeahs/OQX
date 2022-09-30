@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventForm from '../EventForm/EventForm';
+import BusinessCultural from '../BusinessCultural/BusinessCultural';
 
 import './App.css';
 
@@ -109,6 +110,15 @@ function App() {
               // Otherwise, show the Landing page
               <LandingPage />
             }
+          </Route>
+
+          {/* timeline route */}
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/businessCultural"
+          >
+            <BusinessCultural />
           </Route>
 
             {/* admin route to add events */}

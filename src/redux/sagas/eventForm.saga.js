@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {takeLatest} from 'redux-saga/effects';
+import {put, takeLatest} from 'redux-saga/effects';
 
 // sends the payload to the event router
 function* postEvent(action) {
@@ -11,8 +11,18 @@ function* postEvent(action) {
     }
 }
 
+function* getEvent(action) {
+    try{
+        const details = yield axios.get(`/api/event`)
+        yield put({type : 'SET_EVENT', payload : details.data})
+    } catch (err){
+        console.log(err)
+    }
+}
+
 function* eventFormSaga() {
    yield takeLatest('POST_EVENT', postEvent)
+   yield takeLatest('GET_EVENT', getEvent)
 }
 
 export default eventFormSaga;
