@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventForm from '../EventForm/EventForm';
+import BusinessCultural from '../BusinessCultural/BusinessCultural';
+import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 
 import './App.css';
 
@@ -102,6 +104,24 @@ function App() {
             path="/home"
           >
 
+          </Route>
+
+          {/* timeline route */}
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/businessCultural"
+          >
+            <BusinessCultural />
+          </Route>
+
+          {/* timeline route */}
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/politicalLegal"
+          >
+            <PoliticalLegal />
           </Route>
 
             {/* admin route to add events */}
