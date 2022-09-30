@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import EventForm from '../EventForm/EventForm';
 
 import './App.css';
 
@@ -109,6 +110,18 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+            {/* admin route to add events */}
+          <ProtectedRoute
+            exact
+            path="/eventForm"
+          >
+            {user.admin ?
+              <EventForm />
+              :
+              <LandingPage />
+            }
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
