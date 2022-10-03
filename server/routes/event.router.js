@@ -44,4 +44,19 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.get('/specific/:id', (req, res) => {
+    console.log("specific event", req.params)
+    const query = `
+    SELECT * FROM "timeline"
+    WHERE "timeline".id = $1
+  ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        console.log("timeline", result.rows)
+        res.send(result.rows)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
 module.exports = router;
