@@ -21,9 +21,20 @@ function* getEvent(action) {
     }
 }
 
+function* getSpecificEvent(action) {
+    console.log(action.payload)
+    try{
+        const details = yield axios.get(`/api/event/specific/${action.payload}`)
+        yield put({type : 'SET_SPECIFIC_EVENT', payload : details.data})
+    } catch (err){
+        console.log(err)
+    }
+}
+
 function* eventFormSaga() {
    yield takeLatest('POST_EVENT', postEvent)
    yield takeLatest('GET_EVENT', getEvent)
+   yield takeLatest('GET_SPECIFIC_EVENT', getSpecificEvent)
 }
 
 export default eventFormSaga;
