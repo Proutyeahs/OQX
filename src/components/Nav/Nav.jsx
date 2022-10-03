@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
+
 import './Nav.css';
 import { useSelector } from 'react-redux';
+
+
+//for logout link in burger
+import { useDispatch } from 'react-redux';
 
 //MUI ICONS HERE
 import { IconButton } from '@mui/material';
@@ -14,19 +18,19 @@ import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined'; //busin
 import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined'; //health/science timeline 
 
 //MUI MENU PIECES
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu
-
-
-//TODO: link health/sciences
-//TODO: link login/logout button,
-//TODO: login/logout button renders depending on if user is logged in or not
-
+import Menu from '@mui/material/Menu'; //burger menu box/functionality
+import MenuItem from '@mui/material/MenuItem'; //each line on the menu
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu icon
+import ListItem from '@mui/material/ListItem';
 
 
 function Nav() {
+  //is the user logged in? who are they?
   const user = useSelector((store) => store.user);
+
+  //used to log out
+  const dispatch = useDispatch();
+
 
   //MENU THINGS----------------------------------------
   //declares anchor as boolean value
@@ -79,11 +83,7 @@ function Nav() {
         </IconButton>
       </Link>
 
-      {/* <Link className="navLink" to="/user">
-        <IconButton aria-label="menu">
-          <MenuRoundedIcon />
-        </IconButton>
-      </Link> */}
+
 
       <div>
         {/* THIS DIV IS MENU STUFF */}
@@ -104,71 +104,59 @@ function Nav() {
           MenuListProps={{
             'aria-labelledby': 'basic-button',
           }}>
+
           <MenuItem onClick={handleClose}>
             <Link to="/about">
-              About
+              <ListItem>
+                About
+              </ListItem>
             </Link>
           </MenuItem>
+
           <MenuItem onClick={handleClose}>
             <Link to="/sponsors">
-              Sponsors
+              <ListItem>
+                Sponsors
+              </ListItem>
             </Link>
           </MenuItem>
+
           <MenuItem onClick={handleClose}>
             <Link to="/resources">
-              Resources
+              <ListItem>
+                Resources
+              </ListItem>
             </Link>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-          
-            Login/Register/Logout
-            
-          </MenuItem>
+
+          {/* If no user is logged in, show these links */}
+          {!user.id && (
+            // If there's no user, show login/registration links
+            <MenuItem onClick={handleClose}>
+              <Link to="/login">
+                <ListItem>
+                  Login / Register
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
+
+          {/* If a user is logged in, show these links */}
+          {user.id && (
+            <MenuItem
+              onClick={() => dispatch({ type: 'LOGOUT' })}>
+              <ListItem>
+                Log Out
+              </ListItem>
+            </MenuItem>
+          )}
+
         </Menu>
       </div>
 
-
-
-
-
       <div>
-        {/* If no user is logged in, show these links */}
-        {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )}
-
-
-
-
-
-
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-
-
-
-
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
-
-
-
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-
       </div>
+
     </div>
   );
 }
