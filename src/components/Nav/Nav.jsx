@@ -53,7 +53,12 @@ function Nav() {
 
 
   return (
+    
+    
     <div className="nav">
+      <div>
+      </div>
+
       <Link to="/home">
         <h2 className="nav-title">OQX</h2>
       </Link>
