@@ -67,19 +67,19 @@ function Nav() {
 
       <Link className="navLink" to="/politicalLegal">
         <IconButton aria-label="political">
-          <AccountBalanceOutlinedIcon />
+          <AccountBalanceOutlinedIcon className ="political"/>
         </IconButton>
       </Link>
 
       <Link className="navLink" to="/healthScience">
         <IconButton aria-label="health">
-          <LocalHospitalOutlinedIcon />
+          <LocalHospitalOutlinedIcon className="health"/>
         </IconButton>
       </Link>
 
       <Link className="navLink" to="/businessCultural">
         <IconButton aria-label="business">
-          <BusinessOutlinedIcon />
+          <BusinessOutlinedIcon className="business"/>
         </IconButton>
       </Link>
 
