@@ -3,37 +3,51 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
-//MUI stuff here
-import Button from '@mui/material/Button';
-import { IconButton } from '@mui/material';
 
+//MUI ICONS HERE
+import { IconButton } from '@mui/material';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'; //back button
+
+//TIMELINE ICONS
 import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined'; //political/legal timeline
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined'; //business/cultural timeline
 import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined'; //health/science timeline 
-//MUI MENU THINGS
+
+//MUI MENU PIECES
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu
 
+
+//TODO: link health/sciences
+//TODO: link login/logout button,
+//TODO: login/logout button renders depending on if user is logged in or not
 
 
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  //menu stuff
+  //MENU THINGS----------------------------------------
+  //declares anchor as boolean value
   const [anchorEl, setAnchorEl] = React.useState(null);
+  //switch to open/close menu
   const open = Boolean(anchorEl);
+  //opens menu where the user clicked (event.currentTarget)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  //closes menu
   const handleClose = () => {
     setAnchorEl(null);
   };
+  //---------------------------------------------------
 
 
-  
+
+
+
+
   return (
     <div className="nav">
       <Link to="/home">
@@ -47,7 +61,7 @@ function Nav() {
       </Link>
 
 
-      <Link className="navLink" to="/user">
+      <Link className="navLink" to="/politicalLegal">
         <IconButton aria-label="political">
           <AccountBalanceOutlinedIcon />
         </IconButton>
@@ -59,7 +73,7 @@ function Nav() {
         </IconButton>
       </Link>
 
-      <Link className="navLink" to="/user">
+      <Link className="navLink" to="/businessCultural">
         <IconButton aria-label="business">
           <BusinessOutlinedIcon />
         </IconButton>
@@ -72,38 +86,48 @@ function Nav() {
       </Link> */}
 
       <div>
-      <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
-            <IconButton aria-label="menu">
+        {/* THIS DIV IS MENU STUFF */}
+        <IconButton
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}>
           <MenuRoundedIcon />
         </IconButton>
-      </Button>
+
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}>
+          <MenuItem onClick={handleClose}>
+            <Link to="/about">
+              About
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Link to="/sponsors">
+              Sponsors
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Link to="/resources">
+              Resources
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+          
+            Login/Register/Logout
+            
+          </MenuItem>
+        </Menu>
+      </div>
 
 
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>
-        <Link to="/about">
-          About
-        </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>Sponsors</MenuItem>
-        <MenuItem onClick={handleClose}>Resources</MenuItem>
-        <MenuItem onClick={handleClose}>Login/Register/Logout</MenuItem>
-      </Menu>
-    </div>
 
 
 
@@ -115,6 +139,11 @@ function Nav() {
             Login / Register
           </Link>
         )}
+
+
+
+
+
 
         {/* If a user is logged in, show these links */}
         {user.id && (
@@ -130,6 +159,9 @@ function Nav() {
             <Link className="navLink" to="/info">
               Info Page
             </Link>
+
+
+
 
             <LogOutButton className="navLink" />
           </>
