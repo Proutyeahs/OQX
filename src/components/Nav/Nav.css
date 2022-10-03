@@ -5,7 +5,7 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #00acb0;
+  background-color: #ECECEC;
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
 .nav-title {
   font-size: 24px;
   font-weight: 700;
-  color: #f2f2f2;
+  color: #313030;
   padding-left: 10px;
   margin: 0;
 }
@@ -24,7 +24,7 @@
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #00acb0;
+  background-color: #ECECEC;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -38,5 +38,17 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: #ECECEC;
+}
+
+.health {
+  color: #FF1818;
+}
+
+.business {
+  color: #FFC300;
+}
+
+.political {
+  color: #5463FF
 }
