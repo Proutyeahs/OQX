@@ -54,11 +54,11 @@ function Nav() {
         <h2 className="nav-title">OQX</h2>
       </Link>
 
-      <Link className="navLink" to="/user">
+      {/* <Link className="navLink" to="/user">
         <IconButton aria-label="back">
           <ArrowBackOutlinedIcon />
         </IconButton>
-      </Link>
+      </Link> */}
 
 
       <Link className="navLink" to="/politicalLegal">
@@ -67,7 +67,7 @@ function Nav() {
         </IconButton>
       </Link>
 
-      <Link className="navLink" to="/user">
+      <Link className="navLink" to="/healthScience">
         <IconButton aria-label="health">
           <LocalHospitalOutlinedIcon />
         </IconButton>
