@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 
+
 function PoliticalLegal() {
 
     const dispatch = useDispatch();
@@ -18,8 +19,14 @@ function PoliticalLegal() {
 
     return (
         <>
+            
             {events.map(event => (
-                <p>{ event.title }</p>
+                <>
+                <h2 className="font-bold">{ event.title }</h2>
+                <h2 className="font-bold">{ event.date }</h2>
+                <p className="font-bold">{ event.info }</p>
+
+                </>
             ))}
         </>
     )

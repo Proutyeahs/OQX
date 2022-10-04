@@ -1,0 +1,5 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* This doesn't need to be included. The CSS is being used from the App.css file. */
