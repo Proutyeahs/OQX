@@ -76,7 +76,7 @@ function EventFormEdit() {
                     <input type="file" placeholder="Event Image" onChange={uploadImage} />
 
                     {/* renders the image if it exisits */}
-                    {specificEvent.image &&
+                    {specificEvent.image != '' &&
                     <img src={specificEvent.image}/>}
                 </div>
                 <div>
