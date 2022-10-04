@@ -29,6 +29,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+// gets the data for a specific timeline by the category_id
 router.get('/:id', (req, res) => {
     console.log("B/C", req.params)
     const query = `
@@ -44,6 +45,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
+// gets the data for one specific event
 router.get('/specific/:id', (req, res) => {
     console.log("specific event", req.params)
     const query = `
@@ -59,6 +61,7 @@ router.get('/specific/:id', (req, res) => {
     })
 });
 
+// updates a specific event with the new data
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const query = `

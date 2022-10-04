@@ -1,9 +1,14 @@
-const specificEventReducer = (state = [], action) => {
+// reducer that holds the event info for editing
+const specificEventReducer = (state = {}, action) => {
   switch (action.type) {
+
+    // sets the reducer to an object with all the data from the database
     case 'SET_SPECIFIC_EVENT':
       console.log(action.payload)
       for (let event of action.payload)
         return { title: event.title, date: event.date, image: event.image, info: event.info, references: event.references, category_id: event.category_id, id: event.id };
+
+    // updates the title upon change
     case 'PUT_TITLE':
       console.log(state)
       return { ...state, title: action.payload };

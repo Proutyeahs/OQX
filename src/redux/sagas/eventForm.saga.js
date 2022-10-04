@@ -11,6 +11,7 @@ function* postEvent(action) {
     }
 }
 
+// gets the events for the specific timeline
 function* getEvent(action) {
     console.log(action.payload)
     try{
@@ -21,6 +22,7 @@ function* getEvent(action) {
     }
 }
 
+// gets the data for the specific event
 function* getSpecificEvent(action) {
     console.log(action.payload)
     try{
@@ -32,6 +34,7 @@ function* getSpecificEvent(action) {
     }
 }
 
+// sends an update request for the specific event
 function* putEvent(action) {
     console.log(action.payload)
     try {

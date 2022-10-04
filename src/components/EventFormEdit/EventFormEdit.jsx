@@ -52,13 +52,13 @@ function EventFormEdit() {
             <div className="center">
                 <p>Edit Event</p>
                 <div>
-                    {[specificEvent].map(specific => (
-                        <input defaultValue={specific.title} type="text" placeholder="Event Title" onChange={(e) =>
+                    {/* the defaultValue is rendered with the title from the specificEvent object stored in the reducer */}
+                        <input defaultValue={specificEvent.title} type="text" placeholder="Event Title" onChange={(e) =>
+                        // dispatch sends the new data for the edited title to the object in the reducer
                             dispatch({
                                 type: 'PUT_TITLE',
                                 payload: e.target.value
                             })} />
-                    ))}
                 </div>
                 <div>
                     <input type="date" placeholder="Event Date" onChange={(e) =>
@@ -72,22 +72,18 @@ function EventFormEdit() {
                     <input type="file" placeholder="Event Image" onChange={uploadImage} />
                 </div>
                 <div>
-                    {[specificEvent].map(specific => (
-                        <input defaultValue={specific.info} type="text" placeholder="Event Info" onChange={(e) =>
+                        <input defaultValue={specificEvent.info} type="text" placeholder="Event Info" onChange={(e) =>
                             dispatch({
                                 type: 'PUT_INFO',
                                 payload: e.target.value
                             })} />
-                    ))}
                 </div>
                 <div>
-                    {[specificEvent].map(specific => (
-                        <input defaultValue={specific.references} type="text" placeholder="Event References" onChange={(e) =>
+                        <input defaultValue={specificEvent.references} type="text" placeholder="Event References" onChange={(e) =>
                             dispatch({
                                 type: 'PUT_REFERENCES',
                                 payload: e.target.value
                             })} />
-                    ))}
                 </div>
                 <div>
                     <form>
