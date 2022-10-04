@@ -48,8 +48,8 @@ function* putEvent(action) {
 function* deleteEvent(action) {
     console.log(action.payload)
     try{
-        yield axios.delete(`/api/event/${action.payload}`)
-        yield put({type : 'GET_EVENT'})
+        yield axios.delete(`/api/event/${action.payload.id}`)
+        yield put({type : 'GET_EVENT', payload: action.payload.category_id})
     } catch (err){
         console.log(err)
     }
