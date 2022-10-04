@@ -17,6 +17,21 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 
+//MUI STACK LAYOUT
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+// MUI STACK LAYOUT STYLING
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// })); // end MUI STYLING
+
 
 
 // This is one of our simplest components
@@ -26,11 +41,14 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 
 function AboutPage() {
   return (
+    
     <>
+    {/* <Box sx={{ width: '100%' }}> */}
+              {/* <Stack spacing={2}> */}
+                
     <div className="container">
-      
       <div>
-      <h2>About Our Queer Hxstory</h2>
+        <h2>About Our Queer Hxstory</h2>
         <p>
           LGBTQ literature and educational resources are often barred behind paywalls and complex language.
           <br></br>
@@ -44,8 +62,11 @@ function AboutPage() {
           <a href="https://ourqueerhxtory.com">Please Consider Donating to OQX</a>
         </p>
       </div>
-      <div className='bios'>
-      <Card sx={{ maxWidth: 300 }}>
+        <h2>About Us</h2>
+        
+    
+      {/* <Item>  */}
+      <Card sx={{ maxWidth: 300, minHeight: 500,}}>
     <CardActionArea>
       <CardMedia
         component="img"
@@ -58,13 +79,15 @@ function AboutPage() {
         Leonardo E. Candelario-Pérez, Ph.D. LP
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! Eum fugit veniam qui debitis ipsum aut rerum incidunt sit galisum esse? Et voluptatum ullam ex corporis dolorem ut ducimus quia aut praesentium dolorem At omnis sequi.
+        Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! 
         </Typography>
       </CardContent>
     </CardActionArea>
   </Card>
-  <br></br>
-  <Card sx={{ maxWidth: 300 }}>
+  {/* </Item>  */}
+  
+  {/* <Item>  */}
+  <Card sx={{ maxWidth: 300, minHeight: 500 }}>
     <CardActionArea>
       <CardMedia
         component="img"
@@ -77,15 +100,21 @@ function AboutPage() {
         Nic Rider, Ph.D.
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! Eum fugit veniam qui debitis ipsum aut rerum incidunt sit galisum esse? Et voluptatum ullam ex corporis dolorem ut ducimus quia aut praesentium dolorem At omnis sequi.
+        Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo!
         </Typography>
       </CardContent>
     </CardActionArea>
   </Card>
-          <a href="https://ourqueerhxtory.com">Get in  contact!</a>
+  {/* </Item>  */}
+  </div>
+          
 
-          </div>
-      </div>
+          
+          <a href="https://ourqueerhxtory.com">Get in  contact!</a>    
+      
+     
+    {/* </Stack>   */}
+    {/* </Box> */}
     
   </>
 
