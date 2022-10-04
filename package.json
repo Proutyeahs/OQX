@@ -41,7 +41,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.12",
     "nodemon": "^2.0.4",
+    "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8"
   },
   "browserslist": [
