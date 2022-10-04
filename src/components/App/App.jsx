@@ -23,6 +23,7 @@ import EventForm from '../EventForm/EventForm';
 import BusinessCultural from '../BusinessCultural/BusinessCultural';
 import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
+import EventReview from '../EventReview/EventReview'
 
 import './App.css';
 
@@ -143,6 +144,17 @@ function App() {
           >
             {user.admin ?
               <EventFormEdit />
+              :
+              <LandingPage />
+            }
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/eventReview"
+          >
+            {user.admin ?
+              <EventReview />
               :
               <LandingPage />
             }

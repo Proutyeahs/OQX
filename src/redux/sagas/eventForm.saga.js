@@ -44,11 +44,23 @@ function* putEvent(action) {
     }
 }
 
+// sends a delete request for the specific event
+function* deleteEvent(action) {
+    console.log(action.payload)
+    try{
+        yield axios.delete(`/api/event/${action.payload}`)
+        yield put({type : 'GET_EVENT'})
+    } catch (err){
+        console.log(err)
+    }
+}
+
 function* eventFormSaga() {
    yield takeLatest('POST_EVENT', postEvent)
    yield takeLatest('GET_EVENT', getEvent)
    yield takeLatest('GET_SPECIFIC_EVENT', getSpecificEvent)
    yield takeLatest('PUT_EVENT', putEvent)
+   yield takeLatest('DELETE_EVENT', deleteEvent)
 }
 
 export default eventFormSaga;

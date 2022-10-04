@@ -21,6 +21,7 @@ function EventFormEdit() {
     // holds the data in the reducer
     const specificEvent = useSelector((store) => store.specificEvent);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     // uploads the image to cloudinary and saves the url in local state
     // *********** change for leos account ***********
@@ -45,6 +46,9 @@ function EventFormEdit() {
             type: 'PUT_EVENT',
             payload: specificEvent
         })
+        setTimeout(() => {
+            history.goBack()
+        }, 500)
     }
 
     return (
@@ -53,12 +57,12 @@ function EventFormEdit() {
                 <p>Edit Event</p>
                 <div>
                     {/* the defaultValue is rendered with the title from the specificEvent object stored in the reducer */}
-                        <input defaultValue={specificEvent.title} type="text" placeholder="Event Title" onChange={(e) =>
+                    <input defaultValue={specificEvent.title} type="text" placeholder="Event Title" onChange={(e) =>
                         // dispatch sends the new data for the edited title to the object in the reducer
-                            dispatch({
-                                type: 'PUT_TITLE',
-                                payload: e.target.value
-                            })} />
+                        dispatch({
+                            type: 'PUT_TITLE',
+                            payload: e.target.value
+                        })} />
                 </div>
                 <div>
                     <input type="date" placeholder="Event Date" onChange={(e) =>
@@ -72,18 +76,18 @@ function EventFormEdit() {
                     <input type="file" placeholder="Event Image" onChange={uploadImage} />
                 </div>
                 <div>
-                        <input defaultValue={specificEvent.info} type="text" placeholder="Event Info" onChange={(e) =>
-                            dispatch({
-                                type: 'PUT_INFO',
-                                payload: e.target.value
-                            })} />
+                    <input defaultValue={specificEvent.info} type="text" placeholder="Event Info" onChange={(e) =>
+                        dispatch({
+                            type: 'PUT_INFO',
+                            payload: e.target.value
+                        })} />
                 </div>
                 <div>
-                        <input defaultValue={specificEvent.references} type="text" placeholder="Event References" onChange={(e) =>
-                            dispatch({
-                                type: 'PUT_REFERENCES',
-                                payload: e.target.value
-                            })} />
+                    <input defaultValue={specificEvent.references} type="text" placeholder="Event References" onChange={(e) =>
+                        dispatch({
+                            type: 'PUT_REFERENCES',
+                            payload: e.target.value
+                        })} />
                 </div>
                 <div>
                     <form>
