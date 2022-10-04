@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import axios from 'axios';
@@ -18,6 +18,7 @@ function EventFormEdit() {
         })
     }
 
+    // holds the data in the reducer
     const specificEvent = useSelector((store) => store.specificEvent);
     const dispatch = useDispatch();
 
@@ -51,14 +52,16 @@ function EventFormEdit() {
             <div className="center">
                 <p>Edit Event</p>
                 <div>
-                        <input type="text" placeholder="Event Title" onChange={(e) => 
-                        dispatch({
-                            type: 'PUT_TITLE',
-                            payload: e.target.value
-                        })} />
+                    {[specificEvent].map(specific => (
+                        <input defaultValue={specific.title} type="text" placeholder="Event Title" onChange={(e) =>
+                            dispatch({
+                                type: 'PUT_TITLE',
+                                payload: e.target.value
+                            })} />
+                    ))}
                 </div>
                 <div>
-                        <input type="date" placeholder="Event Date" onChange={(e) => 
+                    <input type="date" placeholder="Event Date" onChange={(e) =>
                         dispatch({
                             type: 'PUT_DATE',
                             payload: e.target.value
@@ -69,24 +72,31 @@ function EventFormEdit() {
                     <input type="file" placeholder="Event Image" onChange={uploadImage} />
                 </div>
                 <div>
-                        <input type="text" placeholder="Event Info" onChange={(e) => dispatch({
-                            type: 'PUT_INFO',
-                            payload: e.target.value
-                        })} />
+                    {[specificEvent].map(specific => (
+                        <input defaultValue={specific.info} type="text" placeholder="Event Info" onChange={(e) =>
+                            dispatch({
+                                type: 'PUT_INFO',
+                                payload: e.target.value
+                            })} />
+                    ))}
                 </div>
                 <div>
-                        <input type="text" placeholder="Event References" onChange={(e) => dispatch({
-                            type: 'PUT_REFERENCES',
-                            payload: e.target.value
-                        })} />
+                    {[specificEvent].map(specific => (
+                        <input defaultValue={specific.references} type="text" placeholder="Event References" onChange={(e) =>
+                            dispatch({
+                                type: 'PUT_REFERENCES',
+                                payload: e.target.value
+                            })} />
+                    ))}
                 </div>
                 <div>
                     <form>
                         <label> Select Category </label>
-                        <select onChange={(e) => dispatch({
-                            type: 'PUT_CATEGORY_ID',
-                            payload: e.target.value
-                        })}>
+                        <select onChange={(e) =>
+                            dispatch({
+                                type: 'PUT_CATEGORY_ID',
+                                payload: e.target.value
+                            })}>
                             <option value="1"> Political/Legal
                             </option>
                             <option value="2"> Medical/Scientific
