@@ -2,6 +2,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import axios from 'axios';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 function EventFormEdit() {
 
@@ -51,64 +58,80 @@ function EventFormEdit() {
         }, 500)
     }
 
+    //formatDate is used to make our timestamps pretty
+    const formatDate = (dateString) => {
+        const options = { month: "long", day: "numeric", year: 'numeric' }
+        return new Date(dateString).toLocaleDateString(undefined, options)
+      }
+
     return (
         <>
             <div className="center">
                 <p>Edit Event</p>
                 <div>
                     {/* the defaultValue is rendered with the title from the specificEvent object stored in the reducer */}
-                    <input defaultValue={specificEvent.title} type="text" placeholder="Event Title" onChange={(e) =>
-                        // dispatch sends the new data for the edited title to the object in the reducer
-                        dispatch({
-                            type: 'PUT_TITLE',
-                            payload: e.target.value
-                        })} />
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline defaultValue={specificEvent.title} type="text"
+                        onChange={(e) =>
+                            // dispatch sends the new data for the edited title to the object in the reducer
+                            dispatch({
+                                type: 'PUT_TITLE',
+                                payload: e.target.value
+                            })} />
                 </div>
                 <div>
-                    <input type="date" placeholder="Event Date" onChange={(e) =>
-                        dispatch({
-                            type: 'PUT_DATE',
-                            payload: e.target.value
-                        })} />
+                    <TextField value={formatDate(specificEvent.date)} sx={{ m: 1, minWidth: 120 }} fullWidth multiline type="date"
+                        onChange={(e) =>
+                            dispatch({
+                                type: 'PUT_DATE',
+                                payload: e.target.value
+                            })} />
                 </div>
                 {/* make the already existing image save locally before updating the database */}
                 <div>
-                    <input type="file" placeholder="Event Image" onChange={uploadImage} />
+                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120 }} fullWidth>Upload Image
+                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                    </Button>
 
                     {/* renders the image if it exisits */}
                     {specificEvent.image != '' &&
-                    <img src={specificEvent.image}/>}
+                        <img src={specificEvent.image} />}
                 </div>
                 <div>
-                    <input defaultValue={specificEvent.info} type="text" placeholder="Event Info" onChange={(e) =>
-                        dispatch({
-                            type: 'PUT_INFO',
-                            payload: e.target.value
-                        })} />
-                </div>
-                <div>
-                    <input defaultValue={specificEvent.references} type="text" placeholder="Event References" onChange={(e) =>
-                        dispatch({
-                            type: 'PUT_REFERENCES',
-                            payload: e.target.value
-                        })} />
-                </div>
-                <div>
-                    <form>
-                        <label> Select Category </label>
-                        <select onChange={(e) =>
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth
+                        multiline
+                        maxRows={5} defaultValue={specificEvent.info} type="text"
+                        onChange={(e) =>
                             dispatch({
-                                type: 'PUT_CATEGORY_ID',
+                                type: 'PUT_INFO',
                                 payload: e.target.value
-                            })}>
-                            <option value="1"> Political/Legal
-                            </option>
-                            <option value="2"> Medical/Scientific
-                            </option>
-                            <option value="3"> Business/Cultural
-                            </option>
-                        </select>
-                    </form>
+                            })} />
+                </div>
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline maxRows={2} defaultValue={specificEvent.references} type="text"
+                        onChange={(e) =>
+                            dispatch({
+                                type: 'PUT_REFERENCES',
+                                payload: e.target.value
+                            })} />
+                </div>
+                <div className="center">
+                    <Box sx={{ m: 1, minWidth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel> Select Category </InputLabel>
+                            <Select value={specificEvent.category_id} onChange={(e) =>
+                                dispatch({
+                                    type: 'PUT_CATEGORY_ID',
+                                    payload: e.target.value
+                                })}>
+                                <MenuItem value={1}> Political/Legal
+                                </MenuItem>
+                                <MenuItem value={2}> Medical/Scientific
+                                </MenuItem>
+                                <MenuItem value={3}> Business/Cultural
+                                </MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
                 </div>
                 <div>
                     <button onClick={submit}>Submit</button>
