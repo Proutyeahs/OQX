@@ -17,6 +17,12 @@ function EventReview() {
 
     const events = useSelector((store) => store.event)
 
+    //formatDate is used to make our timestamps pretty
+    const formatDate = (dateString) => {
+        const options = { month: "long", day: "numeric", year: 'numeric' }
+        return new Date(dateString).toLocaleDateString(undefined, options)
+      }
+
     return (
         <>
             <div className="center">
@@ -40,7 +46,7 @@ function EventReview() {
 
                 {/* loop to render info on dom */}
                 {events.map(event => (
-                    <p key={event.id}>{event.title}: {event.date}
+                    <p key={event.id}>{event.title}: {formatDate(event.date)}
 
                         {/* pushes to edit event page */}
                         <button onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</button>
