@@ -45,10 +45,11 @@ function AboutPage() {
     <>
     {/* <Box sx={{ width: '100%' }}> */}
               {/* <Stack spacing={2}> */}
-                
+    <h2> hi kas</h2>
+    <p>Hi kas!!!</p>            
     <div className="container">
       <div>
-        <h2>About Our Queer Hxstory</h2>
+        <h2 className='font-bold text-3xl'>About Our Queer Hxstory</h2>
         <p>
           LGBTQ literature and educational resources are often barred behind paywalls and complex language.
           <br></br>
