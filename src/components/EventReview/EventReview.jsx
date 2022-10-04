@@ -49,7 +49,7 @@ function EventReview() {
                         <button onClick={() =>
                             dispatch({
                                 type: 'DELETE_EVENT',
-                                payload: event.id
+                                payload: event
                             })}>Delete</button></p>
                 ))}
             </div>

@@ -74,6 +74,10 @@ function EventFormEdit() {
                 {/* make the already existing image save locally before updating the database */}
                 <div>
                     <input type="file" placeholder="Event Image" onChange={uploadImage} />
+
+                    {/* renders the image if it exisits */}
+                    {specificEvent.image &&
+                    <img src={specificEvent.image}/>}
                 </div>
                 <div>
                     <input defaultValue={specificEvent.info} type="text" placeholder="Event Info" onChange={(e) =>
