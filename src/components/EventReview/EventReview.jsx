@@ -39,12 +39,13 @@ function EventReview() {
     return (
         <>
             <div className="center">
-                <Box sx={{ m: 1, minWidth: 120 }}>
-                    <FormControl fullWidth>
-                        <InputLabel> Pull up events by timeline </InputLabel>
-
+                <Box>
+                    <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                        <InputLabel> Events by timeline </InputLabel>
+                        
                         {/* sorts data by timeline category */}
-                        <Select defaultValue={1} onChange={(e) =>
+                        <Select label="Events by timeline"
+                            defaultValue={1} onChange={(e) =>
                             dispatch({
                                 type: 'GET_EVENT',
                                 payload: e.target.value
@@ -84,6 +85,9 @@ function EventReview() {
 
                                         {/* pushes to edit event page */}
                                         <Button variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</Button>
+
+                                        {/* Space between buttons */}
+                                        &nbsp;
 
                                         {/* dispatches delete request */}
                                         <Button variant="contained" color="error" onClick={() =>

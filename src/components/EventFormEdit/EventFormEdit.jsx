@@ -66,11 +66,12 @@ function EventFormEdit() {
 
     return (
         <>
+            <h1 className="font-bold">Edit Event</h1>
             <div className="center">
-                <p>Edit Event</p>
+               
                 <div>
                     {/* the defaultValue is rendered with the title from the specificEvent object stored in the reducer */}
-                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline defaultValue={specificEvent.title} type="text"
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline defaultValue={specificEvent.title} type="text"
                         onChange={(e) =>
                             // dispatch sends the new data for the edited title to the object in the reducer
                             dispatch({
@@ -79,7 +80,7 @@ function EventFormEdit() {
                             })} />
                 </div>
                 <div>
-                    <TextField value={formatDate(specificEvent.date)} sx={{ m: 1, minWidth: 120 }} fullWidth multiline type="date"
+                    <TextField value={formatDate(specificEvent.date)} sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline type="date"
                         onChange={(e) =>
                             dispatch({
                                 type: 'PUT_DATE',
@@ -88,16 +89,19 @@ function EventFormEdit() {
                 </div>
                 {/* make the already existing image save locally before updating the database */}
                 <div>
-                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120 }} fullWidth>Upload Image
+                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
                         <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
                     </Button>
+                    
+                {/* PAGE BREAK */}
+                <br></br>
 
-                    {/* renders the image if it exisits */}
+                    {/* renders the image if it exists */}
                     {specificEvent.image != '' &&
                         <img src={specificEvent.image} />}
                 </div>
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth
                         multiline
                         maxRows={5} defaultValue={specificEvent.info} type="text"
                         onChange={(e) =>
@@ -107,7 +111,7 @@ function EventFormEdit() {
                             })} />
                 </div>
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline maxRows={2} defaultValue={specificEvent.references} type="text"
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline maxRows={2} defaultValue={specificEvent.references} type="text"
                         onChange={(e) =>
                             dispatch({
                                 type: 'PUT_REFERENCES',
@@ -115,10 +119,13 @@ function EventFormEdit() {
                             })} />
                 </div>
                 <div className="center">
-                    <Box sx={{ m: 1, minWidth: 120 }}>
-                        <FormControl fullWidth>
-                            <InputLabel> Select Category </InputLabel>
-                            <Select defaultValue={''} onChange={(e) =>
+                    <Box >
+                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                            <InputLabel> Select category </InputLabel>
+                            <Select label="Select category"
+                            
+                            value={specificEvent.category_id}
+                            onChange={(e) =>
                                 dispatch({
                                     type: 'PUT_CATEGORY_ID',
                                     payload: e.target.value
