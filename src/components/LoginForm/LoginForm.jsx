@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 //MUI INPUT AND BUTTON
 import TextField from '@mui/material/TextField';
@@ -11,6 +12,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const login = (event) => {
     event.preventDefault();
@@ -27,6 +29,7 @@ function LoginForm() {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
+
 
   return (
     <form className="formPanel" onSubmit={login}>
@@ -62,7 +65,12 @@ function LoginForm() {
       </div>
       <div>
         <br></br>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input 
+        className="btn" 
+        type="submit" 
+        name="submit" 
+        value="Log In" />
+        {/* <button className="btn" type="submit" name="submit" value="Log In" onClick={handleClick}>TEST</button> */}
       </div>
     </form>
   );
