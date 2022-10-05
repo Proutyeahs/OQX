@@ -25,6 +25,7 @@ import BusinessCultural from '../BusinessCultural/BusinessCultural';
 import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
+import SponsorsPage from '../SponsorsPage/SponsorsPage'
 
 import './App.css';
 
@@ -167,6 +168,15 @@ function App() {
               <LandingPage />
             }
           </ProtectedRoute>
+
+           
+          <Route
+            // visible to all users logged in or logged out
+            exact
+            path="/sponsors"
+          >
+            <SponsorsPage />
+          </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
