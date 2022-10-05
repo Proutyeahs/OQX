@@ -30,10 +30,7 @@ function LoginForm() {
     }
   }; // end login
 
-  const handleClick = () => {
-    console.log('HANDLE CLICK');
-    history.push('/medicalScientific')
-  }
+
   return (
     <form className="formPanel" onSubmit={login}>
       <h2>Login</h2>
