@@ -19,11 +19,11 @@ import { styled } from '@mui/material/styles';
 
 // MUI STACK LAYOUT STYLING
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
 })); // end MUI STYLING
 
 
@@ -58,7 +58,7 @@ function EventForm() {
         })
         if (user.admin) {
             setTimeout(() => {
-                window.location.reload(); 
+                window.location.reload();
             }, 500)
         } else {
             // popup to thanks for submission
@@ -66,7 +66,7 @@ function EventForm() {
                 history.push('/medicalScientific')
             }, 500)
         }
-        
+
     }
 
     return (
@@ -74,79 +74,72 @@ function EventForm() {
             <h1 className="font-bold">Submit Event</h1>
 
             <div className="center">
-    
-             {/* MUI STACK */}
-            <Box sx={{ width: '100%' }}>
-              <Stack spacing={2}>
-              <Item> 
-                
-            {/* EVENT TITLE */}
-                <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
-                </div>
 
-            {/* DATE  */}
-                <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
-                </div>
-            
-             {/* UPLOAD IMAGE */}
-                <div>
-                 <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
-                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
-                </Button>
-                </div>
+                {/* MUI STACK */}
+                <Box sx={{ width: '100%' }}>
+                    <Stack spacing={2}>
+                        <Item>
 
-             {/* renders the image if it exists */}
-                {event.image != '' &&
-                    <img src={event.image} />}
-            
-            {/* EVENT INFO */}
-                <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
-                </div>
+                            {/* EVENT TITLE */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                            </div>
 
-            {/* EVENT REFERENCES */}
-                <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
-                </div>
+                            {/* DATE  */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                            </div>
 
-                {/* DROPDOWN TO CHOOSE TIMELINE */}
-                <div>
-                    <Box >
-                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
-                            <InputLabel> Select category </InputLabel>
-                            <Select label="Select category"
-                            
-                            defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
-                                <MenuItem value="1"> Political/Legal
-                                </MenuItem>
-                                <MenuItem value="2"> Medical/Scientific
-                                </MenuItem>
-                                <MenuItem value="3"> Business/Cultural
-                                </MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
-                </div>
+                            {/* UPLOAD IMAGE */}
+                            <div>
+                                <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                                    <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                                </Button>
+                            </div>
 
-               
-               
-            
+                            {/* renders the image if it exists */}
+                            {event.image != '' &&
+                                <img src={event.image} />}
 
-                {/* SUBMIT */}
-                <div>
-                    <Button variant="contained" color="success" onClick={submit}>Submit</Button>
-                </div>
+                            {/* EVENT INFO */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+                            </div>
 
-          {/* MUI STACK END */}
-          </Item>
-          </Stack>
-          </Box>
+                            {/* EVENT REFERENCES */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                            </div>
+
+                            {/* DROPDOWN TO CHOOSE TIMELINE */}
+                            <div>
+                                <Box >
+                                    <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                                        <InputLabel> Select category </InputLabel>
+                                        <Select label="Select category"
+
+                                            defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                                            <MenuItem value="1"> Political/Legal
+                                            </MenuItem>
+                                            <MenuItem value="2"> Medical/Scientific
+                                            </MenuItem>
+                                            <MenuItem value="3"> Business/Cultural
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+
+                            {/* SUBMIT */}
+                            <div>
+                                <Button variant="contained" color="success" onClick={submit}>Submit</Button>
+                            </div>
+
+                            {/* MUI STACK END */}
+                        </Item>
+                    </Stack>
+                </Box>
             </div>
-
-         
-
         </>
     )
 }
