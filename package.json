@@ -18,6 +18,8 @@
     "cookie-session": "^2.0.0",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
+    "flowbite": "^1.5.3",
+    "flowbite-react": "^0.1.11",
     "mui": "^0.0.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

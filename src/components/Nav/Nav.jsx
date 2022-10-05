@@ -76,9 +76,9 @@ function Nav() {
         </IconButton>
       </Link>
 
-      <Link className="navLink" to="/healthScience">
-        <IconButton aria-label="health">
-          <LocalHospitalOutlinedIcon className="health"/>
+      <Link className="navLink" to="/medicalScientific">
+        <IconButton aria-label="medical">
+          <LocalHospitalOutlinedIcon className="medical"/>
         </IconButton>
       </Link>
 

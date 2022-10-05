@@ -20,12 +20,14 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventForm from '../EventForm/EventForm';
+import MedicalScientific from '../MedicalScientific/MedicalScientific';
 import BusinessCultural from '../BusinessCultural/BusinessCultural';
 import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -108,6 +110,14 @@ function App() {
           </Route>
 
           {/* timeline route */}
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/medicalScientific"
+          >
+            <MedicalScientific />
+
+          </Route>
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
