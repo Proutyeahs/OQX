@@ -89,8 +89,10 @@ function EventForm() {
                 <div>
                     <Box >
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
-                            <InputLabel> Select Category </InputLabel>
-                            <Select defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                            <InputLabel> Select category </InputLabel>
+                            <Select label="Select category"
+                            
+                            defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
                                 <MenuItem value="1"> Political/Legal
                                 </MenuItem>
                                 <MenuItem value="2"> Medical/Scientific
