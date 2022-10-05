@@ -28,8 +28,7 @@ function AboutPage() {
         {/* End about OQX */}
         <br></br>
         {/* Donation Link */}
-        <a className='text-blue-600' href="https://o
-        urqueerhxtory.com">Please Consider Donating to OQX</a>
+        <a className='text-blue-600' href="https://ourqueerhxtory.com">Please Consider Donating to OQX</a>
         <br></br>
         <br></br>
       </div>
