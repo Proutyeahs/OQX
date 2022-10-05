@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom"
 import './EventForm.css'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -29,6 +30,8 @@ const Item = styled(Paper)(({ theme }) => ({
 function EventForm() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
+    const user = useSelector((store) => store.user);
 
     // local state of information to be submitted
     const [event, setEvent] = useState({ title: '', date: '', image: '', info: '', references: '', category_id: '' })
@@ -53,6 +56,17 @@ function EventForm() {
             type: 'POST_EVENT',
             payload: event
         })
+        if (user.admin) {
+            setTimeout(() => {
+                window.location.reload(); 
+            }, 500)
+        } else {
+            // popup to thanks for submission
+            setTimeout(() => {
+                history.push('/medicalScientific')
+            }, 500)
+        }
+        
     }
 
     return (
@@ -89,12 +103,12 @@ function EventForm() {
             
             {/* EVENT INFO */}
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={4} maxRows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
                 </div>
 
             {/* EVENT REFERENCES */}
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline maxRows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
                 </div>
 
                 {/* DROPDOWN TO CHOOSE TIMELINE */}

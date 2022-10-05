@@ -103,7 +103,7 @@ function EventFormEdit() {
                 <div>
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth
                         multiline
-                        maxRows={5} defaultValue={specificEvent.info} type="text"
+                        rows={5} defaultValue={specificEvent.info} type="text"
                         onChange={(e) =>
                             dispatch({
                                 type: 'PUT_INFO',
@@ -111,7 +111,7 @@ function EventFormEdit() {
                             })} />
                 </div>
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline maxRows={2} defaultValue={specificEvent.references} type="text"
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline rows={2} defaultValue={specificEvent.references} type="text"
                         onChange={(e) =>
                             dispatch({
                                 type: 'PUT_REFERENCES',

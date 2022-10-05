@@ -105,7 +105,6 @@ function App() {
             exact
             path="/home"
           >
-
           </Route>
 
           {/* timeline route */}
@@ -126,16 +125,12 @@ function App() {
             <PoliticalLegal />
           </Route>
 
-            {/* admin route to add events */}
+          {/* route to add events */}
           <ProtectedRoute
             exact
             path="/eventForm"
           >
-            {user.admin ?
-              <EventForm />
-              :
-              <LandingPage />
-            }
+            <EventForm />
           </ProtectedRoute>
 
           <ProtectedRoute
