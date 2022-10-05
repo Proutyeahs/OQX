@@ -28,7 +28,8 @@ function AboutPage() {
         {/* End about OQX */}
         <br></br>
         {/* Donation Link */}
-        <a className='text-blue-600' href="https://ourqueerhxtory.com">Please Consider Donating to OQX</a>
+        <a className='text-blue-600' href="https://o
+        urqueerhxtory.com">Please Consider Donating to OQX</a>
         <br></br>
         <br></br>
       </div>
@@ -37,14 +38,14 @@ function AboutPage() {
        
   {/* Begin Bio 1(Copy from this line to "End Bio 1", paste after "End Bio 2", and change info if ever adding another Bio) */}
   <div className="flex items-center justify-center">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg">
       {/* Change photo here */}
-      <img class="w-full" src="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"alt="Leo"/>
-        <div class="px-6 py-4">
+      <img className="w-full" src="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"alt="Leo"/>
+        <div className="px-6 py-4">
           {/* Change name or title here */}
-          <div class="font-bold text-xl mb-2">Leonardo E. Candelario-Pérez, Ph.D. LP</div>
+          <div className="font-bold text-xl mb-2">Leonardo E. Candelario-Pérez, Ph.D. LP</div>
             {/* Change Bio info here */}
-            <p class="text-gray-700 text-base text-left">
+            <p className="text-gray-700 text-base text-left">
             Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! 
             </p>
         </div>
@@ -54,11 +55,11 @@ function AboutPage() {
     <br></br>
   {/* Begin Bio 2   */}
   <div className="flex items-center justify-center">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"alt="Nic"/>
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">Nic Rider, Ph.D.</div>
-            <p class="text-gray-700 text-base text-left">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+      <img className="w-full" src="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"alt="Nic"/>
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">Nic Rider, Ph.D.</div>
+            <p className="text-gray-700 text-base text-left">
             Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! 
             </p>
         </div>
