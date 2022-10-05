@@ -18,7 +18,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         "info", 
         "references", 
         "category_id",
-        "approved"
+        "authorized"
     )
     VALUES ($1, $2, $3, $4, $5, $6, true)
     ;`;
@@ -37,7 +37,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         "info", 
         "references", 
         "category_id",
-        "approved"
+        "authorized"
     )
     VALUES ($1, $2, $3, $4, $5, $6, false)
     ;`;
@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
     console.log("timeline", req.params)
     const query = `
     SELECT * FROM "timeline"
-    WHERE ("timeline".category_id = $1 AND "timeline".approved = true )
+    WHERE ("timeline".category_id = $1 AND "timeline".authorized = true )
   ;`;
     pool.query(query, [req.params.id]).then(result => {
         console.log("timeline", result.rows)
@@ -71,7 +71,7 @@ router.get('/admin/:id', rejectUnauthenticated, (req, res) => {
     console.log("admin", req.params)
     const query = `
     SELECT * FROM "timeline"
-    WHERE ("timeline".category_id = $1 AND "timeline".approved = false )
+    WHERE ("timeline".category_id = $1 AND "timeline".authorized = false )
   ;`;
     pool.query(query, [req.params.id]).then(result => {
         console.log("admin", result.rows)
