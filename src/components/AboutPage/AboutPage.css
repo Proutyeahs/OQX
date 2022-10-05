@@ -1,5 +1,10 @@
 body {
     text-align: center;
+    
+}
+
+.about {
+    padding: 15px 75px;
 }
 /* .bios{
     display: flex;
