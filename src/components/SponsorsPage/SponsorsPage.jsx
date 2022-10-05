@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './SponsorsPage.css';
 
+//TODO mobile view. standardize shapes
+//TODO outline sponsors
+//TODO remove loud bg
+
 //This Page displays potential sponsors as well as their tiers (organized by size)
+
 function SponsorsPage() {
 
     const store = useSelector((store) => store);
