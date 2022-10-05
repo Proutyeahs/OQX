@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import './EventForm.css'
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 function EventForm() {
 
@@ -36,35 +43,39 @@ function EventForm() {
             <div className="center">
                 <p>Submit Event</p>
                 <div>
-                    <input type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
                 </div>
                 <div>
-                    <input type="date" placeholder="Event Date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
                 </div>
                 <div>
-                    <input type="file" placeholder="Event Image" onChange={uploadImage} />
+                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120 }} fullWidth>Upload Image
+                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                    </Button>
                 </div>
                 <div>
-                    <input type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline maxRows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
                 </div>
                 <div>
-                    <input type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120 }} fullWidth multiline maxRows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
                 </div>
                 <div>
-                    <form>
-                        <label> Select Category </label>
-                        <select onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
-                            <option value="1"> Political/Legal
-                            </option>
-                            <option value="2"> Medical/Scientific
-                            </option>
-                            <option value="3"> Business/Cultural
-                            </option>
-                        </select>
-                    </form>
+                    <Box sx={{ m: 1, minWidth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel> Select Category </InputLabel>
+                            <Select defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                                <MenuItem value="1"> Political/Legal
+                                </MenuItem>
+                                <MenuItem value="2"> Medical/Scientific
+                                </MenuItem>
+                                <MenuItem value="3"> Business/Cultural
+                                </MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
                 </div>
                 <div>
-                    <button onClick={submit}>Submit</button>
+                    <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                 </div>
             </div>
         </>
