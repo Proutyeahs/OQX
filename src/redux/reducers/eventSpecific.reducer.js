@@ -1,5 +1,5 @@
 // reducer that holds the event info for editing
-const specificEventReducer = (state = { category_id: 1, date: '06/19/1993' }, action) => {
+const specificEventReducer = (state = { category_id: '' }, action) => {
   switch (action.type) {
 
     // sets the reducer to an object with all the data from the database

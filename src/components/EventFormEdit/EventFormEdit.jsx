@@ -62,7 +62,7 @@ function EventFormEdit() {
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
-      }
+    }
 
     return (
         <>
@@ -118,7 +118,7 @@ function EventFormEdit() {
                     <Box sx={{ m: 1, minWidth: 120 }}>
                         <FormControl fullWidth>
                             <InputLabel> Select Category </InputLabel>
-                            <Select value={specificEvent.category_id} onChange={(e) =>
+                            <Select defaultValue={''} onChange={(e) =>
                                 dispatch({
                                     type: 'PUT_CATEGORY_ID',
                                     payload: e.target.value
@@ -134,7 +134,7 @@ function EventFormEdit() {
                     </Box>
                 </div>
                 <div>
-                    <button onClick={submit}>Submit</button>
+                    <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                 </div>
             </div>
         </>

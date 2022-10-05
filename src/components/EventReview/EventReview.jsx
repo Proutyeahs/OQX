@@ -1,6 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from '@mui/material/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 function EventReview() {
 
@@ -21,43 +34,69 @@ function EventReview() {
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
-      }
+    }
 
     return (
         <>
             <div className="center">
-                <form>
-                    <label> Pull up events by timeline </label>
+                <Box sx={{ m: 1, minWidth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel> Pull up events by timeline </InputLabel>
 
-                    {/* sorts data by timeline category */}
-                    <select onChange={(e) =>
-                        dispatch({
-                            type: 'GET_EVENT',
-                            payload: e.target.value
-                        })}>
-                        <option value="1"> Political/Legal
-                        </option>
-                        <option value="2"> Medical/Scientific
-                        </option>
-                        <option value="3"> Business/Cultural
-                        </option>
-                    </select>
-                </form>
-
-                {/* loop to render info on dom */}
-                {events.map(event => (
-                    <p key={event.id}>{event.title}: {formatDate(event.date)}
-
-                        {/* pushes to edit event page */}
-                        <button onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</button>
-                        
-                        {/* dispatches delete request */}
-                        <button onClick={() =>
+                        {/* sorts data by timeline category */}
+                        <Select defaultValue={1} onChange={(e) =>
                             dispatch({
-                                type: 'DELETE_EVENT',
-                                payload: event
-                            })}>Delete</button></p>
-                ))}
+                                type: 'GET_EVENT',
+                                payload: e.target.value
+                            })}>
+                            <MenuItem value="1"> Political/Legal
+                            </MenuItem>
+                            <MenuItem value="2"> Medical/Scientific
+                            </MenuItem>
+                            <MenuItem value="3"> Business/Cultural
+                            </MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
+                <TableContainer >
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>
+                                    Event
+                                </TableCell>
+                                <TableCell>
+                                    Review
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody className='outline'>
+
+                            {/* loop to render info on dom */}
+                            {events.map(event => (
+                                <TableRow key={event.id}>
+                                    <TableCell>
+                                        {event.title}:
+                                        <br></br>
+                                        {formatDate(event.date)}
+                                    </TableCell>
+                                    <TableCell>
+
+                                        {/* pushes to edit event page */}
+                                        <Button variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</Button>
+
+                                        {/* dispatches delete request */}
+                                        <Button variant="contained" color="error" onClick={() =>
+                                            dispatch({
+                                                type: 'DELETE_EVENT',
+                                                payload: event
+                                            })}>Delete</Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </div>
         </>
     )
