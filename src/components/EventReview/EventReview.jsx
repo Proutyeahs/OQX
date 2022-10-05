@@ -19,7 +19,7 @@ function EventReview() {
     // get the event data on page load/reload
     useEffect(() => {
         dispatch({
-            type: 'GET_EVENT',
+            type: 'GET_EVENT_ADMIN',
             payload: 1
         })
     }, [])

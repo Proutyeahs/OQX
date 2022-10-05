@@ -52,13 +52,29 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 // gets the data for a specific timeline by the category_id
 router.get('/:id', (req, res) => {
-    console.log("B/C", req.params)
+    console.log("timeline", req.params)
     const query = `
     SELECT * FROM "timeline"
-    WHERE "timeline".category_id = $1
+    WHERE ("timeline".category_id = $1 AND "timeline".approved = true )
   ;`;
     pool.query(query, [req.params.id]).then(result => {
         console.log("timeline", result.rows)
+        res.send(result.rows)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
+// gets the data for a the admin to approve
+router.get('/admin/:id', rejectUnauthenticated, (req, res) => {
+    console.log("admin", req.params)
+    const query = `
+    SELECT * FROM "timeline"
+    WHERE ("timeline".category_id = $1 AND "timeline".approved = false )
+  ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        console.log("admin", result.rows)
         res.send(result.rows)
     }).catch(err => {
         console.log(err)
