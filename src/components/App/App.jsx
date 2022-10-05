@@ -75,6 +75,8 @@ function App() {
             <InfoPage />
           </Route>
 
+
+            {/* LOGIN AND REGISTER BUTTON  */}
           <Route
             exact
             path="/login"
@@ -82,7 +84,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/medicalScientific" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -96,12 +98,13 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/medicalScientific" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
             }
           </Route>
+          {/* END OF THE OLD INPUT BUTTON */}
 
           <Route
             exact
