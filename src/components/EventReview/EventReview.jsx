@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -42,14 +41,14 @@ function EventReview() {
                 <Box>
                     <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
                         <InputLabel> Events by timeline </InputLabel>
-                        
+
                         {/* sorts data by timeline category */}
                         <Select label="Events by timeline"
                             defaultValue={1} onChange={(e) =>
-                            dispatch({
-                                type: 'GET_EVENT',
-                                payload: e.target.value
-                            })}>
+                                dispatch({
+                                    type: 'GET_EVENT',
+                                    payload: e.target.value
+                                })}>
                             <MenuItem value="1"> Political/Legal
                             </MenuItem>
                             <MenuItem value="2"> Medical/Scientific

@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 
 function EventFormEdit() {
@@ -68,11 +68,12 @@ function EventFormEdit() {
         <>
             <h1 className="font-bold">Edit Event</h1>
             <div className="center">
-               
                 <div>
+
                     {/* the defaultValue is rendered with the title from the specificEvent object stored in the reducer */}
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline defaultValue={specificEvent.title} type="text"
                         onChange={(e) =>
+
                             // dispatch sends the new data for the edited title to the object in the reducer
                             dispatch({
                                 type: 'PUT_TITLE',
@@ -87,14 +88,15 @@ function EventFormEdit() {
                                 payload: e.target.value
                             })} />
                 </div>
+
                 {/* make the already existing image save locally before updating the database */}
                 <div>
                     <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
                         <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
                     </Button>
-                    
-                {/* PAGE BREAK */}
-                <br></br>
+
+                    {/* PAGE BREAK */}
+                    <br></br>
 
                     {/* renders the image if it exists */}
                     {specificEvent.image != '' &&
@@ -123,13 +125,12 @@ function EventFormEdit() {
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
                             <InputLabel> Select category </InputLabel>
                             <Select label="Select category"
-                            
-                            value={specificEvent.category_id}
-                            onChange={(e) =>
-                                dispatch({
-                                    type: 'PUT_CATEGORY_ID',
-                                    payload: e.target.value
-                                })}>
+                                value={specificEvent.category_id}
+                                onChange={(e) =>
+                                    dispatch({
+                                        type: 'PUT_CATEGORY_ID',
+                                        payload: e.target.value
+                                    })}>
                                 <MenuItem value={1}> Political/Legal
                                 </MenuItem>
                                 <MenuItem value={2}> Medical/Scientific
