@@ -9,7 +9,8 @@ const router = express.Router();
 // post event into the database
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
-    const query = `
+    if (req.user.admin) {
+        const query = `
     INSERT INTO "timeline" (
         "title", 
         "date", 
@@ -21,12 +22,32 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     )
     VALUES ($1, $2, $3, $4, $5, $6, true)
     ;`;
-    pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id]).then(result => {
-        res.sendStatus(200)
-    }).catch(err => {
-        console.log(err)
-        res.sendStatus(500)
-    })
+        pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id]).then(result => {
+            res.sendStatus(200)
+        }).catch(err => {
+            console.log(err)
+            res.sendStatus(500)
+        })
+    } else {
+        const query = `
+    INSERT INTO "timeline" (
+        "title", 
+        "date", 
+        "image", 
+        "info", 
+        "references", 
+        "category_id",
+        "approved"
+    )
+    VALUES ($1, $2, $3, $4, $5, $6, false)
+    ;`;
+        pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id]).then(result => {
+            res.sendStatus(200)
+        }).catch(err => {
+            console.log(err)
+            res.sendStatus(500)
+        })
+    }
 });
 
 // gets the data for a specific timeline by the category_id
@@ -78,7 +99,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    const query =`
+    const query = `
         DELETE FROM "timeline"
         WHERE "id" = $1
     ;`;
