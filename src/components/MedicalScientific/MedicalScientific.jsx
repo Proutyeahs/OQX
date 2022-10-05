@@ -11,7 +11,7 @@ const MedicalScientific = () => {
     const divStyle = {
         left: '5%',
         // right: '50%',
-        border: '3px solid blue',
+        border: '3px solid Red',
         borderRadius: '1%'
     };
     //formatDate is used to make our timestamps pretty
@@ -42,19 +42,21 @@ const MedicalScientific = () => {
                             </p>
                         </div>
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
-                        <div className="ml-0 md:ml-12 lg:w-2/3 sticky">
+                        <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
                                 <div className="border-2-2 border-blue-555 absolute h-full border" style={divStyle}></div>
-                                <div className=''>
+                                <div className="">
                                     {events.map(event => (
                                         <>
+
                                             <p className="text-gray-700 text-base">{formatDate(event.date)}</p>
                                             {event.image != '' &&
                                                 <img className="rounded-t-lg" src={event.image} />}
-                                            <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-2xl" key={event.id}>
+                                                <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-2xl" key={event.id}>
                                                 <p className="font-bold text-xl mb-2">{event.title}</p>
                                                 <p className="text-gray-700 text-base">Info:{event.info}</p>
                                             </div>
+                                            
                                         </>
                                     ))}
                                 </div>
