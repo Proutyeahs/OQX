@@ -121,8 +121,11 @@ function EventFormEdit() {
                 <div className="center">
                     <Box >
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
-                            <InputLabel> Select Category </InputLabel>
-                            <Select defaultValue={''} onChange={(e) =>
+                            <InputLabel> Select category </InputLabel>
+                            <Select label="Select category"
+                            
+                            value={specificEvent.category_id}
+                            onChange={(e) =>
                                 dispatch({
                                     type: 'PUT_CATEGORY_ID',
                                     payload: e.target.value

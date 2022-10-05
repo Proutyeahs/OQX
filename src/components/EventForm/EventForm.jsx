@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 //MUI STACK LAYOUT
 
@@ -75,6 +76,17 @@ function EventForm() {
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
                 </div>
             
+             {/* UPLOAD IMAGE */}
+                <div>
+                 <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                </Button>
+                </div>
+
+             {/* renders the image if it exists */}
+                {event.image != '' &&
+                    <img src={event.image} />}
+            
             {/* EVENT INFO */}
                 <div>
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={4} maxRows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
@@ -104,12 +116,9 @@ function EventForm() {
                     </Box>
                 </div>
 
-                {/* UPLOAD IMAGE */}
-                 <div>
-                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120 }} >Upload Image
-                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
-                    </Button>
-                </div>
+               
+               
+            
 
                 {/* SUBMIT */}
                 <div>
