@@ -42,8 +42,8 @@ function EventForm() {
         console.log(e.target.files[0])
         const formData = new FormData();
         formData.append("file", e.target.files[0])
-        formData.append("upload_preset", "PetEats")
-        axios.post("https://api.cloudinary.com/v1_1/dzyea2237/image/upload", formData).then((response) => {
+        formData.append("upload_preset", "OQX_Images")
+        axios.post("https://api.cloudinary.com/v1_1/dycuh9yxe/image/upload", formData).then((response) => {
             setEvent({ ...event, image: response.data.url })
             console.log('yo', response.data)
         })
