@@ -26,6 +26,7 @@ import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
 import SponsorsPage from '../SponsorsPage/SponsorsPage'
+import EventDetail from '../EventDetail/EventDetail';
 
 import './App.css';
 
@@ -176,6 +177,15 @@ function App() {
             path="/sponsors"
           >
             <SponsorsPage />
+          </Route>
+          
+          <Route
+            // shows EventDetail at all times (logged in or not)
+            exact
+            path="/eventdetail/:id"
+          >
+            <EventDetail />
+
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
