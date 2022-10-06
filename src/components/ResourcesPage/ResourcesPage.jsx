@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import './ResourcesPage.css';
+
 
 function ResourcesPage() {
 
@@ -15,24 +17,25 @@ function ResourcesPage() {
             <div >
             </div>
 
-            <div >
-            <br></br>
-                tier1
-                <br></br>
-             
-              
-            </div>
-            <div >
-                tier 2<br></br>
-  
+            <div class="law">
+            <p> Lawful Lawfirms</p>
+            <p>www.lawfullaw.firms</p>
+            <p> 123 Business Street, Minneapolis, MN</p>
+            <p>(612) 123-4567</p>
             </div>
 
-            <div>
-                tier 3<br></br>
-
+            <div class="health">
+            <p>Healthy Happenings</p>
+            <p>www.healthyhappen.ings</p>
+            <p> 456 Wellness Ave, St.Paul , MN</p>
+            <p>(612) 345-6789</p>
             </div>
 
-
+            <div class="culture">
+            <p>The Culture Business</p>
+            <p>www.business.culture</p>
+            <p>(612) 678-9123</p>
+            </div>
 
         </>
     );
