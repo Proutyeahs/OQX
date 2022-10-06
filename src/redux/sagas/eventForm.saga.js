@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 // sends the payload to the event router
 function* postEvent(action) {
@@ -26,8 +26,7 @@ function* getEvent(action) {
 function* getEventAdmin(action) {
     console.log(action.payload)
     try {
-        const details = yield axios.get(`/api/event/admin/${action.payload}`)
-        yield put({ type: 'SET_EVENT', payload: details.data })
+        yield axios.post(`/api/event/admin/${action.payload}`)
     } catch (err) {
         console.log(err)
     }
@@ -44,6 +43,19 @@ function* getSpecificEvent(action) {
         console.log(err)
     }
 }
+
+// gets the events that the user searches for
+function* getSearchedEvents(action) {
+    console.log('In GetSearchedEvents')
+    console.log('action.payload in the getSearchedEvents:', action.payload) // Now we send this to the route
+    try {
+       yield axios.post(`/api/event/search`, action.payload)
+        // yield put({ type: 'SET_SPECIFIC_EVENT', payload: details.data })
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 
 // sends an update request for the specific event
 function* putEvent(action) {
@@ -73,6 +85,7 @@ function* eventFormSaga() {
     yield takeLatest('PUT_EVENT', putEvent)
     yield takeLatest('DELETE_EVENT', deleteEvent)
     yield takeLatest('GET_EVENT_ADMIN', getEventAdmin)
+    yield takeLatest('GET_SEARCHED_EVENTS', getSearchedEvents)
 }
 
 export default eventFormSaga;
