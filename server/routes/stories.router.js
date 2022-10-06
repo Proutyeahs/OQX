@@ -44,4 +44,32 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log(req.params.id)
+    const query = `
+    UPDATE "stories"
+        SET "authorized" = true
+        WHERE "id" = $1
+    ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        res.sendStatus(200)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const query = `
+        DELETE FROM "stories"
+        WHERE "id" = $1
+    ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        res.sendStatus(200)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+})
+
 module.exports = router;
