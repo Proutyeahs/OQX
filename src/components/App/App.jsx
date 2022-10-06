@@ -26,6 +26,7 @@ import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
 import SponsorsPage from '../SponsorsPage/SponsorsPage'
+import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 
 import './App.css';
 
@@ -177,6 +178,14 @@ function App() {
           >
             <SponsorsPage />
           </Route>
+
+          {/* route to add User Stories */}
+          <ProtectedRoute
+            exact
+            path="/userStoriesForm"
+          >
+            <UserStoriesForm />
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
