@@ -51,11 +51,11 @@ function UserStoriesReview() {
                                     <TableCell>
 
                                         {/* pushes to edit user story page */}
-                                        <Button variant="contained" color="success" onClick={() => 
-                                        dispatch({
+                                        <Button variant="contained" color="success" onClick={() =>
+                                            dispatch({
                                                 type: 'APPROVE_USER_STORY',
                                                 payload: story.id
-                                        })}>Approve</Button>
+                                            })}>Approve</Button>
 
                                         {/* Space between buttons */}
                                         &nbsp;

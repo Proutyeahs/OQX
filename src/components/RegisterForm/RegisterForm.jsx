@@ -56,9 +56,9 @@ function RegisterForm() {
       </div>
       <div>
 
-      <br></br>
+        <br></br>
         I am 18 years of age or older.
-      <Checkbox required />
+        <Checkbox required />
 
       </div>
       <br></br>

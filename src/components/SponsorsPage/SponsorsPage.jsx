@@ -25,7 +25,7 @@ function SponsorsPage() {
 
             <div class="bg-cyan-300">
                 tier 1<br></br>
-                <img src="../generic-images/companylogo.png" class="rounded-full"/>
+                <img src="../generic-images/companylogo.png" class="rounded-full" />
             </div>
             <div class="bg-cyan-400">
                 tier 2<br></br>

@@ -17,7 +17,7 @@ function PoliticalLegal() {
         console.log('ID', id)
         history.push(`/eventdetail/${id}`)
     }
-    
+
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -39,7 +39,7 @@ function PoliticalLegal() {
         border: '4px solid blue',
         borderRadius: '1%',
     };
-    
+
     useEffect(() => {
         dispatch({
             type: 'GET_EVENT',
@@ -68,7 +68,7 @@ function PoliticalLegal() {
                                     {events.map(event => (
                                         <>
 
-                                            <div onClick={()=> handleClick(event.id)}>
+                                            <div onClick={() => handleClick(event.id)}>
                                                 {/* The line below is the actual line for the timeline */}
                                                 <div className="absolute h-full" style={divStyle}></div>
                                                 <div className="flex items-center">
