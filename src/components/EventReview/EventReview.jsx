@@ -46,7 +46,7 @@ function EventReview() {
                         <Select label="Events by timeline"
                             defaultValue={1} onChange={(e) =>
                                 dispatch({
-                                    type: 'GET_EVENT',
+                                    type: 'GET_EVENT_ADMIN',
                                     payload: e.target.value
                                 })}>
                             <MenuItem value="1"> Political/Legal

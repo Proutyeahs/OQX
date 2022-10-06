@@ -103,7 +103,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const query = `
     UPDATE "timeline"
-        SET "title" = $1, "date" = $2, "image" = $3, "info" = $4, "references" = $5, "category_id" = $6
+        SET "title" = $1, "date" = $2, "image" = $3, "info" = $4, "references" = $5, "category_id" = $6, "authorized" = true
         WHERE "id" = $7 
     ;`;
     pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id, req.params.id]).then(result => {
