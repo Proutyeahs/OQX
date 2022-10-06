@@ -38,7 +38,6 @@ function UserStoriesForm() {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector((store) => store.user);
 
     // local state of information to be submitted
     const [story, setStory] = useState({ displayName: '', story: '', timelineEvent: 1})

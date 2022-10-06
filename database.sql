@@ -61,10 +61,10 @@ INSERT INTO "timeline" ("title", "date", "image", "info", "references", "categor
 CREATE TABLE "stories" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "user",
+    "displayName" VARCHAR (500),
     "story" VARCHAR (65535) NOT NULL,
     "authorized" BOOLEAN DEFAULT FALSE,
     "timeline_id" INT REFERENCES "timeline"
-
 );
 
 INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
