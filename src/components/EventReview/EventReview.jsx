@@ -26,24 +26,24 @@ import Stack from '@mui/material/Stack';
 
 // TABLE MUI FUNCTIONS
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.text.secondary,
-    color: theme.palette.common.white,
-    fontSize: 20
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.text.secondary,
+        color: theme.palette.common.white,
+        fontSize: 20
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+        border: 0,
+    },
 })); // END TABLE MUI FUNCTIONS
 
 
@@ -92,7 +92,7 @@ function EventReview() {
                     </FormControl>
                 </Box>
                 <TableContainer component={Paper} >
-                    <Table sx={{ minWidth: 700}} aria-label="customized table">
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
                         <TableHead>
                             <StyledTableRow>
                                 <StyledTableCell>
@@ -116,25 +116,25 @@ function EventReview() {
                                         {event.info}
                                     </StyledTableCell>
 
-                                    
-                                    <StyledTableCell align= "right">
+
+                                    <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
-                                        {/* pushes to edit event page */}
-                                        <EditIcon style={{cursor: 'pointer'}} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
+                                            {/* pushes to edit event page */}
+                                            <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
 
-                                        {/* Space between buttons */}
-                                        <br></br>
-                                        <br></br>
+                                            {/* Space between buttons */}
+                                            <br></br>
+                                            <br></br>
 
-                                        {/* dispatches delete request */}
-                                        <DeleteIcon style={{cursor: 'pointer'}}  variant="contained" color="error" onClick={() =>
-                                            dispatch({
-                                                type: 'DELETE_EVENT',
-                                                payload: event
-                                            })}>Delete</DeleteIcon>
-                                            </Stack>
+                                            {/* dispatches delete request */}
+                                            <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
+                                                dispatch({
+                                                    type: 'DELETE_EVENT',
+                                                    payload: event
+                                                })}>Delete</DeleteIcon>
+                                        </Stack>
                                     </StyledTableCell>
-                                    
+
 
                                 </StyledTableRow>
                             ))}

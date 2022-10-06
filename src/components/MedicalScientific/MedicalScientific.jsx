@@ -16,7 +16,7 @@ const MedicalScientific = () => {
         console.log('ID', id)
         history.push(`/eventdetail/${id}`)
     }
-    
+
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -38,7 +38,7 @@ const MedicalScientific = () => {
         border: '4px solid red',
         borderRadius: '1%',
     };
-    
+
     useEffect(() => {
         dispatch({
             type: 'GET_EVENT',
@@ -67,7 +67,7 @@ const MedicalScientific = () => {
                                     {events.map(event => (
                                         <>
 
-                                            <div onClick={()=> handleClick(event.id)}>
+                                            <div onClick={() => handleClick(event.id)}>
                                                 {/* The line below is the actual line for the timeline */}
                                                 <div className="absolute h-full" style={divStyle}></div>
                                                 <div className="flex items-center">
