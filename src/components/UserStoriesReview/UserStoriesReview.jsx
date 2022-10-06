@@ -31,27 +31,31 @@ function UserStoriesReview() {
                         <TableHead>
                             <TableRow>
                                 <TableCell>
-                                    Event
+                                    Story
                                 </TableCell>
                                 <TableCell>
-                                    Story
+                                    Review
                                 </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody className='outline'>
 
                             {/* loop to render info on dom */}
-                            {userStories.map(userStories => (
-                                <TableRow key={userStories.id}>
+                            {userStories.map(story => (
+                                <TableRow key={story.id}>
                                     <TableCell>
-                                        {userStories.title}:
+                                        {story.title}:
                                         <br></br>
-                                        {userStories.story}
+                                        {story.story}
                                     </TableCell>
                                     <TableCell>
 
                                         {/* pushes to edit user story page */}
-                                        <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesFormEdit/${userStories.id}`)}>Edit</Button>
+                                        <Button variant="contained" color="success" onClick={() => 
+                                        dispatch({
+                                                type: 'APPROVE_USER_STORY',
+                                                payload: story.id
+                                        })}>Approve</Button>
 
                                         {/* Space between buttons */}
                                         &nbsp;
@@ -60,7 +64,7 @@ function UserStoriesReview() {
                                         <Button variant="contained" color="error" onClick={() =>
                                             dispatch({
                                                 type: 'DELETE_USER_STORY',
-                                                payload: event
+                                                payload: story.id
                                             })}>Delete</Button>
                                     </TableCell>
                                 </TableRow>

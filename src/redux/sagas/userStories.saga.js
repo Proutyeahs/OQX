@@ -33,10 +33,22 @@ function* getUserStories(action) {
     }
 }
 
+// approves a story
+function* approveUserStory(action) {
+    console.log(action.payload)
+    try {
+        yield axios.put(`/api/stories/${action.payload}`)
+        yield put({type : 'GET_USER_STORIES'})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 function* userStoriesSaga() {
    yield takeLatest('POST_STORY', postStory)
    yield takeLatest('GET_STORY', getStory)
    yield takeLatest('GET_USER_STORIES', getUserStories)
+   yield takeLatest('APPROVE_USER_STORY', approveUserStory)
 }
 
 export default userStoriesSaga;
