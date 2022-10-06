@@ -1,19 +1,34 @@
 import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
+import useReadingProgress from "../PoliticalLegal/readingProgress.js"
+
 
 function PoliticalLegal() {
 
     const events = useSelector((store) => store.event)
+    const completion = useReadingProgress();
     const dispatch = useDispatch();
+
 
     // Created a variable that contains CSS to then style the timeline itself.
     const divStyle = {
         left: '5%',
         // right: '50%',
-        border: '3px solid blue',
+        border: '4px solid blue',
         borderRadius: '1%'
     };
+
+    const point = {
+
+        height: '25px',
+        width: '25px',
+        borderColor: 'blue',
+        borderWidth: '2px',
+        backgroundColor: 'white',
+        borderRadius: '50%',
+
+    }
 
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
@@ -30,6 +45,7 @@ function PoliticalLegal() {
         <>
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
+              
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
@@ -46,7 +62,10 @@ function PoliticalLegal() {
                                 <div className=''>
                                     {events.map(event => (
                                         <>
-                                            <p className="text-gray-700 text-base">{formatDate(event.date)}</p>
+                                            <div className="flex items-center">
+                                                <div className="flex items-center absolute left-2" style={point}></div>
+                                            <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
+                                            </div>
                                             {event.image != '' &&
                                                 <img className="rounded-t-lg" src={event.image} />}
                                             <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-2xl" key={event.id}>
