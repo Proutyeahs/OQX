@@ -63,7 +63,7 @@ function UserStoriesReview() {
                                         {/* dispatches delete request */}
                                         <Button variant="contained" color="error" onClick={() =>
                                             dispatch({
-                                                type: 'DELETE_USER_STORY',
+                                                type: 'DELETE_STORY',
                                                 payload: story.id
                                             })}>Delete</Button>
                                     </TableCell>
