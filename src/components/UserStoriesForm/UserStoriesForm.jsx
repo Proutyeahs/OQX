@@ -40,7 +40,7 @@ function UserStoriesForm() {
     const history = useHistory();
 
     // local state of information to be submitted
-    const [story, setStory] = useState({ displayName: '', story: '', timelineEvent: 1})
+    const [story, setStory] = useState({ displayName: '', story: '', timelineEvent: id})
 
 
     // handle dispatch of information
