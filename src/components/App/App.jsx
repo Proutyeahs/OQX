@@ -26,6 +26,7 @@ import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
 import SponsorsPage from '../SponsorsPage/SponsorsPage'
+import EventDetail from '../EventDetail/EventDetail';
 import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 
 import './App.css';
@@ -177,6 +178,15 @@ function App() {
             path="/sponsors"
           >
             <SponsorsPage />
+          </Route>
+          
+          <Route
+            // shows EventDetail at all times (logged in or not)
+            exact
+            path="/eventdetail/:id"
+          >
+            <EventDetail />
+
           </Route>
 
           {/* route to add User Stories */}
