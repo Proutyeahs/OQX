@@ -29,7 +29,7 @@ import SponsorsPage from '../SponsorsPage/SponsorsPage'
 import EventDetail from '../EventDetail/EventDetail';
 import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
-
+import ResourcesPage from '../ResourcesPage/ResourcesPage.jsx';
 import './App.css';
 
 
@@ -180,6 +180,17 @@ function App() {
           >
             <SponsorsPage />
           </Route>
+
+
+          <Route
+            exact
+            path="/resources"
+          >
+            <ResourcesPage />
+          </Route>
+
+
+
           
           <Route
             // shows EventDetail at all times (logged in or not)
