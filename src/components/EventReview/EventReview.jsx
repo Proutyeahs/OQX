@@ -14,6 +14,39 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import { tableCellClasses } from '@mui/material/TableCell';
+import Paper from '@mui/material/Paper';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import './EventReview.css'
+import Stack from '@mui/material/Stack';
+
+
+// TABLE MUI FUNCTIONS
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.text.secondary,
+    color: theme.palette.common.white,
+    fontSize: 20
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+})); // END TABLE MUI FUNCTIONS
+
+
 function EventReview() {
 
     // get the event data on page load/reload
@@ -58,44 +91,52 @@ function EventReview() {
                         </Select>
                     </FormControl>
                 </Box>
-                <TableContainer >
-                    <Table>
+                <TableContainer component={Paper} >
+                    <Table sx={{ minWidth: 700}} aria-label="customized table">
                         <TableHead>
-                            <TableRow>
-                                <TableCell>
+                            <StyledTableRow>
+                                <StyledTableCell>
                                     Event
-                                </TableCell>
-                                <TableCell>
+                                </StyledTableCell>
+                                <StyledTableCell align="right">
                                     Review
-                                </TableCell>
-                            </TableRow>
+                                </StyledTableCell>
+                            </StyledTableRow>
                         </TableHead>
-                        <TableBody className='outline'>
+                        <TableBody>
 
                             {/* loop to render info on dom */}
                             {events.map(event => (
-                                <TableRow key={event.id}>
-                                    <TableCell>
+                                <StyledTableRow key={event.id}>
+                                    <StyledTableCell>
                                         {event.title}:
                                         <br></br>
                                         {formatDate(event.date)}
-                                    </TableCell>
-                                    <TableCell>
+                                        <br></br>
+                                        {event.info}
+                                    </StyledTableCell>
 
+                                    
+                                    <StyledTableCell align= "right">
+                                        <Stack direction="row" spacing={2}>
                                         {/* pushes to edit event page */}
-                                        <Button variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</Button>
+                                        <EditIcon style={{cursor: 'pointer'}} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
 
                                         {/* Space between buttons */}
-                                        &nbsp;
+                                        <br></br>
+                                        <br></br>
 
                                         {/* dispatches delete request */}
-                                        <Button variant="contained" color="error" onClick={() =>
+                                        <DeleteIcon style={{cursor: 'pointer'}}  variant="contained" color="error" onClick={() =>
                                             dispatch({
                                                 type: 'DELETE_EVENT',
                                                 payload: event
-                                            })}>Delete</Button>
-                                    </TableCell>
-                                </TableRow>
+                                            })}>Delete</DeleteIcon>
+                                            </Stack>
+                                    </StyledTableCell>
+                                    
+
+                                </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
