@@ -22,6 +22,17 @@ function* getEvent(action) {
     }
 }
 
+// gets the events for the admin to review
+function* getEventAdmin(action) {
+    console.log(action.payload)
+    try{
+        const details = yield axios.get(`/api/event/admin/${action.payload}`)
+        yield put({type : 'SET_EVENT', payload : details.data})
+    } catch (err){
+        console.log(err)
+    }
+}
+
 // gets the data for the specific event
 function* getSpecificEvent(action) {
     console.log(action.payload)
@@ -61,6 +72,7 @@ function* eventFormSaga() {
    yield takeLatest('GET_SPECIFIC_EVENT', getSpecificEvent)
    yield takeLatest('PUT_EVENT', putEvent)
    yield takeLatest('DELETE_EVENT', deleteEvent)
+   yield takeLatest('GET_EVENT_ADMIN', getEventAdmin)
 }
 
 export default eventFormSaga;

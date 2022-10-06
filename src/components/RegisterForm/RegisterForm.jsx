@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+//MUI INPUT AND BUTTON
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -29,10 +32,10 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-          Username:
-          <input
+          <TextField variant="standard"
             type="text"
             name="username"
+            label="Username"
             value={username}
             required
             onChange={(event) => setUsername(event.target.value)}
@@ -41,16 +44,24 @@ function RegisterForm() {
       </div>
       <div>
         <label htmlFor="password">
-          Password:
-          <input
+          <TextField variant="standard"
             type="password"
             name="password"
+            label="Password"
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
       </div>
+      <div>
+
+      <br></br>
+        I am 18 years of age or older.
+      <Checkbox required />
+
+      </div>
+      <br></br>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>

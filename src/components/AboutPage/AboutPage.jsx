@@ -1,38 +1,6 @@
-import React, { useEffect } from 'react';
-import {
-  HashRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import React from 'react';
 import './AboutPage.css';
 import '@fontsource/roboto';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Collapse from '@mui/material/Collapse';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-
-//MUI STACK LAYOUT
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-
-// MUI STACK LAYOUT STYLING
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: 'center',
-//   color: theme.palette.text.secondary,
-// })); // end MUI STYLING
-
-
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -43,13 +11,12 @@ function AboutPage() {
   return (
     
     <>
-    {/* <Box sx={{ width: '100%' }}> */}
-              {/* <Stack spacing={2}> */}
-                
-    <div className="container">
+    <div className='about'>
       <div>
-        <h2>About Our Queer Hxstory</h2>
-        <p>
+        <h2 className='font-bold text-2xl'>About Our Queer Hxstory</h2>
+        <br></br>
+        {/* Change About OQX info here */}
+        <p className='text-left'>
           LGBTQ literature and educational resources are often barred behind paywalls and complex language.
           <br></br>
           <br></br>
@@ -57,65 +24,51 @@ function AboutPage() {
           <br></br>
           <br></br>
           Now, the LGBTQ story is available to all reading levels and all educational levels. OQX gives you clean timelines that you can click into and explore the consequential events that still impact us all today. Whether you are discovering queer history for the first time, or diving deep into the research, Our Queer Hxstory opens the doors for you. 
-          <br></br>
-          <br></br>
-          <a href="https://ourqueerhxtory.com">Please Consider Donating to OQX</a>
         </p>
+        {/* End about OQX */}
+        <br></br>
+        {/* Donation Link */}
+        <a className='text-blue-600' href="https://ourqueerhxtory.com">Please Consider Donating to OQX</a>
+        <br></br>
+        <br></br>
       </div>
-        <h2>About Us</h2>
-        
-    
-      {/* <Item>  */}
-      <Card sx={{ maxWidth: 300, minHeight: 500,}}>
-    <CardActionArea>
-      <CardMedia
-        component="img"
-        height="300"
-        image="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"
-        alt="Leo"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-        Leonardo E. Candelario-Pérez, Ph.D. LP
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! 
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
-  {/* </Item>  */}
-  
-  {/* <Item>  */}
-  <Card sx={{ maxWidth: 300, minHeight: 500 }}>
-    <CardActionArea>
-      <CardMedia
-        component="img"
-        height="300"
-        image="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"
-        alt="Nic"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-        Nic Rider, Ph.D.
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo!
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
-  {/* </Item>  */}
+        <h2 className='font-bold text-2xl'>About Us</h2>
+        <br></br>
+       
+  {/* Begin Bio 1(Copy from this line to "End Bio 1", paste after "End Bio 2", and change info if ever adding another Bio) */}
+  <div className="flex items-center justify-center">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+      {/* Change photo here */}
+      <img className="w-full" src="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"alt="Leo"/>
+        <div className="px-6 py-4">
+          {/* Change name or title here */}
+          <div className="font-bold text-xl mb-2">Leonardo E. Candelario-Pérez, Ph.D. LP</div>
+            {/* Change Bio info here */}
+            <p className="text-gray-700 text-base text-left">
+            Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! 
+            </p>
+        </div>
+    </div>
   </div>
-          
-
-          
-          <a href="https://ourqueerhxtory.com">Get in  contact!</a>    
-      
-     
-    {/* </Stack>   */}
-    {/* </Box> */}
-    
+  {/* End Bio 1 */}
+    <br></br>
+  {/* Begin Bio 2   */}
+  <div className="flex items-center justify-center">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+      <img className="w-full" src="https://www.seekpng.com/png/small/143-1435868_headshot-silhouette-person-placeholder.png"alt="Nic"/>
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">Nic Rider, Ph.D.</div>
+            <p className="text-gray-700 text-base text-left">
+            Lorem ipsum dolor sit amet. Et saepe sunt qui dignissimos dolores aut ipsa praesentium ut officia voluptatem ut consequatur iusto magni repellendus sit aliquid quis. Cum Quis accusantium et animi iste et dolore labore et mollitia incidunt qui minus ullam ut rerum nemo! 
+            </p>
+        </div>
+    </div>
+  </div>
+  {/* End Bio 2 */}
+  <br></br>
+  {/* Contact Link */}
+  <a className='text-blue-600' href="https://ourqueerhxtory.com">Get in  contact!</a>
+  </div>
   </>
 
   );

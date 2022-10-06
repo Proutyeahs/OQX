@@ -9,7 +9,8 @@ const router = express.Router();
 // post event into the database
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
-    const query = `
+    if (req.user.admin) {
+        const query = `
     INSERT INTO "timeline" (
         "title", 
         "date", 
@@ -17,27 +18,63 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         "info", 
         "references", 
         "category_id",
-        "approved"
+        "authorized"
     )
     VALUES ($1, $2, $3, $4, $5, $6, true)
     ;`;
-    pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id]).then(result => {
-        res.sendStatus(200)
+        pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id]).then(result => {
+            res.sendStatus(200)
+        }).catch(err => {
+            console.log(err)
+            res.sendStatus(500)
+        })
+    } else {
+        const query = `
+    INSERT INTO "timeline" (
+        "title", 
+        "date", 
+        "image", 
+        "info", 
+        "references", 
+        "category_id",
+        "authorized"
+    )
+    VALUES ($1, $2, $3, $4, $5, $6, false)
+    ;`;
+        pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id]).then(result => {
+            res.sendStatus(200)
+        }).catch(err => {
+            console.log(err)
+            res.sendStatus(500)
+        })
+    }
+});
+
+// gets the data for a specific timeline by the category_id
+router.get('/:id', (req, res) => {
+    console.log("timeline", req.params)
+    const query = `
+    SELECT * FROM "timeline"
+    WHERE ("timeline".category_id = $1 AND "timeline".authorized = true )
+  ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        console.log("timeline", result.rows)
+        res.send(result.rows)
     }).catch(err => {
         console.log(err)
         res.sendStatus(500)
     })
 });
 
-// gets the data for a specific timeline by the category_id
-router.get('/:id', (req, res) => {
-    console.log("B/C", req.params)
+// gets the data for a the admin to approve
+router.get('/admin/:id', rejectUnauthenticated, (req, res) => {
+    console.log("admin", req.params)
     const query = `
     SELECT * FROM "timeline"
-    WHERE "timeline".category_id = $1
+    WHERE ("timeline".category_id = $1 AND "timeline".authorized = false )
   ;`;
     pool.query(query, [req.params.id]).then(result => {
-        console.log("timeline", result.rows)
+        console.log("admin", result.rows)
         res.send(result.rows)
     }).catch(err => {
         console.log(err)
@@ -66,7 +103,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const query = `
     UPDATE "timeline"
-        SET "title" = $1, "date" = $2, "image" = $3, "info" = $4, "references" = $5, "category_id" = $6
+        SET "title" = $1, "date" = $2, "image" = $3, "info" = $4, "references" = $5, "category_id" = $6, "authorized" = true
         WHERE "id" = $7 
     ;`;
     pool.query(query, [req.body.title, req.body.date, req.body.image, req.body.info, req.body.references, req.body.category_id, req.params.id]).then(result => {
@@ -78,7 +115,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    const query =`
+    const query = `
         DELETE FROM "timeline"
         WHERE "id" = $1
     ;`;

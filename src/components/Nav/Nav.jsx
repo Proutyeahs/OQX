@@ -156,11 +156,34 @@ function Nav() {
             </MenuItem>
           )}
 
+
+
+   {/* ADMIN CONDITIONAL RENDER */}
+           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
+          {user.admin && (
+            <MenuItem onClick={handleClose}>
+              <Link to="/eventForm">
+                <ListItem>
+                  Create Event
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
+
+    {user.admin && (
+            <MenuItem onClick={handleClose}>
+            <Link to="/eventReview">
+                <ListItem>
+                  Review Events
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
         </Menu>
       </div>
-
-      <div>
-      </div>
+     
+     <div>
+     </div>
 
     </div>
   );

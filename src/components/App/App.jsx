@@ -25,6 +25,10 @@ import BusinessCultural from '../BusinessCultural/BusinessCultural';
 import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
+import SponsorsPage from '../SponsorsPage/SponsorsPage'
+import EventDetail from '../EventDetail/EventDetail';
+import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
+import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
 
 import './App.css';
 
@@ -75,6 +79,8 @@ function App() {
             <InfoPage />
           </Route>
 
+
+            {/* LOGIN AND REGISTER BUTTON  */}
           <Route
             exact
             path="/login"
@@ -82,7 +88,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/medicalScientific" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -96,18 +102,18 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/medicalScientific" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
             }
           </Route>
+          {/* END OF THE OLD INPUT BUTTON */}
 
           <Route
             exact
             path="/home"
           >
-
           </Route>
 
           {/* timeline route */}
@@ -136,16 +142,12 @@ function App() {
             <PoliticalLegal />
           </Route>
 
-            {/* admin route to add events */}
+          {/* route to add events */}
           <ProtectedRoute
             exact
             path="/eventForm"
           >
-            {user.admin ?
-              <EventForm />
-              :
-              <LandingPage />
-            }
+            <EventForm />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -165,6 +167,43 @@ function App() {
           >
             {user.admin ?
               <EventReview />
+              :
+              <LandingPage />
+            }
+          </ProtectedRoute>
+
+           
+          <Route
+            // visible to all users logged in or logged out
+            exact
+            path="/sponsors"
+          >
+            <SponsorsPage />
+          </Route>
+          
+          <Route
+            // shows EventDetail at all times (logged in or not)
+            exact
+            path="/eventdetail/:id"
+          >
+            <EventDetail />
+
+          </Route>
+
+          {/* route to add User Stories */}
+          <ProtectedRoute
+            exact
+            path="/userStoriesForm"
+          >
+            <UserStoriesForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/userStoriesReview"
+          >
+            {user.admin ?
+              <UserStoriesReview />
               :
               <LandingPage />
             }

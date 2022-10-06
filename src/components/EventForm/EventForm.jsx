@@ -1,10 +1,37 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom"
 import './EventForm.css'
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from '@mui/material/Button';
+import axios from 'axios';
+
+//MUI STACK LAYOUT
+
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+// MUI STACK LAYOUT STYLING
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+})); // end MUI STYLING
+
 
 function EventForm() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
+    const user = useSelector((store) => store.user);
 
     // local state of information to be submitted
     const [event, setEvent] = useState({ title: '', date: '', image: '', info: '', references: '', category_id: '' })
@@ -15,8 +42,8 @@ function EventForm() {
         console.log(e.target.files[0])
         const formData = new FormData();
         formData.append("file", e.target.files[0])
-        formData.append("upload_preset", "PetEats")
-        axios.post("https://api.cloudinary.com/v1_1/dzyea2237/image/upload", formData).then((response) => {
+        formData.append("upload_preset", "OQX_Images")
+        axios.post("https://api.cloudinary.com/v1_1/dycuh9yxe/image/upload", formData).then((response) => {
             setEvent({ ...event, image: response.data.url })
             console.log('yo', response.data)
         })
@@ -29,43 +56,89 @@ function EventForm() {
             type: 'POST_EVENT',
             payload: event
         })
+        if (user.admin) {
+            setTimeout(() => {
+                window.location.reload();
+            }, 500)
+        } else {
+            // popup to thanks for submission
+            setTimeout(() => {
+                history.push('/medicalScientific')
+            }, 500)
+        }
+
     }
 
     return (
         <>
+            <h1 className="font-bold">Submit Event</h1>
+
             <div className="center">
-                <p>Submit Event</p>
-                <div>
-                    <input type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
-                </div>
-                <div>
-                    <input type="date" placeholder="Event Date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
-                </div>
-                <div>
-                    <input type="file" placeholder="Event Image" onChange={uploadImage} />
-                </div>
-                <div>
-                    <input type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
-                </div>
-                <div>
-                    <input type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
-                </div>
-                <div>
-                    <form>
-                        <label> Select Category </label>
-                        <select onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
-                            <option value="1"> Political/Legal
-                            </option>
-                            <option value="2"> Medical/Scientific
-                            </option>
-                            <option value="3"> Business/Cultural
-                            </option>
-                        </select>
-                    </form>
-                </div>
-                <div>
-                    <button onClick={submit}>Submit</button>
-                </div>
+
+                {/* MUI STACK */}
+                <Box sx={{ width: '100%' }}>
+                    <Stack spacing={2}>
+                        <Item>
+
+                            {/* EVENT TITLE */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                            </div>
+
+                            {/* DATE  */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                            </div>
+
+                            {/* UPLOAD IMAGE */}
+                            <div>
+                                <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                                    <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                                </Button>
+                            </div>
+
+                            {/* renders the image if it exists */}
+                            {event.image != '' &&
+                                <img src={event.image} />}
+
+                            {/* EVENT INFO */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+                            </div>
+
+                            {/* EVENT REFERENCES */}
+                            <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                            </div>
+
+                            {/* DROPDOWN TO CHOOSE TIMELINE */}
+                            <div>
+                                <Box >
+                                    <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                                        <InputLabel> Select category </InputLabel>
+                                        <Select label="Select category"
+
+                                            defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                                            <MenuItem value="1"> Political/Legal
+                                            </MenuItem>
+                                            <MenuItem value="2"> Medical/Scientific
+                                            </MenuItem>
+                                            <MenuItem value="3"> Business/Cultural
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+
+                            {/* SUBMIT */}
+                            <div>
+                                <Button variant="contained" color="success" onClick={submit}>Submit</Button>
+                            </div>
+
+                            {/* MUI STACK END */}
+                        </Item>
+                    </Stack>
+                </Box>
             </div>
         </>
     )
