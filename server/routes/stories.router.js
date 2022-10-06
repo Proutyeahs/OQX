@@ -27,4 +27,21 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+router.get('/', rejectUnauthenticated, (req, res) => {
+    console.log("stories", req.params)
+    const query = `
+    SELECT "title", "stories".* FROM "timeline"
+    JOIN "stories"
+    ON "stories".timeline_id = "timeline".id
+    WHERE "stories".authorized = false
+  ;`;
+    pool.query(query).then(result => {
+        console.log("userStories", result.rows)
+        res.send(result.rows)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
 module.exports = router;
