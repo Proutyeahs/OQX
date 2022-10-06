@@ -20,7 +20,8 @@ import { tableCellClasses } from '@mui/material/TableCell';
 import Paper from '@mui/material/Paper';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import './EventReview.css'
+import Stack from '@mui/material/Stack';
 
 
 // TABLE MUI FUNCTIONS
@@ -114,22 +115,27 @@ function EventReview() {
                                         <br></br>
                                         {event.info}
                                     </StyledTableCell>
-                                    <StyledTableCell align= "right">
 
+                                    
+                                    <StyledTableCell align= "right">
+                                        <Stack direction="row" spacing={2}>
                                         {/* pushes to edit event page */}
-                                        <Button variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</Button>
+                                        <EditIcon style={{cursor: 'pointer'}} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
 
                                         {/* Space between buttons */}
                                         <br></br>
                                         <br></br>
 
                                         {/* dispatches delete request */}
-                                        <Button variant="contained" color="error" onClick={() =>
+                                        <DeleteIcon style={{cursor: 'pointer'}}  variant="contained" color="error" onClick={() =>
                                             dispatch({
                                                 type: 'DELETE_EVENT',
                                                 payload: event
-                                            })}>Delete</Button>
+                                            })}>Delete</DeleteIcon>
+                                            </Stack>
                                     </StyledTableCell>
+                                    
+
                                 </StyledTableRow>
                             ))}
                         </TableBody>
