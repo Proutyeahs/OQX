@@ -27,6 +27,7 @@ import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
 import SponsorsPage from '../SponsorsPage/SponsorsPage'
 import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
+import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
 
 import './App.css';
 
@@ -185,6 +186,17 @@ function App() {
             path="/userStoriesForm"
           >
             <UserStoriesForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/userStoriesReview"
+          >
+            {user.admin ?
+              <UserStoriesReview />
+              :
+              <LandingPage />
+            }
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}

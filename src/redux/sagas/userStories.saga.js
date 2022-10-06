@@ -22,9 +22,21 @@ function* getStory(action) {
     }
 }
 
+// gets all the stories for the admin to review
+function* getUserStories(action) {
+    console.log(action.payload)
+    try{
+        const details = yield axios.get(`/api/stories`)
+        yield put({type : 'SET_STORIES', payload : details.data})
+    } catch (err){
+        console.log(err)
+    }
+}
+
 function* userStoriesSaga() {
    yield takeLatest('POST_STORY', postStory)
    yield takeLatest('GET_STORY', getStory)
+   yield takeLatest('GET_USER_STORIES', getUserStories)
 }
 
 export default userStoriesSaga;
