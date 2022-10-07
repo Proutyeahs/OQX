@@ -26,7 +26,8 @@ function* getEvent(action) {
 function* getEventAdmin(action) {
     console.log(action.payload)
     try {
-        yield axios.post(`/api/event/admin/${action.payload}`)
+        const details = yield axios.get(`/api/event/admin/${action.payload}`)
+        yield put({ type: 'SET_EVENT', payload: details.data })
     } catch (err) {
         console.log(err)
     }
@@ -56,8 +57,6 @@ function* getSearchedEvents(action) {
         console.error(err);
     }
 }
-
-
 
 // sends an update request for the specific event
 function* putEvent(action) {
