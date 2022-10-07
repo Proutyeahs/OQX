@@ -70,10 +70,11 @@ function* putEvent(action) {
 
 // sends a delete request for the specific event
 function* deleteEvent(action) {
-    console.log(action.payload)
+    console.log(action.payload.id)
+    console.log(action.payload.category_id)
     try {
         yield axios.delete(`/api/event/${action.payload.id}`)
-        yield put({ type: 'GET_EVENT', payload: action.payload.category_id })
+        yield put({ type: 'GET_EVENT_ADMIN', payload: action.payload.category_id })
     } catch (err) {
         console.log(err)
     }
