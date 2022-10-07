@@ -80,7 +80,7 @@ function App() {
           </Route>
 
 
-            {/* LOGIN AND REGISTER BUTTON  */}
+          {/* LOGIN AND REGISTER BUTTON  */}
           <Route
             exact
             path="/login"
@@ -172,7 +172,7 @@ function App() {
             }
           </ProtectedRoute>
 
-           
+
           <Route
             // visible to all users logged in or logged out
             exact
@@ -180,6 +180,7 @@ function App() {
           >
             <SponsorsPage />
           </Route>
+
 
 
           <Route
@@ -191,7 +192,7 @@ function App() {
 
 
 
-          
+
           <Route
             // shows EventDetail at all times (logged in or not)
             exact

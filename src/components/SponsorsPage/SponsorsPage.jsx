@@ -23,11 +23,16 @@ function SponsorsPage() {
             </div>
 
             <div class="bg-cyan-300">
+
             <br></br>
                 
                 <br></br>
                 <img src="../generic-images/companylogo.png" class="object-scale-down h-48 ; rounded-full"/>
                 <p class="text-2xl">Crown Sponsor</p>
+
+                tier 1<br></br>
+                <img src="../generic-images/companylogo.png" class="rounded-full" />
+
             </div>
             <div class="bg-cyan-400">
                 tier 2<br></br>

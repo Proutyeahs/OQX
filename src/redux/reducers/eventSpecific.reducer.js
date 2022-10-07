@@ -6,13 +6,15 @@ const specificEventReducer = (state = { category_id: '' }, action) => {
     case 'SET_SPECIFIC_EVENT':
       console.log(action.payload)
       for (let event of action.payload)
-        return { title: event.title, 
-          date: event.date, 
-          image: event.image, 
-          info: event.info, 
-          references: event.references, 
-          category_id: event.category_id, 
-          id: event.id };
+        return {
+          title: event.title,
+          date: event.date,
+          image: event.image,
+          info: event.info,
+          references: event.references,
+          category_id: event.category_id,
+          id: event.id
+        };
 
     // updates the title upon change
     case 'PUT_TITLE':

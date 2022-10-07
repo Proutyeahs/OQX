@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 //MUI INPUT AND BUTTON
@@ -65,11 +65,11 @@ function LoginForm() {
       </div>
       <div>
         <br></br>
-        <input 
-        className="btn" 
-        type="submit" 
-        name="submit" 
-        value="Log In" />
+        <input
+          className="btn"
+          type="submit"
+          name="submit"
+          value="Log In" />
         {/* <button className="btn" type="submit" name="submit" value="Log In" onClick={handleClick}>TEST</button> */}
       </div>
     </form>
