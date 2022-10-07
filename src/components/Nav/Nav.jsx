@@ -160,7 +160,7 @@ function Nav() {
 
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
-          {user.admin && (
+          {user.id && (
             <MenuItem onClick={handleClose}>
               <Link to="/eventForm">
                 <ListItem>
