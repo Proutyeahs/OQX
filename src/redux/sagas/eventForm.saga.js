@@ -58,8 +58,6 @@ function* getSearchedEvents(action) {
     }
 }
 
-
-
 // sends an update request for the specific event
 function* putEvent(action) {
     console.log(action.payload)
