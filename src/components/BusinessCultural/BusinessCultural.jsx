@@ -21,7 +21,10 @@ function BusinessCultural() {
         console.log('Search input: ', search);
         dispatch({
             type: 'GET_SEARCHED_EVENTS',
-            payload: { payload: search }
+            payload: { 
+                payload: search,
+                category: 3
+            }
         })
     }
     const formatDate = (dateString) => {

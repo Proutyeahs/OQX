@@ -98,14 +98,14 @@ router.get('/specific/:id', (req, res) => {
     })
 });
 
-//Send in with wild
+// Gets the Events based on the user's input.
 router.post('/search', (req, res) => {
-    console.log("In router. Getting events based on this search: ", req.body.payload);
+    console.log("In router. Getting events based on this search: ", req.body.payload, req.body.category);
 
-    const queryItems = [req.body.payload]
+    const queryItems = [req.body.payload, req.body.category]
     const queryText = `
     SELECT * FROM "timeline"
-    WHERE upper("timeline".title) ILIKE $1 or "timeline".info ILIKE $1;
+    WHERE ("timeline".title ILIKE $1 or "timeline".info ILIKE $1 AND "timeline".category_id = $2);
     `;
 
     pool.query(queryText, queryItems)

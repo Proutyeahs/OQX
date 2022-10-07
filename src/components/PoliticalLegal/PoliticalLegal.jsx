@@ -25,7 +25,10 @@ function PoliticalLegal() {
         console.log('Search input: ', search);
         dispatch({
             type: 'GET_SEARCHED_EVENTS',
-            payload: { payload: search }
+            payload: { 
+                payload: search,
+                category: 1
+            }
         })
     }
 
