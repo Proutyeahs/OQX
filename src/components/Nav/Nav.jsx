@@ -110,29 +110,6 @@ function Nav() {
             'aria-labelledby': 'basic-button',
           }}>
 
-          <MenuItem onClick={handleClose}>
-            <Link to="/about">
-              <ListItem>
-                About
-              </ListItem>
-            </Link>
-          </MenuItem>
-
-          <MenuItem onClick={handleClose}>
-            <Link to="/sponsors">
-              <ListItem>
-                Sponsors
-              </ListItem>
-            </Link>
-          </MenuItem>
-
-          <MenuItem onClick={handleClose}>
-            <Link to="/resources">
-              <ListItem>
-                Resources
-              </ListItem>
-            </Link>
-          </MenuItem>
 
           {/* If no user is logged in, show these links */}
           {!user.id && (
@@ -158,6 +135,33 @@ function Nav() {
 
 
 
+         
+
+          <MenuItem onClick={handleClose}>
+            <Link to="/about">
+              <ListItem>
+                About
+              </ListItem>
+            </Link>
+          </MenuItem>
+
+          <MenuItem onClick={handleClose}>
+            <Link to="/sponsors">
+              <ListItem>
+                Sponsors
+              </ListItem>
+            </Link>
+          </MenuItem>
+
+          <MenuItem onClick={handleClose}>
+            <Link to="/resources">
+              <ListItem>
+                Resources
+              </ListItem>
+            </Link>
+          </MenuItem>
+
+         
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
           {user.id && (
@@ -179,6 +183,9 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
+
+
+          
         </Menu>
       </div>
 
