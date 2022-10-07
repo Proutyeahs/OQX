@@ -134,28 +134,6 @@ function Nav() {
             </Link>
           </MenuItem>
 
-          {/* If no user is logged in, show these links */}
-          {!user.id && (
-            // If there's no user, show login/registration links
-            <MenuItem onClick={handleClose}>
-              <Link to="/login">
-                <ListItem>
-                  Login / Register
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-
-          {/* If a user is logged in, show these links */}
-          {user.id && (
-            <MenuItem
-              onClick={() => dispatch({ type: 'LOGOUT' })}>
-              <ListItem>
-                Log Out
-              </ListItem>
-            </MenuItem>
-          )}
-
 
 
           {/* ADMIN CONDITIONAL RENDER */}
@@ -177,6 +155,29 @@ function Nav() {
                   Review Events
                 </ListItem>
               </Link>
+            </MenuItem>
+          )}
+
+
+          {/* If no user is logged in, show these links */}
+          {!user.id && (
+            // If there's no user, show login/registration links
+            <MenuItem onClick={handleClose}>
+              <Link to="/login">
+                <ListItem>
+                  Login / Register
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
+
+          {/* If a user is logged in, show these links */}
+          {user.id && (
+            <MenuItem
+              onClick={() => dispatch({ type: 'LOGOUT' })}>
+              <ListItem>
+                Log Out
+              </ListItem>
             </MenuItem>
           )}
         </Menu>
