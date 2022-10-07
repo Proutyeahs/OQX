@@ -98,7 +98,7 @@ router.get('/specific/:id', (req, res) => {
     })
 });
 
-
+//Send in with wild
 router.post('/search', (req, res) => {
     console.log("In router. Getting events based on this search: ", req.body.payload);
 

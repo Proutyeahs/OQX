@@ -49,12 +49,14 @@ function* getSearchedEvents(action) {
     console.log('In GetSearchedEvents')
     console.log('action.payload in the getSearchedEvents:', action.payload) // Now we send this to the route
     try {
-       yield axios.post(`/api/event/search`, action.payload)
-        // yield put({ type: 'SET_SPECIFIC_EVENT', payload: details.data })
+        let results = yield axios.post(`/api/event/search`, action.payload)
+        console.log('Results.data: ',results.data)
+        yield put({ type: 'SET_EVENT', payload: results.data })
     } catch (err) {
         console.error(err);
     }
 }
+
 
 
 // sends an update request for the specific event
