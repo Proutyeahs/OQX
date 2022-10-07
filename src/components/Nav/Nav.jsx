@@ -53,8 +53,8 @@ function Nav() {
 
 
   return (
-    
-    
+
+
     <div className="nav">
       <div>
       </div>
@@ -72,19 +72,19 @@ function Nav() {
 
       <Link className="navLink" to="/politicalLegal">
         <IconButton aria-label="political">
-          <AccountBalanceOutlinedIcon className ="political"/>
+          <AccountBalanceOutlinedIcon className="political" />
         </IconButton>
       </Link>
 
       <Link className="navLink" to="/medicalScientific">
         <IconButton aria-label="medical">
-          <LocalHospitalOutlinedIcon className="medical"/>
+          <LocalHospitalOutlinedIcon className="medical" />
         </IconButton>
       </Link>
 
       <Link className="navLink" to="/businessCultural">
         <IconButton aria-label="business">
-          <BusinessOutlinedIcon className="business"/>
+          <BusinessOutlinedIcon className="business" />
         </IconButton>
       </Link>
 
@@ -158,8 +158,8 @@ function Nav() {
 
 
 
-   {/* ADMIN CONDITIONAL RENDER */}
-           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
+          {/* ADMIN CONDITIONAL RENDER */}
+          {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
           {user.admin && (
             <MenuItem onClick={handleClose}>
               <Link to="/eventForm">
@@ -170,9 +170,9 @@ function Nav() {
             </MenuItem>
           )}
 
-    {user.admin && (
+          {user.admin && (
             <MenuItem onClick={handleClose}>
-            <Link to="/eventReview">
+              <Link to="/eventReview">
                 <ListItem>
                   Review Events
                 </ListItem>
@@ -181,9 +181,9 @@ function Nav() {
           )}
         </Menu>
       </div>
-     
-     <div>
-     </div>
+
+      <div>
+      </div>
 
     </div>
   );

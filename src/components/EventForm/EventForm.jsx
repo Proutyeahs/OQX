@@ -11,20 +11,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
-//MUI STACK LAYOUT
-
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-
-// MUI STACK LAYOUT STYLING
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-})); // end MUI STYLING
 
 
 function EventForm() {
@@ -75,10 +61,7 @@ function EventForm() {
 
             <div className="center">
 
-                {/* MUI STACK */}
-                <Box sx={{ width: '100%' }}>
-                    <Stack spacing={2}>
-                        <Item>
+             
 
                             {/* EVENT TITLE */}
                             <div>
@@ -135,10 +118,7 @@ function EventForm() {
                                 <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                             </div>
 
-                            {/* MUI STACK END */}
-                        </Item>
-                    </Stack>
-                </Box>
+                        
             </div>
         </>
     )

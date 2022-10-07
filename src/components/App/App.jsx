@@ -29,7 +29,7 @@ import SponsorsPage from '../SponsorsPage/SponsorsPage'
 import EventDetail from '../EventDetail/EventDetail';
 import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
-
+import ResourcesPage from '../ResourcesPage/ResourcesPage.jsx';
 import './App.css';
 
 
@@ -80,7 +80,7 @@ function App() {
           </Route>
 
 
-            {/* LOGIN AND REGISTER BUTTON  */}
+          {/* LOGIN AND REGISTER BUTTON  */}
           <Route
             exact
             path="/login"
@@ -172,7 +172,7 @@ function App() {
             }
           </ProtectedRoute>
 
-           
+
           <Route
             // visible to all users logged in or logged out
             exact
@@ -180,7 +180,19 @@ function App() {
           >
             <SponsorsPage />
           </Route>
-          
+
+
+
+          <Route
+            exact
+            path="/resources"
+          >
+            <ResourcesPage />
+          </Route>
+
+
+
+
           <Route
             // shows EventDetail at all times (logged in or not)
             exact

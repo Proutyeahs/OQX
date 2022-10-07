@@ -70,16 +70,12 @@ function EventDetail(event) {
                             </div>
 
                         ))}
-
-
                         <br></br>
                         <br></br>
-
                         {[eventDetail].map(event => (
                             <div className="text-gray-600 text-base text-left" key={event.id}>
                                 <a href={event.references}>References: {event.references}</a>
                             </div>
-
                         ))}
                     </div>
                 </div>
@@ -87,7 +83,6 @@ function EventDetail(event) {
                     <div key={story.id}>
                         <p className="text-gray-800 text-base text-left">{story.story}</p>
                     </div>
-
                 ))}
             </div>
         </>

@@ -98,6 +98,27 @@ router.get('/specific/:id', (req, res) => {
     })
 });
 
+// Gets the Events based on the user's input.
+router.post('/search', (req, res) => {
+    console.log("In router. Getting events based on this search: ", req.body.payload, req.body.category);
+
+    const queryItems = [req.body.payload, req.body.category]
+    const queryText = `
+    SELECT * FROM "timeline"
+    WHERE ("timeline".title ILIKE $1 or "timeline".info ILIKE $1 AND "timeline".category_id = $2);
+    `;
+
+    pool.query(queryText, queryItems)
+    .then(result => {
+        console.log('Result', result.rows);
+        res.send(result.rows);
+    })
+    .catch(err => {
+        console.log('Error on post route: ',err);
+        res.sendStatus(500);
+    })
+})
+
 // updates a specific event with the new data
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body)

@@ -1,6 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
