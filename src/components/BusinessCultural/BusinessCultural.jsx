@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -9,6 +9,7 @@ function BusinessCultural() {
     // const completion = useReadingProgress();
     const dispatch = useDispatch();
     const history = useHistory();
+    const [search, setSearch] = useState()
 
     const handleClick = (id) => {
         console.log('Handle Click');
@@ -16,6 +17,16 @@ function BusinessCultural() {
         history.push(`/eventdetail/${id}`)
     }
 
+    const handleSubmit = () => {
+        console.log('Search input: ', search);
+        dispatch({
+            type: 'GET_SEARCHED_EVENTS',
+            payload: { 
+                payload: search,
+                category: 3
+            }
+        })
+    }
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -49,7 +60,8 @@ function BusinessCultural() {
         <>
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
-
+                <input type="text" placeholder="Search.. on submit" onChange={(event) => setSearch('%' + event.target.value + '%')}></input>
+                <button onClick={handleSubmit}>Submit</button>
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
