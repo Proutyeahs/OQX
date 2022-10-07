@@ -10,6 +10,7 @@ function EventDetail(event) {
     const dispatch = useDispatch();
 
     const eventDetail = useSelector(store => store.specificEvent)
+    const userStories = useSelector(store => store.userStories)
 
 
     console.log('eventDetail should give event', event)
@@ -29,6 +30,10 @@ function EventDetail(event) {
     const reload = () => {
         dispatch({
             type: 'GET_SPECIFIC_EVENT',
+            payload: id
+        })
+        dispatch({
+            type: 'GET_STORY',
             payload: id
         })
     }
@@ -71,10 +76,14 @@ function EventDetail(event) {
                             <div className="text-gray-600 text-base text-left" key={event.id}>
                                 <a href={event.references}>References: {event.references}</a>
                             </div>
-
                         ))}
                     </div>
                 </div>
+                {[userStories].map(story => (
+                    <div key={story.id}>
+                        <p className="text-gray-800 text-base text-left">{story.story}</p>
+                    </div>
+                ))}
             </div>
         </>
     )
