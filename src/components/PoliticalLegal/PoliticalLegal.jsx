@@ -23,9 +23,9 @@ function PoliticalLegal() {
 
     const handleSubmit = () => {
         console.log('Search input: ', search);
-        dispatch ({
+        dispatch({
             type: 'GET_SEARCHED_EVENTS',
-            payload: {payload: search}
+            payload: { payload: search }
         })
     }
 
@@ -63,7 +63,7 @@ function PoliticalLegal() {
 
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
-                <input type="text" placeholder="Search.. on submit" onChange={(event) => setSearch(event.target.value)}></input>
+                <input type="text" placeholder="Search.. on submit" onChange={(event) => setSearch('%' + event.target.value + '%')}></input>
                 <button onClick={handleSubmit}>Submit</button>
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">

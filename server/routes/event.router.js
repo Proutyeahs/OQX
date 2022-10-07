@@ -98,13 +98,14 @@ router.get('/specific/:id', (req, res) => {
     })
 });
 
+
 router.post('/search', (req, res) => {
     console.log("In router. Getting events based on this search: ", req.body.payload);
 
     const queryItems = [req.body.payload]
     const queryText = `
     SELECT * FROM "timeline"
-    WHERE upper("timeline".title) ILIKE '%$1%' or "timeline".info ILIKE '%$1%';
+    WHERE upper("timeline".title) ILIKE $1 or "timeline".info ILIKE $1;
     `;
 
     pool.query(queryText, queryItems)
