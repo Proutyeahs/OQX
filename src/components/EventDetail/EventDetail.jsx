@@ -90,7 +90,7 @@ function EventDetail(event) {
 
                         {/* edit event button if admin */}
                         {user.admin &&
-                            <Button onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
+                            <Button variant="contained" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
                         }
 
                     </div>
@@ -98,7 +98,7 @@ function EventDetail(event) {
 
                         {/* button for adding a story */}
                         <div>
-                            <Button onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
+                            <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
                         </div>
                         {userStories.map(story => (
                             <div key={story.id}>
@@ -107,7 +107,9 @@ function EventDetail(event) {
 
                                 {/* delete story if its the users story */}
                                 {user.id === story.user_id &&
-                                    <Button onClick={() => handleDelete(story.id)}>Delete</Button>
+                                    <Button variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</Button>
+                                || user.admin &&
+                                    <Button variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</Button>
                                 }
                             </div>
                         ))}
