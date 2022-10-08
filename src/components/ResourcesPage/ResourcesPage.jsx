@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import './ResourcesPage.css';
 
 
 function ResourcesPage() {
-
+    const resources = useSelector((store) => store.resource)
     const store = useSelector((store) => store);
     const [heading, setHeading] = useState('Resources');
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+
+    useEffect(() => {
+        dispatch({
+            type: 'GET_RESOURCE',
+        })
+    }, [])
+
+    console.log(resources);
 
     return (
         <>
             <div>
                 <h2>{heading}</h2>
             </div>
-
-            <div >
-            </div>
-
-            <div class="law">
-            <p> Lawful Lawfirms</p>
-            <p>www.lawfullaw.firms</p>
-            <p> 123 Business Street, Minneapolis, MN</p>
-            <p>(612) 123-4567</p>
-            </div>
-
-            <div class="health">
-            <p>Healthy Happenings</p>
-            <p>www.healthyhappen.ings</p>
-            <p> 456 Wellness Ave, St.Paul , MN</p>
-            <p>(612) 345-6789</p>
-            </div>
-
-            <div class="culture">
-            <p>The Culture Business</p>
-            <p>www.business.culture</p>
-            <p>(612) 678-9123</p>
+            <div className="resources">
+                {resources.map(resource =>
+                    <ul key={resource.id}>
+                        <li>{resource.name}</li>
+                        <li>{resource.address}</li>
+                        <li>{resource.phoneNumber}</li>
+                    </ul>)}
             </div>
 
         </>

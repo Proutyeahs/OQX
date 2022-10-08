@@ -4,6 +4,8 @@ import user from './user.reducer';
 import event from './event.reducer';
 import specificEvent from './eventSpecific.reducer'
 import userStories from './userStories.reducer';
+import resource from './resource.reducer'
+import resourceSpecific from './resourceSpecific.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   event,
   specificEvent,
   userStories,
+  resource,
+  resourceSpecific,
 });
 
 export default rootReducer;
