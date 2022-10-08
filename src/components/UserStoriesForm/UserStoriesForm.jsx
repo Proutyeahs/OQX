@@ -20,7 +20,6 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 })); // end MUI STYLING
 
-
 function UserStoriesForm() {
 
     // gets specific event info on load/reload
@@ -42,7 +41,6 @@ function UserStoriesForm() {
     // local state of information to be submitted
     const [story, setStory] = useState({ displayName: '', story: '', timelineEvent: id })
 
-
     // handle dispatch of information
     const submit = () => {
         console.log(story)
@@ -52,14 +50,13 @@ function UserStoriesForm() {
         })
         // popup to thanks for submission
         setTimeout(() => {
-            history.push(`/eventDetails/${id}`)
+            history.push(`/eventdetail/${id}`)
         }, 500)
     }
 
     return (
         <>
             <h1 className="font-bold">Submit A Story</h1>
-
             <div className="center">
 
                 {/* MUI STACK */}
