@@ -15,8 +15,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventForm from '../EventForm/EventForm';
@@ -71,15 +69,6 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <Route
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </Route>
-
-
           {/* LOGIN AND REGISTER BUTTON  */}
           <Route
             exact
@@ -109,12 +98,6 @@ function App() {
             }
           </Route>
           {/* END OF THE OLD INPUT BUTTON */}
-
-          <Route
-            exact
-            path="/home"
-          >
-          </Route>
 
           {/* timeline route */}
           <Route
@@ -157,7 +140,7 @@ function App() {
             {user.admin ?
               <EventFormEdit />
               :
-              <LandingPage />
+              <MedicalScientific />
             }
           </ProtectedRoute>
 
@@ -168,10 +151,9 @@ function App() {
             {user.admin ?
               <EventReview />
               :
-              <LandingPage />
+              <MedicalScientific />
             }
           </ProtectedRoute>
-
 
           <Route
             // visible to all users logged in or logged out
@@ -181,8 +163,6 @@ function App() {
             <SponsorsPage />
           </Route>
 
-
-
           <Route
             exact
             path="/resources"
@@ -190,16 +170,12 @@ function App() {
             <ResourcesPage />
           </Route>
 
-
-
-
           <Route
             // shows EventDetail at all times (logged in or not)
             exact
             path="/eventdetail/:id"
           >
             <EventDetail />
-
           </Route>
 
           {/* route to add User Stories */}
@@ -217,7 +193,7 @@ function App() {
             {user.admin ?
               <UserStoriesReview />
               :
-              <LandingPage />
+              <MedicalScientific />
             }
           </ProtectedRoute>
 
