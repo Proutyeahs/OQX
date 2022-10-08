@@ -39,6 +39,7 @@ function EventDetail(event) {
         })
     }
 
+    // deletes a users story
     const handleDelete = (notid) => {
         dispatch({
             type: 'DELETE_STORY',
@@ -87,8 +88,15 @@ function EventDetail(event) {
                             </div>
                         ))}
 
+                        {/* edit event button if admin */}
+                        {user.admin &&
+                            <Button onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
+                        }
+
                     </div>
                     <div className='canter'>
+
+                        {/* button for adding a story */}
                         <div>
                             <Button onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
                         </div>
@@ -96,6 +104,8 @@ function EventDetail(event) {
                             <div key={story.id}>
                                 <p>{story.displayName}:</p>
                                 <p className="text-gray-800 text-base text-left">{story.story}</p>
+
+                                {/* delete story if its the users story */}
                                 {user.id === story.user_id &&
                                     <Button onClick={() => handleDelete(story.id)}>Delete</Button>
                                 }
