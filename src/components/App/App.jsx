@@ -79,7 +79,6 @@ function App() {
             <InfoPage />
           </Route>
 
-
           {/* LOGIN AND REGISTER BUTTON  */}
           <Route
             exact
@@ -172,7 +171,6 @@ function App() {
             }
           </ProtectedRoute>
 
-
           <Route
             // visible to all users logged in or logged out
             exact
@@ -181,8 +179,6 @@ function App() {
             <SponsorsPage />
           </Route>
 
-
-
           <Route
             exact
             path="/resources"
@@ -190,13 +186,10 @@ function App() {
             <ResourcesPage />
           </Route>
 
-
-
-
           <Route
             // shows EventDetail at all times (logged in or not)
             exact
-            path="/eventdetail/:id"
+            path="/eventDetail/:id"
           >
             <EventDetail />
 
@@ -205,7 +198,7 @@ function App() {
           {/* route to add User Stories */}
           <ProtectedRoute
             exact
-            path="/userStoriesForm"
+            path="/userStoriesForm/:id"
           >
             <UserStoriesForm />
           </ProtectedRoute>
