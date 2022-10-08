@@ -135,7 +135,7 @@ function Nav() {
 
 
 
-         
+
 
           <MenuItem onClick={handleClose}>
             <Link to="/about">
@@ -161,7 +161,7 @@ function Nav() {
             </Link>
           </MenuItem>
 
-         
+
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
           {user.id && (
@@ -184,8 +184,16 @@ function Nav() {
             </MenuItem>
           )}
 
+          {user.admin && (
+            <MenuItem onClick={handleClose}>
+              <Link to="/userStoriesReview">
+                <ListItem>
+                  Review Stories
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
 
-          
         </Menu>
       </div>
 
