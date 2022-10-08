@@ -109,14 +109,14 @@ router.post('/search', (req, res) => {
     `;
 
     pool.query(queryText, queryItems)
-    .then(result => {
-        console.log('Result', result.rows);
-        res.send(result.rows);
-    })
-    .catch(err => {
-        console.log('Error on post route: ',err);
-        res.sendStatus(500);
-    })
+        .then(result => {
+            console.log('Result', result.rows);
+            res.send(result.rows);
+        })
+        .catch(err => {
+            console.log('Error on post route: ', err);
+            res.sendStatus(500);
+        })
 })
 
 // updates a specific event with the new data
@@ -136,15 +136,21 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const query1 = `
+        DELETE FROM "stories"
+        WHERE "stories".timeline_id = $1
+        ;`;
     const query = `
         DELETE FROM "timeline"
         WHERE "id" = $1
     ;`;
-    pool.query(query, [req.params.id]).then(result => {
-        res.sendStatus(200)
-    }).catch(err => {
-        console.log(err)
-        res.sendStatus(500)
+    pool.query(query1, [req.params.id]).then(result => {
+        pool.query(query, [req.params.id]).then(result => {
+            res.sendStatus(200)
+        }).catch(err => {
+            console.log(err)
+            res.sendStatus(500)
+        })
     })
 })
 
