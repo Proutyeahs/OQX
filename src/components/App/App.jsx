@@ -28,6 +28,7 @@ import EventDetail from '../EventDetail/EventDetail';
 import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
 import ResourcesPage from '../ResourcesPage/ResourcesPage.jsx';
+import ResourcesReview from '../ResourcesReview/ResourcesReview';
 import './App.css';
 
 
@@ -155,6 +156,19 @@ function App() {
               <MedicalScientific />
             }
           </ProtectedRoute>
+
+{/* Route to review resources, visible only to admin */}
+          <ProtectedRoute
+            exact
+            path="/resourceReview"
+          >
+             {user.admin ?
+              <ResourcesReview />
+              :
+              <ResourcesPage />
+            }
+          </ProtectedRoute>
+
 
           <Route
             // visible to all users logged in or logged out
