@@ -29,6 +29,7 @@ import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
 import ResourcesPage from '../ResourcesPage/ResourcesPage.jsx';
 import ResourcesReview from '../ResourcesReview/ResourcesReview';
+import ResourceForm from '../ResourceForm/ResourceForm';
 import './App.css';
 
 
@@ -169,6 +170,21 @@ function App() {
             }
           </ProtectedRoute>
 
+{/* Route to post resources, visible only to admin */}
+{/* when a user accesses this route, we check to see if they are an admin */}
+{/*  ternary operator ( : ) true/false condition */}
+{/* if the user is admin, show first route, otherwise, show the other */}
+{/* if admin is logged in, they will view the form to add a new resource, otherwise they will view the page of resources available to everyone */}
+<ProtectedRoute
+            exact
+            path="/resourceForm"
+          >
+             {user.admin ?
+              <ResourceForm />
+              : 
+              <ResourcesPage />
+            }
+          </ProtectedRoute>
 
           <Route
             // visible to all users logged in or logged out
