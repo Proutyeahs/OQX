@@ -8,20 +8,17 @@ const router = express.Router();
 
 // post story into the database
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log(req.body)
+    console.log('Stories.router.js POST route:', req.body)
     const query = `
-    INSERT INTO "stories" (
-        "displayName", 
-        "story", 
-        "timeline_id", 
-        "user_id",
-        "authorized"
-    )
-    VALUES ($1, $2, $3, $4, false)
+    INSERT INTO "stories" ("user_id", "story", "authorized","timeline_id")
+    VALUES ($1, $2, false, $3)
     ;`;
-    pool.query(query, [req.body.displayName, req.body.story, req.body.timelineEvent, req.user.id]).then(result => {
+    // "displayName", 
+    pool.query(query, [req.body.user_id, req.body.story, req.body.timelineEvent]).
+    then(result => {
         res.sendStatus(200)
-    }).catch(err => {
+    })
+    .catch(err => {
         console.log(err)
         res.sendStatus(500)
     })
