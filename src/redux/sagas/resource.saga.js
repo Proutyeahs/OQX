@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // gets the resources for admin to view
 function* getResource(action) {
-    console.log(action.payload)
+    console.log(action)
     try {
         const resource = yield axios.get(`/api/resource`)
         yield put({ type: 'SET_RESOURCE', payload: resource.data })
@@ -13,7 +13,7 @@ function* getResource(action) {
 }
 
 function* resourceSaga() {
-    yield takeLatest('GET_RESOURCE', getResource)
+    yield takeLatest('FETCH_RESOURCE', getResource)
 }
 
 export default resourceSaga;

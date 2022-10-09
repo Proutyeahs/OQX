@@ -16,7 +16,7 @@ function ResourcesPage() {
 
     useEffect(() => {
         dispatch({
-            type: 'GET_RESOURCE',
+            type: 'FETCH_RESOURCE',
         })
     }, [])
 
