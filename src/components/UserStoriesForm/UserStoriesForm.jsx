@@ -68,7 +68,7 @@ function UserStoriesForm() {
 
                             {/* Display Name */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }}/>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%'}} placeholder="Username"/>
                             </div>
 
                             {/* User Story */}
