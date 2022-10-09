@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 function EventDetail(event) {
@@ -50,6 +48,24 @@ function EventDetail(event) {
         }, 500)
     }
 
+    // This function takes the user back to the previous timeline that they were on.
+    // Action is being passed through on the onClick.
+    const handleBack = (action) => {
+        console.log('Takes the user back to this timeline: ', action);
+        switch (action) {
+            case 1:
+                history.push('/politicalLegal')
+                break;
+            case 2:
+                history.push('/medicalScientific')
+                break;
+            case 3:
+                history.push('/businessCultural')
+            default:
+                break;
+        }
+    }
+
     return (
         <>
             <div className="flex items-center justify-center">
@@ -85,6 +101,8 @@ function EventDetail(event) {
                         {[eventDetail].map(event => (
                             <div className="text-gray-600 text-base text-left" key={event.id}>
                                 <a href={event.references}>References: {event.references}</a>
+                                <div className='center'> 
+                                    <Button variant="contained" onClick={() => handleBack(event.category_id)}>Go back</Button></div>
                             </div>
                         ))}
 
@@ -108,7 +126,7 @@ function EventDetail(event) {
                                 {/* delete story if its the users story */}
                                 {user.id === story.user_id &&
                                     <Button variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</Button>
-                                || user.admin &&
+                                    || user.admin &&
                                     <Button variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</Button>
                                 }
                             </div>
