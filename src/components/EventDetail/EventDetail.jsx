@@ -31,6 +31,7 @@ function EventDetail(event) {
             type: 'GET_SPECIFIC_EVENT',
             payload: id
         })
+        // This is getting the stories for this event.
         dispatch({
             type: 'GET_STORY',
             payload: id
@@ -47,6 +48,8 @@ function EventDetail(event) {
             reload()
         }, 500)
     }
+
+    console.log('userStories reducer: ',userStories)
 
     // This function takes the user back to the previous timeline that they were on.
     // Action is being passed through on the onClick.
@@ -101,7 +104,7 @@ function EventDetail(event) {
                         {[eventDetail].map(event => (
                             <div className="text-gray-600 text-base text-left" key={event.id}>
                                 <a href={event.references}>References: {event.references}</a>
-                                <div className='center'> 
+                                <div className='center'>
                                     <Button variant="contained" onClick={() => handleBack(event.category_id)}>Go back</Button></div>
                             </div>
                         ))}

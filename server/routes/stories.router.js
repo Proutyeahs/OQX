@@ -44,6 +44,26 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/:id', (req, res) => {
+    console.log("stories", req.params)
+    const queryPayload = req.params.id;
+    const query = `
+    SELECT "title", "stories".* FROM "timeline"
+    JOIN "stories"
+    ON "stories".timeline_id = "timeline".id
+    WHERE "stories".authorized = true AND $1 = "timeline".id
+    ;`;
+    pool.query(query, [queryPayload])
+    .then(result => {
+        console.log("userStories", result.rows)
+        res.send(result.rows)
+    })
+    .catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.params.id)
     const query = `
