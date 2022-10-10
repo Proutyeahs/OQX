@@ -50,7 +50,7 @@ function PoliticalLegal() {
     const divStyle = {
         left: '5%',
         // right: '50%',
-        border: '4px solid blue',
+        border: '4px solid #1D68DE',
         borderRadius: '1%',
     };
 

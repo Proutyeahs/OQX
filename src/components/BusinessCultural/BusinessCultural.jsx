@@ -45,7 +45,7 @@ function BusinessCultural() {
     const divStyle = {
         left: '5%',
         // right: '50%',
-        border: '4px solid yellow',
+        border: '4px solid #F3D73C',
         borderRadius: '1%',
     };
 
