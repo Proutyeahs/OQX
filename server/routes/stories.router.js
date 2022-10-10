@@ -2,6 +2,9 @@ const express = require('express');
 const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
+const {
+    rejectUnauthenticatedAdmin,
+} = require('../modules/authenticationAdmin-middleware');
 const pool = require('../modules/pool');
 
 const router = express.Router();
@@ -17,9 +20,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         "user_id",
         "authorized"
     )
-    VALUES ($1, $2, $3, $4, false)
+    VALUES ($1, $2, $3, $4, $5)
     ;`;
-    pool.query(query, [req.body.displayName, req.body.story, req.body.timelineEvent, req.user.id]).then(result => {
+    pool.query(query, [req.body.displayName, req.body.story, req.body.timelineEvent, req.user.id, 'false']).then(result => {
         res.sendStatus(200)
     }).catch(err => {
         console.log(err)
@@ -27,7 +30,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.get('/', rejectUnauthenticated, (req, res) => {
+// gets the unapproved user stories for admin review
+router.get('/', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log("stories", req.params)
     const query = `
     SELECT "title", "stories".* FROM "timeline"
@@ -44,14 +48,15 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.put('/:id', rejectUnauthenticated, (req, res) => {
+// approves a users story
+router.put('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log(req.params.id)
     const query = `
     UPDATE "stories"
-        SET "authorized" = true
+        SET "authorized" = $2
         WHERE "id" = $1
     ;`;
-    pool.query(query, [req.params.id]).then(result => {
+    pool.query(query, [req.params.id, 'true']).then(result => {
         res.sendStatus(200)
     }).catch(err => {
         console.log(err)
@@ -59,7 +64,8 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
+// deletes a user story
+router.delete('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     const query = `
         DELETE FROM "stories"
         WHERE "id" = $1
