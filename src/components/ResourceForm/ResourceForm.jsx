@@ -63,24 +63,19 @@ function ResourceForm() {
 
              
 
-                            {/* EVENT TITLE */}
+                            {/* BUSINESS NAME */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Business Name" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
                             </div>
 
-                            {/* DATE  */}
+                            {/* NUMBER  */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="text" placeholder="Business Phone Number" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
                             </div>
 
-                            {/* EVENT INFO */}
+                            {/* BUSINESS ADDRESS */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
-                            </div>
-
-                            {/* EVENT REFERENCES */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Business Address" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
                             </div>
 
                             {/* DROPDOWN TO CHOOSE TIMELINE */}
