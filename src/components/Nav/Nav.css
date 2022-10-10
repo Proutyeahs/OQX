@@ -5,7 +5,7 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #ECECEC;
+  background-color: #F3BFCE;
   overflow: hidden;
 }
 
@@ -23,8 +23,8 @@
 
 .navLink {
   display: inline-block;
-  color: #f2f2f2;
-  background-color: #ECECEC;
+  color: #F3BFCE;
+  background-color: #F3BFCE;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -38,17 +38,17 @@
 }
 
 .navLink:hover {
-  background-color: #ECECEC;
+  background-color: #F3BFCE;
 }
 
 .medical {
-  color: #FF1818;
+  color: #F44C1D;
 }
 
 .business {
-  color: #FFC300;
+  color: #F3D73C;
 }
 
 .political {
-  color: #5463FF
+  color: #1D68DE
 }

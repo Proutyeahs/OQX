@@ -47,7 +47,7 @@ const MedicalScientific = () => {
     const divStyle = {
         left: '5%',
         // right: '50%',
-        border: '4px solid red',
+        border: '4px solid #F44C1D',
         borderRadius: '1%',
     };
 
