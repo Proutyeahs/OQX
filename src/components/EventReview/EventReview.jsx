@@ -120,9 +120,6 @@ function EventReview() {
                                             {/* pushes to edit event page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
 
-                                            {/* Space between buttons */}
-                                            <br></br>
-                                            <br></br>
 
                                             {/* dispatches delete request */}
                                             <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
