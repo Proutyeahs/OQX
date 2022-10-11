@@ -24,7 +24,7 @@ function ResourceForm() {
 
     // handle dispatch of information
     const submit = () => {
-        console.log(resource)
+        //console.log("submitting:", resource)
         dispatch({
             type: 'POST_RESOURCE',
             payload: resource
@@ -36,7 +36,7 @@ function ResourceForm() {
         } else {
             // popup to thanks for submission
             setTimeout(() => {
-                history.push('/resourceReview')
+                history.push('/resources')
             }, 500)
         }
     }
