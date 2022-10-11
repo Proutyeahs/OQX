@@ -1,7 +1,18 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// gets the resources for admin to view
+
+//admin posting new resource
+function* postResource(action) {
+    console.log("in post resource", action.payload)
+    try {
+        yield axios.post(`api/resource`, action.payload)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+// gets the resources for all users to view
 function* getResource(action) {
     console.log(action)
     try {
@@ -12,20 +23,32 @@ function* getResource(action) {
     }
 }
 
-//admin posting new resource
-function* postResource(action) {
-    console.log("in post resource", action.payload)
-    try{
-        yield axios.post(`api/resource`, action.payload)
+//get specific resource (admin only)
+function* getSpecificResource(action) {
+    console.log(action.payload)
+    try {
+        const details = yield axios.get(`/api/resource/${action.payload}`)
+        yield put({ type: 'SET_SPECIFIC_RESOURCE', payload: details.data })
+        console.log(details.data)
     } catch (err) {
         console.log(err)
+    }
+}
+
+function* putResource(action) {
+    console.log(action.payload)
+    try {
+        yield axios.put(`/api/resource/${action.payload.id}`, action.payload)
+    } catch (error) {
+        console.log(error)
     }
 }
 
 function* resourceSaga() {
     yield takeLatest('FETCH_RESOURCE', getResource)
     yield takeLatest('POST_RESOURCE', postResource)
+    yield takeLatest('GET_SPECIFIC_RESOURCE', getSpecificResource)
+    yield takeLatest('PUT_RESOURCE', putResource)
 }
 
 export default resourceSaga;
-

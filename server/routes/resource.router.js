@@ -21,6 +21,20 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/:id', (req, res) => {
+    console.log("resource", req.params.id)
+    const query = `
+    SELECT * FROM "resources" WHERE id =$1
+    ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        console.log("resource", result.rows)
+        res.send(result.rows)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
 router.post('/', (req, res) => {
     console.log("in POST resource:", req.params)
     const query = `

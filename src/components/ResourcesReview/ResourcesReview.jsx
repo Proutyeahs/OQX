@@ -9,6 +9,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import { tableCellClasses } from '@mui/material/TableCell';
+import Paper from '@mui/material/Paper';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
+
 function ResourcesReview() {
 
     // get the data for user stories on page load/reload
@@ -47,6 +55,24 @@ function ResourcesReview() {
                                         {resource.address}
                                     </TableCell>
                                     <TableCell>
+
+                                 
+                                        <Stack direction="row" spacing={2}>
+                                            {/* pushes to edit event page */}
+                                            <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/resourceFormEdit/${resource.id}`)}>Edit</EditIcon>
+
+                                            {/* Space between buttons */}
+                                            <br></br>
+                                            <br></br>
+
+                                            {/* dispatches delete request */}
+                                            <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
+                                                dispatch({
+                                                    type: 'DELETE_RESOURCE',
+                                                    payload: event
+                                                })}>Delete</DeleteIcon>
+                                        </Stack>
+                               
                                     </TableCell>
                                 </TableRow>
                             ))}

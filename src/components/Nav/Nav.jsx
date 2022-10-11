@@ -193,6 +193,26 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
+    {/* ADMIN RESOURCE LINKS */}
+          {user.id && (
+            <MenuItem onClick={handleClose}>
+              <Link to="/resourceForm">
+                <ListItem>
+                  Add Resource
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
+
+          {user.admin && (
+            <MenuItem onClick={handleClose}>
+              <Link to="/resourceReview">
+                <ListItem>
+                  Review Resources
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
 
         </Menu>
       </div>
