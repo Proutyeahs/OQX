@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import './EventDetail.css'
 
 function EventDetail(event) {
     //Declare history, dispatch, params, useSelectors
@@ -90,29 +93,31 @@ function EventDetail(event) {
 
                         {/* edit event button if admin */}
                         {user.admin &&
-                            <Button variant="contained" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
+                            <EditIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</EditIcon>
                         }
 
                     </div>
-                    <div className='canter'>
-
-                        {/* button for adding a story */}
-                        <div>
-                            <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
-                        </div>
-                        {userStories.map(story => (
-                            <div key={story.id}>
-                                <p>{story.displayName}:</p>
-                                <p className="text-gray-800 text-base text-left">{story.story}</p>
-
-                                {/* delete story if its the users story */}
-                                {user.id === story.user_id &&
-                                    <Button variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</Button>
-                                || user.admin &&
-                                    <Button variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</Button>
-                                }
+                    <div>
+                        <br></br>
+                        <div className="px-6 py-4">
+                            {/* button for adding a story */}
+                            <div>
+                                <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
                             </div>
-                        ))}
+                            {userStories.map(story => (
+                                <div key={story.id}>
+                                    <p>{story.displayName}:</p>
+                                    <p className="text-gray-800 text-base text-left">{story.story}</p>
+
+                                    {/* delete story if its the users story */}
+                                    {user.id === story.user_id &&
+                                        <DeleteIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                        || user.admin &&
+                                        <DeleteIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                    }
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
