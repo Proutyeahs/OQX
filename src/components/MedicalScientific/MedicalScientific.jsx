@@ -23,10 +23,11 @@ const MedicalScientific = () => {
         dispatch({
             type: 'GET_SEARCHED_EVENTS',
             payload: { 
-                payload: search,
+                payload: ('%' + search + '%'),
                 category: 2
             }
         })
+        setSearch('')
     }
 
     const formatDate = (dateString) => {
@@ -62,8 +63,10 @@ const MedicalScientific = () => {
         <>
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
-                <input type="text" placeholder="Search.. on submit" onChange={(event) => setSearch('%' + event.target.value + '%')}></input>
-                <button onClick={handleSubmit}>Submit</button>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Search.. on submit" value={search} onChange={(e) => setSearch(e.target.value)}></input>
+                    <button onClick={handleSubmit}>Submit</button>
+                </form>
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
