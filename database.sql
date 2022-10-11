@@ -69,7 +69,7 @@ CREATE TABLE "resources" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (1000) NOT NULL,
     "phoneNumber" VARCHAR (1000),
-    "adress" VARCHAR (1000),
+    "address" VARCHAR (1000),
     "category_id" INT REFERENCES "category"
 );
 
