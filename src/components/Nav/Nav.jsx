@@ -78,7 +78,7 @@ function Nav() {
       <div>
       </div>
 
-      <Link to="/home">
+      <Link to="/about">
         <h2 className="nav-title">OQX</h2>
       </Link>
 
