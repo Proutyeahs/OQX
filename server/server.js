@@ -10,8 +10,8 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const eventRouter = require('./routes/event.router');
-const storiesRouter = require('./routes/stories.router')
-const resourceRouter = require('./routes/resource.router')
+const storiesRouter = require('./routes/stories.router');
+const resourceRouter = require('./routes/resource.router');
 
 // Body parser middleware
 app.use(bodyParser.json());

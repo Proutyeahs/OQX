@@ -20,24 +20,11 @@ function ResourceForm() {
     const user = useSelector((store) => store.user);
 
     // local state of information to be submitted
-    //const [event, setEvent] = useState({ title: '', date: '', image: '', info: '', references: '', category_id: '' })
-
-    // uploads the image to cloudinary and saves the url in local state
-    // // *********** change for leos account ***********
-    // const uploadImage = (e) => {
-    //     console.log(e.target.files[0])
-    //     const formData = new FormData();
-    //     formData.append("file", e.target.files[0])
-    //     formData.append("upload_preset", "OQX_Images")
-    //     axios.post("https://api.cloudinary.com/v1_1/dycuh9yxe/image/upload", formData).then((response) => {
-    //         setEvent({ ...event, image: response.data.url })
-    //         console.log('yo', response.data)
-    //     })
-    // }
+    const [resource, setResource] = useState({ name: '', phoneNumber: '', address: '', category_id: '' })
 
     // handle dispatch of information
     const submit = () => {
-        console.log(resource)
+        //console.log("submitting:", resource)
         dispatch({
             type: 'POST_RESOURCE',
             payload: resource
@@ -52,7 +39,6 @@ function ResourceForm() {
                 history.push('/resources')
             }, 500)
         }
-
     }
 
     return (
@@ -61,26 +47,19 @@ function ResourceForm() {
 
             <div className="center">
 
-             
-
-                            {/* EVENT TITLE */}
+                            {/* BUSINESS NAME */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Business Name" onChange={(e) => setResource({ ...resource, name: e.target.value })} />
                             </div>
 
-                            {/* DATE  */}
+                            {/* NUMBER  */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="text" placeholder="Business Phone Number" onChange={(e) => setResource({ ...resource, phoneNumber: e.target.value })} />
                             </div>
 
-                            {/* EVENT INFO */}
+                            {/* BUSINESS ADDRESS */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
-                            </div>
-
-                            {/* EVENT REFERENCES */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Business Address" onChange={(e) => setResource({ ...resource, address: e.target.value })} />
                             </div>
 
                             {/* DROPDOWN TO CHOOSE TIMELINE */}
@@ -90,7 +69,7 @@ function ResourceForm() {
                                         <InputLabel> Select category </InputLabel>
                                         <Select label="Select category"
 
-                                            defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                                            defaultValue={''} onChange={(e) => setResource({ ...resource, category_id: e.target.value })}>
                                             <MenuItem value="1"> Political/Legal
                                             </MenuItem>
                                             <MenuItem value="2"> Medical/Scientific
@@ -107,7 +86,6 @@ function ResourceForm() {
                                 <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                             </div>
 
-                        
             </div>
         </>
     )
