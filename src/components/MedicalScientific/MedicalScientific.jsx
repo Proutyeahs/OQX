@@ -11,7 +11,7 @@ const MedicalScientific = () => {
     // const completion = useReadingProgress();
     const dispatch = useDispatch();
     const history = useHistory();
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState('')
 
     const handleClick = (id) => {
         console.log('Handle Click');
@@ -19,15 +19,17 @@ const MedicalScientific = () => {
         history.push(`/eventdetail/${id}`)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         console.log('Search input: ', search);
+        e.preventDefault();
         dispatch({
             type: 'GET_SEARCHED_EVENTS',
-            payload: { 
-                payload: search,
+            payload: {
+                payload: ('%' + search + '%'),
                 category: 2
             }
         })
+        setSearch('')
     }
 
     const formatDate = (dateString) => {
@@ -63,18 +65,18 @@ const MedicalScientific = () => {
         <>
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
-
                 {/* SEARCH BAR */}
-                <TextField variant="standard"
-                    name="outlined"
-                    label="Search"
-                    type="outlined"
-                    onChange={(event) => setSearch('%' + event.target.value + '%')}>
-                </TextField>
-                <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        name="outlined"
+                        label="Search"
+                        type="outlined"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}>
+                    </TextField>
+                    <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
+                </form>
                 {/* END SEARCH BAR */}
-
-
 
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
@@ -88,10 +90,9 @@ const MedicalScientific = () => {
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky">
                             <div className="relative wrap overflow-hidden p-10 h-full">
-                                <div className=''>
+                                <div>
                                     {events.map(event => (
-                                        <>
-
+                                        <div key={event.id}>
                                             <div onClick={() => handleClick(event.id)}>
                                                 {/* The line below is the actual line for the timeline */}
                                                 <div className="absolute h-full" style={divStyle}></div>
@@ -106,9 +107,7 @@ const MedicalScientific = () => {
                                                     <p className="text-gray-700 text-base">{event.info}</p>
                                                 </div>
                                             </div>
-
-
-                                        </>
+                                        </div >
                                     ))}
                                 </div>
                             </div>
