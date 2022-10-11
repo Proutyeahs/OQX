@@ -24,7 +24,7 @@ const MedicalScientific = () => {
         e.preventDefault();
         dispatch({
             type: 'GET_SEARCHED_EVENTS',
-            payload: { 
+            payload: {
                 payload: ('%' + search + '%'),
                 category: 2
             }
@@ -90,10 +90,9 @@ const MedicalScientific = () => {
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky">
                             <div className="relative wrap overflow-hidden p-10 h-full">
-                                <div className=''>
+                                <div>
                                     {events.map(event => (
-                                        <>
-
+                                        <div key={event.id}>
                                             <div onClick={() => handleClick(event.id)}>
                                                 {/* The line below is the actual line for the timeline */}
                                                 <div className="absolute h-full" style={divStyle}></div>
@@ -108,9 +107,7 @@ const MedicalScientific = () => {
                                                     <p className="text-gray-700 text-base">{event.info}</p>
                                                 </div>
                                             </div>
-
-
-                                        </>
+                                        </div >
                                     ))}
                                 </div>
                             </div>
