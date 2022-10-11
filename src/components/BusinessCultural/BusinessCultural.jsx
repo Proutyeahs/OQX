@@ -66,6 +66,18 @@ function BusinessCultural() {
                     <input type="text" placeholder="Search.. on submit" value={search} onChange={(e) => setSearch(e.target.value)}></input>
                     <button onClick={handleSubmit}>Submit</button>
                 </form>
+
+                {/* SEARCH BAR */}
+                {/* <TextField variant="standard"
+                    name="outlined"
+                    label="Search"
+                    type="outlined"
+                    onChange={(event) => setSearch('%' + event.target.value + '%')}>
+                </TextField>
+                <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon> */}
+                {/* END SEARCH BAR */}
+
+
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
