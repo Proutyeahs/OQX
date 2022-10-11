@@ -24,7 +24,7 @@ Node.js, React, Redux, Express, Passport, and PostgreSQL
 
 ## Link to hosted application:
 
-https://young-spire-22177.herokuapp.com/#/home
+https://young-spire-22177.herokuapp.com/#/about
 
 
 ### NOTES
