@@ -2,6 +2,9 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import TextField from '@mui/material/TextField'; // MUI TEXTFIELD FOR SEARCH BAR
+import SearchIcon from '@mui/icons-material/Search'; // MUI ICON FOR SEARCH BAR
+
 
 function BusinessCultural() {
 
@@ -60,8 +63,20 @@ function BusinessCultural() {
         <>
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
-                <input type="text" placeholder="Search.. on submit" onChange={(event) => setSearch('%' + event.target.value + '%')}></input>
-                <button onClick={handleSubmit}>Submit</button>
+
+                {/* SEARCH BAR */}
+                <TextField variant="standard" 
+                name="outlined"
+                label="Search" 
+                type="outlined" 
+                onChange={(event) => setSearch('%' + event.target.value + '%')}>
+                </TextField>
+                <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon> 
+               {/* END SEARCH BAR */}
+            
+
+
+
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
