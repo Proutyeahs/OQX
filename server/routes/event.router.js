@@ -104,10 +104,10 @@ router.get('/specific/:id', (req, res) => {
 router.post('/search', (req, res) => {
     console.log("In router. Getting events based on this search: ", req.body.payload, req.body.category);
 
-    const queryItems = [req.body.payload, req.body.category]
+    const queryItems = [req.body.payload, req.body.category, 'true']
     const queryText = `
     SELECT * FROM "timeline"
-    WHERE ("timeline".title ILIKE $1 or "timeline".info ILIKE $1 AND "timeline".category_id = $2);
+    WHERE ("timeline".title ILIKE $1 OR "timeline".info ILIKE $1) AND ("timeline".category_id = $2 AND "timeline".authorized = $3);
     `;
 
     pool.query(queryText, queryItems)

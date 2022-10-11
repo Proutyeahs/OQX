@@ -127,7 +127,6 @@ function EventDetail(event) {
                             </div>
                             {userStories.map(story => (
                                 <div key={story.id}>
-                                    <p>{story.displayName}:</p>
                                     <p className="text-gray-800 text-base text-left">{story.story}</p>
 
                                     {/* delete story if its the users story */}
