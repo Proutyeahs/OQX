@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import TextField from '@mui/material/TextField'; // MUI TEXTFIELD FOR SEARCH BAR
+import SearchIcon from '@mui/icons-material/Search'; // MUI ICON FOR SEARCH BAR
 
 function BusinessCultural() {
 
@@ -29,6 +31,7 @@ function BusinessCultural() {
         })
         setSearch('')
     }
+    
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -63,20 +66,15 @@ function BusinessCultural() {
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Search.. on submit" value={search} onChange={(e) => setSearch(e.target.value)}></input>
-                    <button onClick={handleSubmit}>Submit</button>
+                    <TextField
+                        name="outlined"
+                        label="Search"
+                        type="outlined"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}>
+                    </TextField>
+                    <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
                 </form>
-
-                {/* SEARCH BAR */}
-                {/* <TextField variant="standard"
-                    name="outlined"
-                    label="Search"
-                    type="outlined"
-                    onChange={(event) => setSearch('%' + event.target.value + '%')}>
-                </TextField>
-                <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon> */}
-                {/* END SEARCH BAR */}
-
 
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">

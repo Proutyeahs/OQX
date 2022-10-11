@@ -11,7 +11,7 @@ const MedicalScientific = () => {
     // const completion = useReadingProgress();
     const dispatch = useDispatch();
     const history = useHistory();
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState('')
 
     const handleClick = (id) => {
         console.log('Handle Click');
@@ -19,15 +19,17 @@ const MedicalScientific = () => {
         history.push(`/eventdetail/${id}`)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         console.log('Search input: ', search);
+        e.preventDefault();
         dispatch({
             type: 'GET_SEARCHED_EVENTS',
             payload: { 
-                payload: search,
+                payload: ('%' + search + '%'),
                 category: 2
             }
         })
+        setSearch('')
     }
 
     const formatDate = (dateString) => {
@@ -63,18 +65,18 @@ const MedicalScientific = () => {
         <>
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
-
                 {/* SEARCH BAR */}
-                <TextField variant="standard"
-                    name="outlined"
-                    label="Search"
-                    type="outlined"
-                    onChange={(event) => setSearch('%' + event.target.value + '%')}>
-                </TextField>
-                <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        name="outlined"
+                        label="Search"
+                        type="outlined"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}>
+                    </TextField>
+                    <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
+                </form>
                 {/* END SEARCH BAR */}
-
-
 
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
