@@ -44,11 +44,22 @@ function* putResource(action) {
     }
 }
 
+function* deleteResource(action) {
+    console.log(action.payload)
+    try{
+        yield axios.delete(`/api/resource/${action.payload.id}`)
+        yield put ({ type: 'FETCH_RESOURCE'})
+    }catch (err) {
+        console.log(err)
+    }
+}
+
 function* resourceSaga() {
     yield takeLatest('FETCH_RESOURCE', getResource)
     yield takeLatest('POST_RESOURCE', postResource)
     yield takeLatest('GET_SPECIFIC_RESOURCE', getSpecificResource)
     yield takeLatest('PUT_RESOURCE', putResource)
+    yield takeLatest('DELETE_RESOURCE', deleteResource)
 }
 
 export default resourceSaga;

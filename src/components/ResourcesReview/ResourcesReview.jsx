@@ -69,7 +69,7 @@ function ResourcesReview() {
                                             <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
                                                 dispatch({
                                                     type: 'DELETE_RESOURCE',
-                                                    payload: event
+                                                    payload: resource
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
                                
