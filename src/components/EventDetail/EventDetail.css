@@ -1,3 +1,11 @@
 .right {
     float: right;
 }
+
+.center {
+    text-align: center;
+}
+
+.align {
+    text-align: left;
+}

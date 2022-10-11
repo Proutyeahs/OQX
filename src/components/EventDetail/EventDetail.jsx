@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './EventDetail.css'
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 
 function EventDetail(event) {
     //Declare history, dispatch, params, useSelectors
@@ -52,6 +53,16 @@ function EventDetail(event) {
         }, 500)
     }
 
+    const handleDeleteEvent = () => {
+        dispatch({
+            type: 'DELETE_EVENT',
+            payload: specificEvent
+        })
+        setTimeout(() => {
+            history.push('/eventReview')
+        }, 500)
+    }
+
     console.log('userStories reducer: ', userStories)
 
     // This function takes the user back to the previous timeline that they were on.
@@ -76,9 +87,16 @@ function EventDetail(event) {
         <>
             <div className="flex items-center justify-center">
                 <div className="max-w-sm rounded overflow-hidden shadow-lg">
+
+                    {/* back button */}
+                    <div className='align'>
+                        <ArrowCircleLeftOutlinedIcon variant="contained" onClick={() => handleBack(event.category_id)}>Go back</ArrowCircleLeftOutlinedIcon>
+                    </div>
+
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className='font-bold text-xl-2'>{formatDate(event.date)}</p>
+                            <p className='font-bold text-xl-2'>
+                                {formatDate(event.date)}</p>
                         </div>
                     ))}
 
@@ -107,14 +125,17 @@ function EventDetail(event) {
                         {[eventDetail].map(event => (
                             <div className="text-gray-600 text-base text-left" key={event.id}>
                                 <a href={event.references}>References: {event.references}</a>
-                                <div className='center'>
-                                    <Button variant="contained" onClick={() => handleBack(event.category_id)}>Go back</Button></div>
                             </div>
                         ))}
 
                         {/* edit event button if admin */}
                         {user.admin &&
-                            <EditIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</EditIcon>
+                            <>
+                                <DeleteIcon className="right" style={{ cursor: 'pointer' }} variant="contained" color="error"
+                                    onClick={handleDeleteEvent}>Delete</DeleteIcon>
+
+                                <EditIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</EditIcon>
+                            </>
                         }
 
                     </div>
@@ -123,7 +144,9 @@ function EventDetail(event) {
                         <div className="px-6 py-4">
                             {/* button for adding a story */}
                             <div>
-                                <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
+                                {user.id &&
+                                    <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
+                                }
                             </div>
                             {userStories.map(story => (
                                 <div key={story.id}>

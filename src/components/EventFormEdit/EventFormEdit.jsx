@@ -9,7 +9,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import './EventFormEdit.css'
 
 function EventFormEdit() {
@@ -64,16 +63,6 @@ function EventFormEdit() {
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
-    }
-
-    const handleDelete = () => {
-        dispatch({
-            type: 'DELETE_EVENT',
-            payload: specificEvent
-        })
-        setTimeout(() => {
-            history.push('/eventReview')
-        }, 500)
     }
 
     return (
@@ -156,10 +145,6 @@ function EventFormEdit() {
                 <div>
                     <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                 </div>
-
-                    {/* dispatches delete request */}
-                    <DeleteIcon className="left" style={{ cursor: 'pointer' }} variant="contained" color="error"
-                        onClick={handleDelete}>Delete</DeleteIcon>
             </div>
         </>
     )
