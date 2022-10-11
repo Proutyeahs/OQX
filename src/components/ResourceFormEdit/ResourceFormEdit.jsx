@@ -32,7 +32,7 @@ function ResourceFormEdit() {
 
     // handle dispatch of information
     const submit = () => {
-        console.log(specificEvent)
+        console.log(specificResource)
         dispatch({
             type: 'PUT_RESOURCE',
             payload: specificResource

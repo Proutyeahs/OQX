@@ -49,4 +49,18 @@ VALUES  ($1, $2, $3, $4)
     })
 });
 
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log("edit resource:", req.body)
+    const query = `
+    UPDATE "resources"
+    SET "name" = $1, "phoneNumber" = $2, "address" = $3, "category_id" = $4;
+    ;`;
+    pool.query(query, [req.body.name, req.body.phoneNumber, req.body.address, req.body.category_id]).then(result => {
+        res.sendStatus(200)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
+
 module.exports = router;
