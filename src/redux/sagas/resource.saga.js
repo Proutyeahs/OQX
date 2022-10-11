@@ -12,8 +12,19 @@ function* getResource(action) {
     }
 }
 
+//admin posting new resource
+function* postResource(action) {
+    console.log("in post resource", action.payload)
+    try{
+        yield axios.post(`api/resource`, action.payload)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 function* resourceSaga() {
     yield takeLatest('FETCH_RESOURCE', getResource)
+    yield takeLatest('POST_RESOURCE', postResource)
 }
 
 export default resourceSaga;
