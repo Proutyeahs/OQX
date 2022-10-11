@@ -20,8 +20,9 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 })); // end MUI STYLING
 
-function UserStoriesForm() {
 
+function UserStoriesForm() {
+    const user = useSelector((store) => store.user)
     // gets specific event info on load/reload
     useEffect(() => {
         reload(id)
@@ -39,8 +40,9 @@ function UserStoriesForm() {
     const history = useHistory();
 
     // local state of information to be submitted
-    const [story, setStory] = useState({ displayName: '', story: '', timelineEvent: id })
+    const [story, setStory] = useState({ user_id: user.id, story: '', timelineEvent: Number(id) })
 
+    console.log(story);
     // handle dispatch of information
     const submit = () => {
         console.log(story)
@@ -65,9 +67,10 @@ function UserStoriesForm() {
                         <Item>
 
                             {/* Display Name */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="DisplayName" onChange={(e) => setStory({ ...story, displayName: e.target.value })} />
-                            </div>
+                            {/* Commented out the username because we're not using it anymore. */}
+                            {/* <div>
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} placeholder="Username" />
+                            </div> */}
 
                             {/* User Story */}
                             <div>
