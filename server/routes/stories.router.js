@@ -2,6 +2,9 @@ const express = require('express');
 const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
+const {
+    rejectUnauthenticatedAdmin,
+} = require('../modules/authenticationAdmin-middleware');
 const pool = require('../modules/pool');
 
 const router = express.Router();
