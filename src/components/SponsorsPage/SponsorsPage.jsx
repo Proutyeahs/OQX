@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import './SponsorsPage.css';
 
-//TODO outline sponsors
-//TODO remove loud bg
 
 //This Page displays potential sponsors as well as their tiers (organized by size)
 
 function SponsorsPage() {
-
+    const sponsors = useSelector((store) => store.sponsor);
     const store = useSelector((store) => store);
     const [heading, setHeading] = useState('Sponsors');
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_SPONSOR',
+        })
+    }, [])
+
+    console.log(sponsors)
 
     return (
         <>
