@@ -65,13 +65,16 @@ function BusinessCultural() {
                 {/* This first chunk of DIVs contains the header for the page.*/}
 
                 {/* SEARCH BAR */}
+                <form onSubmit={handleSubmit}>
                 <TextField variant="standard" 
                 name="outlined"
                 label="Search" 
                 type="outlined" 
-                onChange={(event) => setSearch('%' + event.target.value + '%')}>
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}>
                 </TextField>
                 <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon> 
+                </form>
                {/* END SEARCH BAR */}
             
 
