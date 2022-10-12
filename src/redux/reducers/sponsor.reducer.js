@@ -1,4 +1,4 @@
-// holds the resource list
+// holds the sponsor list
 const sponsorReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_SPONSOR':

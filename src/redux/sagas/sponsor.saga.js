@@ -56,6 +56,9 @@ function* deleteSponsor(action) {
     }
 }
 
+
+
+//listens for sagas to be called, then runs the corresponding function
 function* sponsorSaga() {
     yield takeLatest ('FETCH_SPONSOR', getSponsor)
     yield takeLatest ('GET_SPECIFIC_SPONSOR', getSpecificSponsor)

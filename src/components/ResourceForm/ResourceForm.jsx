@@ -34,7 +34,7 @@ function ResourceForm() {
                 window.location.reload();
             }, 500)
         } else {
-            // popup to thanks for submission
+            // if user isn't admin, push to resources
             setTimeout(() => {
                 history.push('/resources')
             }, 500)
@@ -43,7 +43,7 @@ function ResourceForm() {
 
     return (
         <>
-            <h1 className="font-bold">Submit Resource</h1>
+            <h1 className="font-bold">Submit New Resource</h1>
 
             <div className="center">
 

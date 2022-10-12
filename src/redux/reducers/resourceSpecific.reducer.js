@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+// reducer that holds the sponsor info for editing
+const resourceSpecificReducer = (state = {category_id:''}, action) => {
+=======
 // reducer that holds the resource info for editing
 const resourceSpecificReducer = (state = { category_id: '' }, action) => {
+>>>>>>> 0988e059584ed938fac9ac46aef5c91e8cd92df2
     switch (action.type) {
 
         // sets the reducer to an object with all the data from the database

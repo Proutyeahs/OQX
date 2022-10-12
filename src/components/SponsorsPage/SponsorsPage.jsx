@@ -5,8 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './SponsorsPage.css';
 
-
-//This Page displays potential sponsors as well as their tiers (organized by size)
+//This Page displays potential sponsors as well as their tiers
 
 function SponsorsPage() {
     const sponsors = useSelector((store) => store.sponsor);
@@ -15,6 +14,7 @@ function SponsorsPage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    //on load, fetch sponsors
     useEffect(() => {
         dispatch({
             type: 'FETCH_SPONSOR',
@@ -22,7 +22,7 @@ function SponsorsPage() {
     }, [])
 
     //console.log(sponsors)
-
+    //TODO: loop and organize sponsors by tier
     const tier = () => {
         for (let sponsor of sponsors)
         console.log(sponsor)

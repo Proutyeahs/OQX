@@ -19,7 +19,7 @@ import Stack from '@mui/material/Stack';
 
 function SponsorsReview() {
 
-    // get the data for user stories on page load/reload
+    // get the data for sponsors on page load/reload
     useEffect(() => {
         dispatch({ type: 'FETCH_SPONSOR'})
  }, [dispatch])
@@ -27,6 +27,7 @@ function SponsorsReview() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // where sponsor data is stored
     const sponsors = useSelector((store) => store.sponsor)
 
     return (
@@ -58,7 +59,7 @@ function SponsorsReview() {
 
                                  
                                         <Stack direction="row" spacing={2}>
-                                            {/* pushes to edit event page */}
+                                            {/* pushes to edit sponsor page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/sponsorFormEdit/${sponsor.id}`)}>Edit</EditIcon>
 
                                             {/* Space between buttons */}

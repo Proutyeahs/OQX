@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './ResourcesPage.css';
 
+//This Page displays resources sponsors as well as their categories
 
 function ResourcesPage() {
     const resources = useSelector((store) => store.resource)
@@ -13,13 +14,17 @@ function ResourcesPage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+<<<<<<< HEAD
+    //on load, fetch resources
+=======
+>>>>>>> 0988e059584ed938fac9ac46aef5c91e8cd92df2
     useEffect(() => {
         dispatch({
             type: 'FETCH_RESOURCE',
         })
     }, [])
 
-    console.log(resources);
+    //console.log(resources);
 
     return (
         <>

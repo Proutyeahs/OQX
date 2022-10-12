@@ -24,7 +24,7 @@ function SponsorForm() {
 
     // handle dispatch of information
     const submit = () => {
-        //console.log("submitting:", resource)
+        //console.log("submitting:", sponsor)
         dispatch({
             type: 'POST_SPONSOR',
             payload: sponsor
@@ -34,7 +34,7 @@ function SponsorForm() {
                 window.location.reload();
             }, 500)
         } else {
-            // popup to thanks for submission
+            // if user isn't admin, push to sponsors
             setTimeout(() => {
                 history.push('/sponsors')
             }, 500)

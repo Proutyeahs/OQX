@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 
 function ResourceFormEdit() {
 
-    // gets specific event info on load/reload
+    // gets specific resource info on load/reload
     useEffect(() => {
         reload(id)
     }, [])
