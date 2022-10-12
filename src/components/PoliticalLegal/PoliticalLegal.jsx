@@ -9,12 +9,16 @@ import SearchIcon from '@mui/icons-material/Search'; // MUI ICON FOR SEARCH BAR
 function PoliticalLegal() {
 
     const events = useSelector((store) => store.event)
-    // const completion = useReadingProgress();
     const dispatch = useDispatch();
     const history = useHistory();
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
+    
 
-
+    // function that shortens the description on the card.
+    const shortenDescription = (description) => {
+        return (description.split(' ').slice(0,10).join(' '));
+    }
+    
     const handleClick = (id) => {
         console.log('Handle Click');
         console.log('ID', id)
@@ -106,7 +110,7 @@ function PoliticalLegal() {
                                                     <img className="rounded-t-lg" src={event.image} />}
                                                 <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
                                                     <p className="font-bold text-xl mb-2">{event.title}</p>
-                                                    <p className="text-gray-700 text-base">{event.info}</p>
+                                                    <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                 </div>
                                             </div>
                                         </div >
