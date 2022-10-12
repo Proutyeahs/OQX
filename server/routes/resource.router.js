@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
     })
 });
 
+// gets all the resources
 router.get('/:id', (req, res) => {
     console.log("resource", req.params.id)
     const query = `
@@ -35,6 +36,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
+// posts a new resource
 router.post('/', (req, res) => {
     console.log("in POST resource:", req.params)
     const query = `
@@ -49,6 +51,7 @@ VALUES  ($1, $2, $3, $4)
     })
 });
 
+// updates a resource
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log("edit resource:", req.body)
     const query = `
@@ -64,6 +67,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
+// deletes a resource
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `
     DELETE FROM "resources"

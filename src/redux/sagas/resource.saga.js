@@ -35,6 +35,7 @@ function* getSpecificResource(action) {
     }
 }
 
+// update request to the server
 function* putResource(action) {
     console.log(action.payload)
     try {
@@ -44,12 +45,13 @@ function* putResource(action) {
     }
 }
 
+// delete request to the server
 function* deleteResource(action) {
     console.log(action.payload)
-    try{
+    try {
         yield axios.delete(`/api/resource/${action.payload.id}`)
-        yield put ({ type: 'FETCH_RESOURCE'})
-    }catch (err) {
+        yield put({ type: 'FETCH_RESOURCE' })
+    } catch (err) {
         console.log(err)
     }
 }

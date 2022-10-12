@@ -13,7 +13,6 @@ function ResourcesPage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-
     useEffect(() => {
         dispatch({
             type: 'FETCH_RESOURCE',
@@ -35,7 +34,6 @@ function ResourcesPage() {
                         <li>{resource.phoneNumber}</li>
                     </ul>)}
             </div>
-
         </>
     );
 }

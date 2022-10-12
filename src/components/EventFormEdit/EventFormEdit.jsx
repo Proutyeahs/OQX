@@ -33,7 +33,6 @@ function EventFormEdit() {
     const history = useHistory();
 
     // uploads the image to cloudinary and saves the url in local state
-    // *********** change for leos account ***********
     const uploadImage = (e) => {
         console.log(e.target.files[0])
         const formData = new FormData();
@@ -66,6 +65,7 @@ function EventFormEdit() {
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
 
+    // delete request for a specific event
     const handleDelete = () => {
         dispatch({
             type: 'DELETE_EVENT',
@@ -157,9 +157,9 @@ function EventFormEdit() {
                     <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                 </div>
 
-                    {/* dispatches delete request */}
-                    <DeleteIcon className="left" style={{ cursor: 'pointer' }} variant="contained" color="error"
-                        onClick={handleDelete}>Delete</DeleteIcon>
+                {/* dispatches delete request */}
+                <DeleteIcon className="left" style={{ cursor: 'pointer' }} variant="contained" color="error"
+                    onClick={handleDelete}>Delete</DeleteIcon>
             </div>
         </>
     )

@@ -13,12 +13,14 @@ const MedicalScientific = () => {
     const history = useHistory();
     const [search, setSearch] = useState('')
 
+    // moves the user to details page
     const handleClick = (id) => {
         console.log('Handle Click');
         console.log('ID', id)
         history.push(`/eventdetail/${id}`)
     }
 
+    // dispatches a search word to check the database
     const handleSubmit = (e) => {
         console.log('Search input: ', search);
         e.preventDefault();
@@ -32,6 +34,7 @@ const MedicalScientific = () => {
         setSearch('')
     }
 
+    // formats the date
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -112,10 +115,9 @@ const MedicalScientific = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </section >
+            </section>
         </>
     )
 }
