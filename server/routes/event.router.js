@@ -57,7 +57,9 @@ router.get('/:id', (req, res) => {
     console.log("timeline", req.params)
     const query = `
     SELECT * FROM "timeline"
-    WHERE ("timeline".category_id = $1 AND "timeline".authorized = $2 )
+    WHERE ("timeline".category_id = $1 AND "timeline".authorized = $2)
+    ORDER BY "date" ASC;
+
   ;`;
     pool.query(query, [req.params.id, 'true']).then(result => {
         console.log("timeline", result.rows)

@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
@@ -79,11 +80,11 @@ function UserStoriesReview() {
                                     <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
                                             {/* pushes to edit user story page */}
-                                            <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() =>
+                                            <AddTaskIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() =>
                                                 dispatch({
                                                     type: 'APPROVE_USER_STORY',
                                                     payload: story.id
-                                                })}>Approve</EditIcon>
+                                                })}>Approve</AddTaskIcon>
 
                                             {/* Space between buttons */}
                                             &nbsp;
