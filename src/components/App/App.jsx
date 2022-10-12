@@ -34,6 +34,7 @@ import SponsorsPage from '../SponsorsPage/SponsorsPage'
 import SponsorsReview from '../SponsorsReview/SponsorsReview';
 import SponsorForm from '../SponsorForm/SponsorForm'
 import SponsorFormEdit from '../SponsorFormEdit/SponsorFormEdit';
+import AdminDash from '../AdminDash/AdminDash';
 import './App.css';
 
 
@@ -279,6 +280,18 @@ function App() {
               <UserStoriesReview />
               :
               <MedicalScientific />
+            }
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
+            exact
+            path="/admin"
+          >
+            {user.admin ?
+              <AdminDash />
+              :
+              <AboutPage />
             }
           </ProtectedRoute>
 

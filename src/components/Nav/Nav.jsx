@@ -172,79 +172,16 @@ function Nav() {
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
 
-          {/* admin event links */}
-          {user.id && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/eventForm">
-                <ListItem>
-                  Create Event
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-
           {user.admin && (
             <MenuItem onClick={handleClose}>
-              <Link to="/eventReview">
+              <Link to="/admin">
                 <ListItem>
-                  Review Events
+                  Admin Dashboard
                 </ListItem>
               </Link>
             </MenuItem>
           )}
 
-          {/* admin story links */}
-          {user.admin && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/userStoriesReview">
-                <ListItem>
-                  Review Stories
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-
-          {/* ADMIN RESOURCE LINKS */}
-          {user.id && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/resourceForm">
-                <ListItem>
-                  Add Resource
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-
-          {user.admin && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/resourceReview">
-                <ListItem>
-                  Review Resources
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-
-          {/* ADMIN SPONSOR LINKS */}
-          {user.id && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/sponsorForm">
-                <ListItem>
-                  Add Sponsor
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )} 
-
-          {user.admin && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/sponsorReview">
-                <ListItem>
-                  Review Sponsors
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
 
 
         </Menu>
