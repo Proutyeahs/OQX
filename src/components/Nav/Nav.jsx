@@ -123,7 +123,6 @@ function Nav() {
             'aria-labelledby': 'basic-button',
           }}>
 
-
           {/* If no user is logged in, show these links */}
           {!user.id && (
             // If there's no user, show login/registration links
@@ -202,6 +201,26 @@ function Nav() {
             </MenuItem>
           )}
 
+          {/* ADMIN RESOURCE LINKS */}
+          {user.id && (
+            <MenuItem onClick={handleClose}>
+              <Link to="/resourceForm">
+                <ListItem>
+                  Add Resource
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
+
+          {user.admin && (
+            <MenuItem onClick={handleClose}>
+              <Link to="/resourceReview">
+                <ListItem>
+                  Review Resources
+                </ListItem>
+              </Link>
+            </MenuItem>
+          )}
         </Menu>
       </div>
       <div>

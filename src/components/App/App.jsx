@@ -30,6 +30,7 @@ import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
 import ResourcesPage from '../ResourcesPage/ResourcesPage.jsx';
 import ResourcesReview from '../ResourcesReview/ResourcesReview';
 import ResourceForm from '../ResourceForm/ResourceForm';
+import ResourceFormEdit from '../ResourceFormEdit/ResourceFormEdit';
 import './App.css';
 
 
@@ -146,6 +147,18 @@ function App() {
               <MedicalScientific />
             }
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/resourceFormEdit/:id"
+          >
+            {user.admin ?
+              <ResourceFormEdit />
+              :
+              <ResourcesPage />
+            }
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             exact

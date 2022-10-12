@@ -33,7 +33,6 @@ function EventFormEdit() {
     const history = useHistory();
 
     // uploads the image to cloudinary and saves the url in local state
-    // *********** change for leos account ***********
     const uploadImage = (e) => {
         console.log(e.target.files[0])
         const formData = new FormData();
