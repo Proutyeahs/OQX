@@ -108,12 +108,10 @@ function PoliticalLegal() {
                                         ))}
                                     </div>
                                         </div>
-                                    ))}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </>
     )
