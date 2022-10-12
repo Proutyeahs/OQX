@@ -1,46 +1,49 @@
 import React from 'react';
 import './AdminDash.css';
 import '@fontsource/roboto';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+
 function AdminDash() {
 
+    const history = useHistory();
 
     return (
         <div className="dash">
             <h1>Admin Dashboard</h1>
             <h1>Create</h1>
    
-            <Link to="/eventForm" class="link">
+            <Button className="link" variant="contained" color="success" onClick={() => history.push('/eventForm')}>
                 Create Event
-            </Link>
+            </Button>
 
-            <Link to="/sponsorForm" class="link">
+            <Button className="link" variant="contained" color="success" onClick={() => history.push('/sponsorForm')}>
                 Add Sponsor
-            </Link>
+            </Button>
 
-            <Link to="/resourceForm" class="link">
+            <Button className="link" variant="contained" color="success" onClick={() => history.push('/resourceForm')}>
                 Add Resource
-            </Link>
+            </Button>
 
             <h2>Review</h2>
             <h6>Approve events and user stories,</h6>
             <h6>edit and delete sponsors and resources</h6>
 
-            <Link to="/eventReview" class="link">
+            <Button className="link" variant="contained" onClick={() => history.push('/eventReview')}>
                 Review Events
-            </Link>
+            </Button>
 
-            <Link to="/userStoriesReview" class="link">
+            <Button className="link" variant="contained" onClick={() => history.push('/userStoriesReview')}>
                 Review Stories
-            </Link>
+            </Button>
 
-            <Link to="/resourceReview" class="link">
+            <Button className="link" variant="contained" onClick={() => history.push('/resourceReview')}>
                 Review Resources
-            </Link>
+            </Button>
 
-            <Link to="/sponsorReview" class="link">
+            <Button className="link" variant="contained" onClick={() => history.push('/sponsorReview')}>
                 Review Sponsors
-            </Link>
+            </Button>
 
         </div>
     );

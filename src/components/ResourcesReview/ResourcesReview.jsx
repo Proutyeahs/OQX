@@ -17,6 +17,28 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 
+// TABLE MUI FUNCTIONS
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.text.secondary,
+        color: theme.palette.common.white,
+        fontSize: 20
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+        border: 0,
+    },
+})); // END TABLE MUI FUNCTIONS
+
 function ResourcesReview() {
 
     // get the data for resources on page load/reload
@@ -33,29 +55,29 @@ function ResourcesReview() {
     return (
         <>
             <div className="center">
-                <TableContainer >
-                    <Table>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
                         <TableHead>
-                            <TableRow>
-                                <TableCell>
+                            <StyledTableRow>
+                                <StyledTableCell>
                                     Resources
-                                </TableCell>
-                                <TableCell>
+                                </StyledTableCell>
+                                <StyledTableCell>
                                     Review
-                                </TableCell>
-                            </TableRow>
+                                </StyledTableCell>
+                            </StyledTableRow>
                         </TableHead>
                         <TableBody className='outline'>
 
                             {/* loop to render info on dom */}
                             {resources.map(resource => (
-                                <TableRow key={resource.id}>
-                                    <TableCell>
+                                <StyledTableRow key={resource.id}>
+                                    <StyledTableCell>
                                         {resource.name}:
                                         <br></br>
                                         {resource.address}
-                                    </TableCell>
-                                    <TableCell>
+                                    </StyledTableCell>
+                                    <StyledTableCell>
                                         <Stack direction="row" spacing={2}>
                                             {/* pushes to edit resource page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/resourceFormEdit/${resource.id}`)}>Edit</EditIcon>
@@ -71,8 +93,8 @@ function ResourcesReview() {
                                                     payload: resource
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
-                                    </TableCell>
-                                </TableRow>
+                                    </StyledTableCell>
+                                </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>

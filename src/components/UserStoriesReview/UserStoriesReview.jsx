@@ -10,6 +10,32 @@ import TableRow from '@material-ui/core/TableRow';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import { tableCellClasses } from '@mui/material/TableCell';
+
+import Paper from '@mui/material/Paper';
+
+// TABLE MUI FUNCTIONS
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.text.secondary,
+        color: theme.palette.common.white,
+        fontSize: 20
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+        border: 0,
+    },
+})); // END TABLE MUI FUNCTIONS
 
 function UserStoriesReview() {
 
@@ -28,29 +54,29 @@ function UserStoriesReview() {
     return (
         <>
             <div className="center">
-                <TableContainer >
-                    <Table>
+                <TableContainer component={Paper} >
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
                         <TableHead>
-                            <TableRow>
-                                <TableCell>
+                            <StyledTableRow>
+                                <StyledTableCell>
                                     Story
-                                </TableCell>
-                                <TableCell>
+                                </StyledTableCell>
+                                <StyledTableCell align="right">
                                     Review
-                                </TableCell>
-                            </TableRow>
+                                </StyledTableCell>
+                            </StyledTableRow>
                         </TableHead>
                         <TableBody className='outline'>
 
                             {/* loop to render info on dom */}
                             {userStories.map(story => (
-                                <TableRow key={story.id}>
+                                <StyledTableRow key={story.id}>
                                     <TableCell>
                                         {story.title}:
                                         <br></br>
                                         {story.story}
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
                                             {/* pushes to edit user story page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() =>
@@ -69,8 +95,8 @@ function UserStoriesReview() {
                                                     payload: story.id
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
-                                    </TableCell>
-                                </TableRow>
+                                    </StyledTableCell>
+                                </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
