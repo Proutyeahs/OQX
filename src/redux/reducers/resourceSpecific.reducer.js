@@ -1,5 +1,5 @@
-// reducer that holds the resource info for editing
-const resourceSpecificReducer = (state = {category_id:''}, action) => {
+const resourceSpecificReducer = (state = { category_id: '' }, action) => {
+
     switch (action.type) {
 
         // sets the reducer to an object with all the data from the database

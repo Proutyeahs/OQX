@@ -34,7 +34,7 @@ function ResourceForm() {
                 window.location.reload();
             }, 500)
         } else {
-            // popup to thanks for submission
+            // if user isn't admin, push to resources
             setTimeout(() => {
                 history.push('/resources')
             }, 500)
@@ -43,49 +43,48 @@ function ResourceForm() {
 
     return (
         <>
-            <h1 className="font-bold">Submit Resource</h1>
+            <h1 className="font-bold">Submit New Resource</h1>
 
             <div className="center">
 
-                            {/* BUSINESS NAME */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Business Name" onChange={(e) => setResource({ ...resource, name: e.target.value })} />
-                            </div>
+                {/* BUSINESS NAME */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Business Name" onChange={(e) => setResource({ ...resource, name: e.target.value })} />
+                </div>
 
-                            {/* NUMBER  */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="text" placeholder="Business Phone Number" onChange={(e) => setResource({ ...resource, phoneNumber: e.target.value })} />
-                            </div>
+                {/* NUMBER  */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="text" placeholder="Business Phone Number" onChange={(e) => setResource({ ...resource, phoneNumber: e.target.value })} />
+                </div>
 
-                            {/* BUSINESS ADDRESS */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Business Address" onChange={(e) => setResource({ ...resource, address: e.target.value })} />
-                            </div>
+                {/* BUSINESS ADDRESS */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Business Address" onChange={(e) => setResource({ ...resource, address: e.target.value })} />
+                </div>
 
-                            {/* DROPDOWN TO CHOOSE TIMELINE */}
-                            <div>
-                                <Box >
-                                    <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
-                                        <InputLabel> Select category </InputLabel>
-                                        <Select label="Select category"
+                {/* DROPDOWN TO CHOOSE TIMELINE */}
+                <div>
+                    <Box >
+                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                            <InputLabel> Select category </InputLabel>
+                            <Select label="Select category"
 
-                                            defaultValue={''} onChange={(e) => setResource({ ...resource, category_id: e.target.value })}>
-                                            <MenuItem value="1"> Political/Legal
-                                            </MenuItem>
-                                            <MenuItem value="2"> Medical/Scientific
-                                            </MenuItem>
-                                            <MenuItem value="3"> Business/Cultural
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Box>
-                            </div>
+                                defaultValue={''} onChange={(e) => setResource({ ...resource, category_id: e.target.value })}>
+                                <MenuItem value="1"> Political/Legal
+                                </MenuItem>
+                                <MenuItem value="2"> Medical/Scientific
+                                </MenuItem>
+                                <MenuItem value="3"> Business/Cultural
+                                </MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </div>
 
-                            {/* SUBMIT */}
-                            <div>
-                                <Button variant="contained" color="success" onClick={submit}>Submit</Button>
-                            </div>
-
+                {/* SUBMIT */}
+                <div>
+                    <Button variant="contained" color="success" onClick={submit}>Submit</Button>
+                </div>
             </div>
         </>
     )

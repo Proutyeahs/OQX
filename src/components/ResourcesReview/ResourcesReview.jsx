@@ -19,14 +19,15 @@ import Stack from '@mui/material/Stack';
 
 function ResourcesReview() {
 
-    // get the data for user stories on page load/reload
+    // get the data for resources on page load/reload
     useEffect(() => {
-        dispatch({ type: 'FETCH_RESOURCE'})
- }, [dispatch])
+        dispatch({ type: 'FETCH_RESOURCE' })
+    }, [dispatch])
 
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // where resource data is stored
     const resources = useSelector((store) => store.resource)
 
     return (
@@ -55,10 +56,8 @@ function ResourcesReview() {
                                         {resource.address}
                                     </TableCell>
                                     <TableCell>
-
-                                 
                                         <Stack direction="row" spacing={2}>
-                                            {/* pushes to edit event page */}
+                                            {/* pushes to edit resource page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/resourceFormEdit/${resource.id}`)}>Edit</EditIcon>
 
                                             {/* Space between buttons */}
@@ -72,7 +71,6 @@ function ResourcesReview() {
                                                     payload: resource
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
-                               
                                     </TableCell>
                                 </TableRow>
                             ))}

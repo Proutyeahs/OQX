@@ -13,18 +13,19 @@ function PoliticalLegal() {
     const history = useHistory();
     const [search, setSearch] = useState('');
 
-
     // function that shortens the description on the card.
     const shortenDescription = (description) => {
         return (description.split(' ').slice(0, 10).join(' '));
     }
 
+    // move the user to the details page
     const handleClick = (id) => {
         console.log('Handle Click');
         console.log('ID', id)
         history.push(`/eventdetail/${id}`)
     }
 
+    // dispatches a search word to check the database
     const handleSubmit = (e) => {
         console.log('Search input: ', search);
         e.preventDefault();
@@ -38,6 +39,7 @@ function PoliticalLegal() {
         setSearch('')
     }
 
+    // formats date
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
@@ -105,13 +107,14 @@ function PoliticalLegal() {
                                             </div>
                                         ))}
                                     </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </section >
+            </section>
         </>
     )
 }

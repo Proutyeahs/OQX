@@ -4,7 +4,9 @@ import { useHistory, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import './EventDetail.css'
+import './EventDetail.css';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import AddIcon from '@mui/icons-material/Add';
 
 function EventDetail(event) {
     //Declare history, dispatch, params, useSelectors
@@ -14,6 +16,7 @@ function EventDetail(event) {
     const eventDetail = useSelector(store => store.specificEvent)
     const userStories = useSelector(store => store.userStories)
     const user = useSelector((store) => store.user)
+    const specificEvent = useSelector((store) => store.specificEvent);
 
     console.log('eventDetail should give event', event)
 
@@ -71,75 +74,93 @@ function EventDetail(event) {
                 break;
         }
     }
+    //Deletes entire event from timeline
+    const handleDeleteEvent = () => {
+        dispatch({
+            type: 'DELETE_EVENT',
+            payload: specificEvent
+        })
+        setTimeout(() => {
+            history.push('/eventReview')
+        }, 500)
+    }
 
     return (
         <>
-            <div className="flex items-center justify-center">
-                <div className="max-w-sm rounded overflow-hidden shadow-lg">
+            <div className="px-4" >
+                <div className="text-left"><ArrowBackIosNewIcon variant="contained" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
+                </div>
+                <div className="text-right">
+                    {/* edit event button if admin */}
+                    {user.admin &&
+                        <div><EditIcon variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}></EditIcon>
+                            {/* dispatches delete request */}
+                            <DeleteIcon variant="contained" color="error"
+                                onClick={handleDeleteEvent}></DeleteIcon>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div className="grid justify-items-center ...">
+                <div className="max-w-sm rounded overflow-hidden shadow-lg justify-items-center ...">
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className='font-bold text-xl-2'>{formatDate(event.date)}</p>
+                            <p className="font-bold text-xl">{formatDate(event.date)}</p>
                         </div>
                     ))}
 
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className='font-bold text-xl mb-2'>{event.title}</p>
+                            <p className="font-bold text-2xl mb-2">{event.title}</p>
                         </div>
                     ))}
 
                     {[eventDetail].map(event => (
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg" key={event.id}>
+                        <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg" key={event.id}>
                             <img src={event.image} />
                         </div>
                     ))}
                     <br></br>
-                    <div className="px-6 py-4">
+                    <div className="px-6 py-4 ">
 
                         {[eventDetail].map(event => (
                             <div key={event.id}>
                                 <p className="text-gray-800 text-base text-left">{event.info}</p>
                             </div>
                         ))}
-                        <br></br>
-                        <br></br>
-
-                        {[eventDetail].map(event => (
-                            <div className="text-gray-600 text-base text-left" key={event.id}>
-                                <a href={event.references}>References: {event.references}</a>
-                                <div className='center'>
-                                    <Button variant="contained" onClick={() => handleBack(event.category_id)}>Go back</Button></div>
-                            </div>
-                        ))}
-
-                        {/* edit event button if admin */}
-                        {user.admin &&
-                            <EditIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</EditIcon>
-                        }
-
-                    </div>
-                    <div>
-                        <br></br>
-                        <div className="px-6 py-4">
-                            {/* button for adding a story */}
-                            <div>
-                                <Button variant="contained" color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Add A Story</Button>
-                            </div>
-                            {userStories.map(story => (
-                                <div key={story.id}>
-                                    <p className="text-gray-800 text-base text-left">{story.story}</p>
-
-                                    {/* delete story if its the users story */}
-                                    {user.id === story.user_id &&
-                                        <DeleteIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
-                                        || user.admin &&
-                                        <DeleteIcon className='right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
-                                    }
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
+                <br></br>
+                <br></br>
+
+                {[eventDetail].map(event => (
+                    <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg text-left" key={event.id}>
+                        <a href={event.references}>References: {event.references}</a>
+
+                    </div>
+                ))}
+
+                <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg">
+                    <br></br>
+                    <div >
+                        {/* button for adding a story */}
+                        <div>
+                            <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
+                        </div>
+                        {userStories.map(story => (
+                            <div className="container mx-auto px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg" key={story.id}>
+                                <p className="container mx-auto text-gray-800 text-base text-left">{story.story} {/* delete story if its the users story */}
+                                    {user.id === story.user_id &&
+                                        <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                        || user.admin &&
+                                        <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                    }</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </>
     )

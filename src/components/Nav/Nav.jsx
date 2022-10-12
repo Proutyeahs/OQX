@@ -123,7 +123,6 @@ function Nav() {
             'aria-labelledby': 'basic-button',
           }}>
 
-
           {/* If no user is logged in, show these links */}
           {!user.id && (
             // If there's no user, show login/registration links
@@ -172,55 +171,18 @@ function Nav() {
 
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
-          {user.id && (
+
+          {user.admin && (
             <MenuItem onClick={handleClose}>
-              <Link to="/eventForm">
+              <Link to="/admin">
                 <ListItem>
-                  Create Event
+                  Admin Dashboard
                 </ListItem>
               </Link>
             </MenuItem>
           )}
 
-          {user.admin && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/eventReview">
-                <ListItem>
-                  Review Events
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
 
-          {user.admin && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/userStoriesReview">
-                <ListItem>
-                  Review Stories
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-    {/* ADMIN RESOURCE LINKS */}
-          {user.id && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/resourceForm">
-                <ListItem>
-                  Add Resource
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
-
-          {user.admin && (
-            <MenuItem onClick={handleClose}>
-              <Link to="/resourceReview">
-                <ListItem>
-                  Review Resources
-                </ListItem>
-              </Link>
-            </MenuItem>
-          )}
 
         </Menu>
       </div>

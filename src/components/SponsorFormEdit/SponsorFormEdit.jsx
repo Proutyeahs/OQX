@@ -10,9 +10,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 
-function ResourceFormEdit() {
+function SponsorFormEdit() {
 
-    // gets specific resource info on load/reload
+    // gets specific sponsor info on load/reload
     useEffect(() => {
         reload(id)
     }, [])
@@ -20,27 +20,28 @@ function ResourceFormEdit() {
     const reload = (id) => {
         console.log(id)
         dispatch({
-            type: 'GET_SPECIFIC_RESOURCE',
+            type: 'GET_SPECIFIC_SPONSOR',
             payload: id
         })
     }
 
     // holds the data in the reducer
-    const specificResource = useSelector((store) => store.resourceSpecific);
+    const specificSponsor = useSelector((store) => store.sponsorSpecific);
     const dispatch = useDispatch();
     const history = useHistory();
 
     // handle dispatch of information
     const submit = () => {
-        console.log(specificResource)
+        console.log(specificSponsor)
         dispatch({
-            type: 'PUT_RESOURCE',
-            payload: specificResource
+            type: 'PUT_SPONSOR',
+            payload: specificSponsor
         })
         setTimeout(() => {
             history.goBack()
         }, 500)
     }
+
 
     return (
         <>
@@ -48,50 +49,44 @@ function ResourceFormEdit() {
             <div className="center">
                 <div>
 
-                    {/* the defaultValue is rendered with the name from the specificResource object stored in the reducer */}
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline defaultValue={specificResource.name} type="text"
+                    {/* the defaultValue is rendered with the company name from the specificSponsor object stored in the reducer */}
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline defaultValue={specificSponsor.company} type="text"
                         onChange={(e) =>
 
-                            // dispatch sends the new data for the edited name to the object in the reducer
+                            // dispatch sends the new data for the edited company name to the object in the reducer
                             dispatch({
-                                type: 'PUT_NAME',
+                                type: 'PUT_COMPANY',
                                 payload: e.target.value
                             })} />
                 </div>
+
                 <div>
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth
                         multiline
-                        rows={5} defaultValue={specificResource.phoneNumber} type="text"
+                        rows={5} defaultValue={specificSponsor.image} type="text"
                         onChange={(e) =>
                             dispatch({
-                                type: 'PUT_PHONENUMBER',
+                                type: 'PUT_IMAGE',
                                 payload: e.target.value
                             })} />
                 </div>
-                <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline rows={2} defaultValue={specificResource.address} type="text"
-                        onChange={(e) =>
-                            dispatch({
-                                type: 'PUT_ADDRESS',
-                                payload: e.target.value
-                            })} />
-                </div>
+
                 <div className="center">
                     <Box >
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
-                            <InputLabel> Select category </InputLabel>
-                            <Select label="Select category"
-                                value={specificResource.category_id}
+                            <InputLabel> Select Tier </InputLabel>
+                            <Select label="Select tier"
+                                value={specificSponsor.levelOfDonation}
                                 onChange={(e) =>
                                     dispatch({
-                                        type: 'PUT_CATEGORY_ID',
+                                        type: 'PUT_LEVELOFDONATION',
                                         payload: e.target.value
                                     })}>
-                                <MenuItem value={1}> Political/Legal
+                                <MenuItem value={1}> Gold
                                 </MenuItem>
-                                <MenuItem value={2}> Medical/Scientific
+                                <MenuItem value={2}> Silver
                                 </MenuItem>
-                                <MenuItem value={3}> Business/Cultural
+                                <MenuItem value={3}> Bronze
                                 </MenuItem>
                             </Select>
                         </FormControl>
@@ -105,4 +100,4 @@ function ResourceFormEdit() {
     )
 }
 
-export default ResourceFormEdit;
+export default SponsorFormEdit;

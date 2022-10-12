@@ -35,6 +35,7 @@ function* getSpecificResource(action) {
     }
 }
 
+//admin edit resource info
 function* putResource(action) {
     console.log(action.payload)
     try {
@@ -44,16 +45,19 @@ function* putResource(action) {
     }
 }
 
+
+//admin delete resource info
 function* deleteResource(action) {
     console.log(action.payload)
-    try{
+    try {
         yield axios.delete(`/api/resource/${action.payload.id}`)
-        yield put ({ type: 'FETCH_RESOURCE'})
-    }catch (err) {
+        yield put({ type: 'FETCH_RESOURCE' })
+    } catch (err) {
         console.log(err)
     }
 }
 
+//listens for sagas to be called, then runs the corresponding function
 function* resourceSaga() {
     yield takeLatest('FETCH_RESOURCE', getResource)
     yield takeLatest('POST_RESOURCE', postResource)
