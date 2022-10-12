@@ -1,4 +1,4 @@
-// reducer that holds the resource info for editing
+// reducer that holds the sponsor info for editing
 const resourceSpecificReducer = (state = {category_id:''}, action) => {
     switch (action.type) {
 

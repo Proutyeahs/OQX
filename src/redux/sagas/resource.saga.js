@@ -35,6 +35,7 @@ function* getSpecificResource(action) {
     }
 }
 
+//admin delete resource info
 function* putResource(action) {
     console.log(action.payload)
     try {
@@ -44,6 +45,7 @@ function* putResource(action) {
     }
 }
 
+//listens for sagas to be called, then runs the corresponding function
 function* deleteResource(action) {
     console.log(action.payload)
     try{
