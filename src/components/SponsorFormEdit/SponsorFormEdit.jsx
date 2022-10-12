@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 
 function SponsorFormEdit() {
 
-    // gets specific event info on load/reload
+    // gets specific sponsor info on load/reload
     useEffect(() => {
         reload(id)
     }, [])
@@ -49,11 +49,11 @@ function SponsorFormEdit() {
             <div className="center">
                 <div>
 
-                    {/* the defaultValue is rendered with the name from the specificResource object stored in the reducer */}
+                    {/* the defaultValue is rendered with the company name from the specificSponsor object stored in the reducer */}
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth multiline defaultValue={specificSponsor.company} type="text"
                         onChange={(e) =>
 
-                            // dispatch sends the new data for the edited name to the object in the reducer
+                            // dispatch sends the new data for the edited company name to the object in the reducer
                             dispatch({
                                 type: 'PUT_COMPANY',
                                 payload: e.target.value
