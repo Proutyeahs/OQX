@@ -55,29 +55,18 @@ function PoliticalLegal() {
         left: '0%',
         // right: '50%',
         border: '4px solid #1D68DE',
-
+        width: '2px'
     };
 
     const point = {
         height: '25px',
         width: '25px',
-        left: '5%',
         borderColor: '#ba300c',
         borderWidth: '4px',
         backgroundColor: 'white',
         borderRadius: '50%',
         marginRight: '100px'
     }
-    // const point = {
-    //     height: '25px',
-    //     width: '25px',
-    //     left: '5%',
-    //     borderColor: '#e4965e',
-    //     borderWidth: '4px',
-    //     backgroundColor: 'white',
-    //     borderRadius: '50%',
-    //     marginRight: '100px'
-    // }
 
 
     useEffect(() => {
@@ -89,6 +78,7 @@ function PoliticalLegal() {
 
     return (
         <>
+
             <section>
                 {/* This first chunk of DIVs contains the header for the page.*/}
                 {/* SEARCH BAR */}
@@ -122,9 +112,10 @@ function PoliticalLegal() {
                                             <div onClick={() => handleClick(event.id)}>
                                                 {/* The line below is the actual line for the timeline */}
                                                 <div className="absolute h-full" style={divStyle}>
+                                                    <div style={point}></div>
                                                 </div>
                                                 <div className="flex items-center">
-                                                    <div className="flex items-center ml-5" style={point}></div>
+                                                    {/* <div className="flex items-center ml-5" style={point}></div> */}
                                                     <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
                                                 </div>
 
