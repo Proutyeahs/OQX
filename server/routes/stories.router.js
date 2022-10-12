@@ -27,6 +27,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+// gets unapproved user storys for the admin to review
 router.get('/', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log("stories", req.params)
     const query = `
@@ -44,6 +45,7 @@ router.get('/', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) =>
     })
 });
 
+// gets approved stories for an event
 router.get('/:id', (req, res) => {
     console.log("stories", req.params)
     const query = `
@@ -61,6 +63,7 @@ router.get('/:id', (req, res) => {
         })
 });
 
+// updates user submited stories to approved
 router.put('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log(req.params.id)
     const query = `
@@ -76,7 +79,8 @@ router.put('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res)
     })
 });
 
-router.delete('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
+// deletes a story
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `
         DELETE FROM "stories"
         WHERE "id" = $1

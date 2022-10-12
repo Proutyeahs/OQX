@@ -42,7 +42,6 @@ function ResourceFormEdit() {
         }, 500)
     }
 
-
     return (
         <>
             <h1 className="font-bold">Edit Resource</h1>
@@ -59,7 +58,6 @@ function ResourceFormEdit() {
                                 payload: e.target.value
                             })} />
                 </div>
-
                 <div>
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth
                         multiline

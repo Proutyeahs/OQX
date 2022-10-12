@@ -35,7 +35,11 @@ function* getSpecificResource(action) {
     }
 }
 
+<<<<<<< HEAD
 //admin delete resource info
+=======
+// update request to the server
+>>>>>>> 0988e059584ed938fac9ac46aef5c91e8cd92df2
 function* putResource(action) {
     console.log(action.payload)
     try {
@@ -45,13 +49,17 @@ function* putResource(action) {
     }
 }
 
+<<<<<<< HEAD
 //listens for sagas to be called, then runs the corresponding function
+=======
+// delete request to the server
+>>>>>>> 0988e059584ed938fac9ac46aef5c91e8cd92df2
 function* deleteResource(action) {
     console.log(action.payload)
-    try{
+    try {
         yield axios.delete(`/api/resource/${action.payload.id}`)
-        yield put ({ type: 'FETCH_RESOURCE'})
-    }catch (err) {
+        yield put({ type: 'FETCH_RESOURCE' })
+    } catch (err) {
         console.log(err)
     }
 }

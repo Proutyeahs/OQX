@@ -21,8 +21,8 @@ function ResourcesReview() {
 
     // get the data for resources on page load/reload
     useEffect(() => {
-        dispatch({ type: 'FETCH_RESOURCE'})
- }, [dispatch])
+        dispatch({ type: 'FETCH_RESOURCE' })
+    }, [dispatch])
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -56,8 +56,6 @@ function ResourcesReview() {
                                         {resource.address}
                                     </TableCell>
                                     <TableCell>
-
-                                 
                                         <Stack direction="row" spacing={2}>
                                             {/* pushes to edit resource page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/resourceFormEdit/${resource.id}`)}>Edit</EditIcon>
@@ -73,7 +71,6 @@ function ResourcesReview() {
                                                     payload: resource
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
-                               
                                     </TableCell>
                                 </TableRow>
                             ))}
