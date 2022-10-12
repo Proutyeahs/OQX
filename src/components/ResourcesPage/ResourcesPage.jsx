@@ -14,10 +14,7 @@ function ResourcesPage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-<<<<<<< HEAD
     //on load, fetch resources
-=======
->>>>>>> 0988e059584ed938fac9ac46aef5c91e8cd92df2
     useEffect(() => {
         dispatch({
             type: 'FETCH_RESOURCE',
