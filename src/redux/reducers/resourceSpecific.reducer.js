@@ -25,7 +25,7 @@ const resourceSpecificReducer = (state = { category_id: '' }, action) => {
         case 'PUT_ADDRESS':
             console.log(state)
             return { ...state, address: action.payload };
-        case 'PUT_CATEGORY_ID':
+        case 'PUT_CATEGORY_ID_SPONSOR':
             console.log(state)
             return { ...state, category_id: action.payload };
         default:
