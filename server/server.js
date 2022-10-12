@@ -13,6 +13,7 @@ const eventRouter = require('./routes/event.router');
 const storiesRouter = require('./routes/stories.router');
 const resourceRouter = require('./routes/resource.router');
 const sponsorRouter = require('./routes/sponsor.router');
+const aboutRouter = require('./routes/about.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use('/api/event', eventRouter);
 app.use('/api/stories', storiesRouter);
 app.use('/api/resource', resourceRouter);
 app.use('/api/sponsor', sponsorRouter);
+app.use('/api/about', aboutRouter);
 
 // Serve static files
 app.use(express.static('build'));

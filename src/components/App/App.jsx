@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
+import AboutPageCRUD from '../AboutPage/AboutPageCRUD';
 import UserPage from '../UserPage/UserPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -57,11 +57,11 @@ function App() {
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
-            // shows AboutPage at all times (logged in or not)
+            // shows AboutPageCRUD at all times (logged in or not)
             exact
             path="/about"
           >
-            <AboutPage />
+            <AboutPageCRUD />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -109,7 +109,7 @@ function App() {
 
           {/* timeline route */}
           <Route
-            // shows AboutPage at all times (logged in or not)
+            // shows AboutPageCRUD at all times (logged in or not)
             exact
             path="/medicalScientific"
           >
@@ -117,7 +117,7 @@ function App() {
 
           </Route>
           <Route
-            // shows AboutPage at all times (logged in or not)
+            // shows AboutPageCRUD at all times (logged in or not)
             exact
             path="/businessCultural"
           >
@@ -126,7 +126,7 @@ function App() {
 
           {/* timeline route */}
           <Route
-            // shows AboutPage at all times (logged in or not)
+            // shows AboutPageCRUD at all times (logged in or not)
             exact
             path="/politicalLegal"
           >
@@ -291,7 +291,7 @@ function App() {
             {user.admin ?
               <AdminDash />
               :
-              <AboutPage />
+              <AboutPageCRUD />
             }
           </ProtectedRoute>
 
