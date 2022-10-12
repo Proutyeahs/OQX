@@ -12,13 +12,13 @@ function PoliticalLegal() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [search, setSearch] = useState('');
-    
+
 
     // function that shortens the description on the card.
     const shortenDescription = (description) => {
-        return (description.split(' ').slice(0,10).join(' '));
+        return (description.split(' ').slice(0, 10).join(' '));
     }
-    
+
     const handleClick = (id) => {
         console.log('Handle Click');
         console.log('ID', id)
@@ -43,23 +43,41 @@ function PoliticalLegal() {
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
     // Created a variable that contains CSS to then style the timeline itself.    
+    // const divStyle = {
+    //     left: '5%',
+    //     // right: '50%',
+    //     border: '4px solid #1D68DE',
+
+    //     width: '1px'
+    // };
+
     const divStyle = {
-        left: '5%',
+        left: '0%',
         // right: '50%',
         border: '4px solid #1D68DE',
-        borderRadius: '1%',
-        width: '1px'
+
     };
 
     const point = {
         height: '25px',
         width: '25px',
         left: '5%',
-        borderColor: '#1D68DE',
+        borderColor: '#ba300c',
         borderWidth: '4px',
         backgroundColor: 'white',
         borderRadius: '50%',
+        marginRight: '100px'
     }
+    // const point = {
+    //     height: '25px',
+    //     width: '25px',
+    //     left: '5%',
+    //     borderColor: '#e4965e',
+    //     borderWidth: '4px',
+    //     backgroundColor: 'white',
+    //     borderRadius: '50%',
+    //     marginRight: '100px'
+    // }
 
 
     useEffect(() => {
@@ -104,13 +122,12 @@ function PoliticalLegal() {
                                             <div onClick={() => handleClick(event.id)}>
                                                 {/* The line below is the actual line for the timeline */}
                                                 <div className="absolute h-full" style={divStyle}>
-                                                <div className="" style={point}></div>
                                                 </div>
                                                 <div className="flex items-center">
-                                                    {/* <div className="flex items-center absolute left-2" style={point}></div> */}
+                                                    <div className="flex items-center ml-5" style={point}></div>
                                                     <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
                                                 </div>
-                                                
+
                                                 {event.image != '' &&
                                                     <img className="rounded-t-lg" src={event.image} />}
                                                 <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
