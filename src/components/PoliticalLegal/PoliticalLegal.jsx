@@ -46,7 +46,7 @@ function PoliticalLegal() {
     const point = {
         height: '25px',
         width: '25px',
-        borderColor: '#1D68DE',
+        borderColor: '#F44C1D',
         borderWidth: '5px',
         backgroundColor: 'white',
         borderRadius: '50%',
@@ -86,7 +86,7 @@ function PoliticalLegal() {
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
-                                <div className="relative border-l-[10px] border-[#1D68DE] dark:border-gray-700">
+                                <div className="relative border-l-[10px] border-[#F44C1D] dark:border-gray-700">
                                     <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden">
                                         {events.map(event => (
                                             <div key={event.id}>
