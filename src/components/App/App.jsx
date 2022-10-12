@@ -23,7 +23,6 @@ import BusinessCultural from '../BusinessCultural/BusinessCultural';
 import PoliticalLegal from '../PoliticalLegal/PoliticalLegal';
 import EventFormEdit from '../EventFormEdit/EventFormEdit';
 import EventReview from '../EventReview/EventReview'
-import SponsorsPage from '../SponsorsPage/SponsorsPage'
 import EventDetail from '../EventDetail/EventDetail';
 import UserStoriesForm from '../UserStoriesForm/UserStoriesForm'
 import UserStoriesReview from '../UserStoriesReview/UserStoriesReview';
@@ -31,6 +30,10 @@ import ResourcesPage from '../ResourcesPage/ResourcesPage.jsx';
 import ResourcesReview from '../ResourcesReview/ResourcesReview';
 import ResourceForm from '../ResourceForm/ResourceForm';
 import ResourceFormEdit from '../ResourceFormEdit/ResourceFormEdit';
+import SponsorsPage from '../SponsorsPage/SponsorsPage'
+import SponsorsReview from '../SponsorsReview/SponsorsReview';
+import SponsorForm from '../SponsorForm/SponsorForm'
+import SponsorFormEdit from '../SponsorFormEdit/SponsorFormEdit';
 import './App.css';
 
 
@@ -137,6 +140,7 @@ function App() {
             <EventForm />
           </ProtectedRoute>
 
+{/* Route to edit event */}
           <ProtectedRoute
             exact
             path="/eventFormEdit/:id"
@@ -148,6 +152,7 @@ function App() {
             }
           </ProtectedRoute>
 
+{/* Route to edit resources */}
           <ProtectedRoute
             exact
             path="/resourceFormEdit/:id"
@@ -156,6 +161,18 @@ function App() {
               <ResourceFormEdit />
               :
               <ResourcesPage />
+            }
+          </ProtectedRoute>
+
+{/* Route to edit sponsors */}
+<ProtectedRoute
+            exact
+            path="/sponsorFormEdit/:id"
+          >
+            {user.admin ?
+              <SponsorFormEdit />
+              :
+              <SponsorsPage />
             }
           </ProtectedRoute>
 
@@ -171,31 +188,55 @@ function App() {
             }
           </ProtectedRoute>
 
-{/* Route to review resources, visible only to admin */}
+          {/* Route to review resources, visible only to admin */}
           <ProtectedRoute
             exact
             path="/resourceReview"
           >
-             {user.admin ?
+            {user.admin ?
               <ResourcesReview />
               :
               <ResourcesPage />
             }
           </ProtectedRoute>
 
-{/* Route to post resources, visible only to admin */}
-{/* when a user accesses this route, we check to see if they are an admin */}
-{/*  ternary operator ( : ) true/false condition */}
-{/* if the user is admin, show first route, otherwise, show the other */}
-{/* if admin is logged in, they will view the form to add a new resource, otherwise they will view the page of resources available to everyone */}
-<ProtectedRoute
+          {/* Route to review sponsors, visible only to admin */}
+          <ProtectedRoute
+            exact
+            path="/sponsorReview"
+          >
+            {user.admin ?
+              <SponsorsReview />
+              :
+              <SponsorsPage />
+            }
+          </ProtectedRoute>
+
+          {/* Route to post resources, visible only to admin */}
+          {/* when a user accesses this route, we check to see if they are an admin */}
+          {/*  ternary operator ( : ) true/false condition */}
+          {/* if the user is admin, show first route, otherwise, show the other */}
+          {/* if admin is logged in, they will view the form to add a new resource, otherwise they will view the page of resources available to everyone */}
+          <ProtectedRoute
             exact
             path="/resourceForm"
           >
-             {user.admin ?
+            {user.admin ?
               <ResourceForm />
-              : 
+              :
               <ResourcesPage />
+            }
+          </ProtectedRoute>
+
+          {/* Route to post a new sponsor, only visible to admin */}
+          <ProtectedRoute
+            exact
+            path="/sponsorForm"
+          >
+            {user.admin ?
+              <SponsorForm />
+              :
+              <SponsorsPage />
             }
           </ProtectedRoute>
 
