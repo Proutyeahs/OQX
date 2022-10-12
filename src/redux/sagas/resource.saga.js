@@ -35,7 +35,7 @@ function* getSpecificResource(action) {
     }
 }
 
-//admin delete resource info
+//admin edit resource info
 function* putResource(action) {
     console.log(action.payload)
     try {
@@ -45,8 +45,8 @@ function* putResource(action) {
     }
 }
 
-//listens for sagas to be called, then runs the corresponding function
 
+//admin delete resource info
 function* deleteResource(action) {
     console.log(action.payload)
     try {
@@ -57,6 +57,7 @@ function* deleteResource(action) {
     }
 }
 
+//listens for sagas to be called, then runs the corresponding function
 function* resourceSaga() {
     yield takeLatest('FETCH_RESOURCE', getResource)
     yield takeLatest('POST_RESOURCE', postResource)
