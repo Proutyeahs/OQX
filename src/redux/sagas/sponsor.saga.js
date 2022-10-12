@@ -36,6 +36,7 @@ function* getSpecificSponsor(action) {
     }
 }
 
+//admin edit sponsor info
 function* putSponsor(action) {
     console.log(action.payload)
     try {
@@ -44,12 +45,23 @@ function* putSponsor(action) {
         console.log(error)
     }
 }
+//admin delete sponsor info
+function* deleteSponsor(action) {
+    console.log(action.payload)
+    try{
+        yield axios.delete(`/api/sponsor/${action.payload.id}`)
+        yield put ({ type: 'FETCH_SPONSOR'})
+    }catch (err) {
+        console.log(err)
+    }
+}
 
 function* sponsorSaga() {
     yield takeLatest ('FETCH_SPONSOR', getSponsor)
     yield takeLatest ('GET_SPECIFIC_SPONSOR', getSpecificSponsor)
     yield takeLatest ('POST_SPONSOR', postSponsor)
     yield takeLatest ('PUT_SPONSOR', putSponsor)
+    yield takeLatest ('DELETE_SPONSOR', deleteSponsor)
 }
 
 export default sponsorSaga;
