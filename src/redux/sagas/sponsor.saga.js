@@ -24,6 +24,7 @@ function* getSponsor(action) {
     }
 }
 
+//gets specific sponsor for admin
 function* getSpecificSponsor(action) {
     console.log(action.payload)
     try {
@@ -35,10 +36,20 @@ function* getSpecificSponsor(action) {
     }
 }
 
+function* putSponsor(action) {
+    console.log(action.payload)
+    try {
+        yield axios.put(`/api/sponsor/${action.payload.id}`, action.payload)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 function* sponsorSaga() {
     yield takeLatest ('FETCH_SPONSOR', getSponsor)
     yield takeLatest ('GET_SPECIFIC_SPONSOR', getSpecificSponsor)
     yield takeLatest ('POST_SPONSOR', postSponsor)
+    yield takeLatest ('PUT_SPONSOR', putSponsor)
 }
 
 export default sponsorSaga;

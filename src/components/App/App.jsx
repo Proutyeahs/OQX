@@ -33,6 +33,7 @@ import ResourceFormEdit from '../ResourceFormEdit/ResourceFormEdit';
 import SponsorsPage from '../SponsorsPage/SponsorsPage'
 import SponsorsReview from '../SponsorsReview/SponsorsReview';
 import SponsorForm from '../SponsorForm/SponsorForm'
+import SponsorFormEdit from '../SponsorFormEdit/SponsorFormEdit';
 import './App.css';
 
 
@@ -160,6 +161,18 @@ function App() {
               <ResourceFormEdit />
               :
               <ResourcesPage />
+            }
+          </ProtectedRoute>
+
+{/* Route to edit sponsors */}
+<ProtectedRoute
+            exact
+            path="/sponsorFormEdit/:id"
+          >
+            {user.admin ?
+              <SponsorFormEdit />
+              :
+              <SponsorsPage />
             }
           </ProtectedRoute>
 

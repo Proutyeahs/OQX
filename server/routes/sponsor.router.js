@@ -21,19 +21,19 @@ router.get('/', (req, res) => {
     })
 });
 
-// router.get('/:id', (req, res) => {
-//     console.log("resource", req.params.id)
-//     const query = `
-//     SELECT * FROM "resources" WHERE id =$1
-//     ;`;
-//     pool.query(query, [req.params.id]).then(result => {
-//         console.log("resource", result.rows)
-//         res.send(result.rows)
-//     }).catch(err => {
-//         console.log(err)
-//         res.sendStatus(500)
-//     })
-// });
+router.get('/:id', (req, res) => {
+    console.log("sponsor", req.params.id)
+    const query = `
+    SELECT * FROM "sponsor" WHERE id =$1
+    ;`;
+    pool.query(query, [req.params.id]).then(result => {
+        console.log("sponsor", result.rows)
+        res.send(result.rows)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
 
 router.post('/', (req, res) => {
     console.log("in POST sponsor:", req.params)
@@ -49,20 +49,20 @@ VALUES  ($1, $2, $3)
     })
 });
 
-// router.put('/:id', rejectUnauthenticated, (req, res) => {
-//     console.log("edit resource:", req.body)
-//     const query = `
-//     UPDATE "resources"
-//     SET "name" = $1, "phoneNumber" = $2, "address" = $3, "category_id" = $4
-//     WHERE "id" = $5
-//     ;`;
-//     pool.query(query, [req.body.name, req.body.phoneNumber, req.body.address, req.body.category_id, req.body.id]).then(result => {
-//         res.sendStatus(200)
-//     }).catch(err => {
-//         console.log(err)
-//         res.sendStatus(500)
-//     })
-// });
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log("edit sponsor:", req.body)
+    const query = `
+    UPDATE "sponsor"
+    SET "company" = $1, "image" = $2, "levelOfDonation" = $3
+    WHERE "id" = $4
+    ;`;
+    pool.query(query, [req.body.company, req.body.image, req.body.levelOfDonation, req.body.id]).then(result => {
+        res.sendStatus(200)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
 
 // router.delete('/:id', rejectUnauthenticated, (req, res) => {
 //     const query = `
