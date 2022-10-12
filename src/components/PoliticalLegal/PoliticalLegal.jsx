@@ -86,12 +86,11 @@ function PoliticalLegal() {
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
-                            <div className="relative border-l-[10px] border-[#1D68DE] dark:border-gray-700">
+                                <div className="relative border-l-[10px] border-[#1D68DE] dark:border-gray-700">
                                     <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden">
                                         {events.map(event => (
                                             <div key={event.id}>
                                                 <div onClick={() => handleClick(event.id)}>
-                                                    </div>
                                                     <div className="flex items-center">
                                                         <div className="absolute -left-3.5" style={point}></div>
                                                         <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
@@ -103,6 +102,7 @@ function PoliticalLegal() {
                                                         <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                     </div>
                                                 </div>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>

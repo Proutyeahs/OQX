@@ -89,16 +89,16 @@ function BusinessCultural() {
                                         {events.map(event => (
                                             <div key={event.id}>
                                                 <div onClick={() => handleClick(event.id)}>
-                                                </div>
-                                                <div className="flex items-center">
-                                                    <div className="absolute -left-3.5" style={point}></div>
-                                                    <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
-                                                </div>
-                                                {event.image != '' &&
-                                                    <img className="rounded-t-lg" src={event.image} />}
-                                                <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
-                                                    <p className="font-bold text-xl mb-2">{event.title}</p>
-                                                    <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
+                                                    <div className="flex items-center">
+                                                        <div className="absolute -left-3.5" style={point}></div>
+                                                        <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
+                                                    </div>
+                                                    {event.image != '' &&
+                                                        <img className="rounded-t-lg" src={event.image} />}
+                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
+                                                        <p className="font-bold text-xl mb-2">{event.title}</p>
+                                                        <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))}
