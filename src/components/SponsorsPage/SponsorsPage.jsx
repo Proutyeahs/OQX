@@ -41,11 +41,10 @@ function SponsorsPage() {
             </div>
 
             <div class="bg-cyan-300">
-
-            <br></br>
-                
                 <br></br>
+
                 {/* <img src="../generic-images/companylogo.png" class="object-scale-down h-48 ; rounded-full"/> */}
+
                 <p class="text-2xl">Crown Sponsor</p>
 
                 tier 1<br></br>
@@ -71,9 +70,6 @@ function SponsorsPage() {
                 <img src="../generic-images/99gen_tree.png" class="object-scale-down h-24 ; rounded-full" />
                 <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-24 ; rounded-full" /> */}
             </div>
-
-
-
         </>
     );
 }
