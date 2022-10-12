@@ -6,7 +6,7 @@ import userSaga from './user.saga';
 import userStoriesSaga from './userStories.saga'
 import resourceSaga from './resource.saga';
 import sponsorSaga from './sponsor.saga'
-
+import aboutSaga from './about.saga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -23,5 +23,6 @@ export default function* rootSaga() {
     userStoriesSaga(),
     resourceSaga(),
     sponsorSaga(),
+    aboutSaga()
   ]);
 }

@@ -3,7 +3,9 @@ const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
-
+const {
+    rejectUnauthenticatedAdmin,
+} = require('../modules/authenticationAdmin-middleware');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -21,3 +23,4 @@ router.get('/', (req, res) => {
     })
 });
 
+module.exports = router;
