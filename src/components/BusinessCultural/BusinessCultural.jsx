@@ -18,12 +18,14 @@ function BusinessCultural() {
         return (description.split(' ').slice(0, 10).join(' '));
     }
 
+    // moves user to the details page
     const handleClick = (id) => {
         console.log('Handle Click');
         console.log('ID', id)
         history.push(`/eventdetail/${id}`)
     }
 
+    // dispatches a search word to check the database
     const handleSubmit = (e) => {
         console.log('Search input: ', search);
         e.preventDefault();
@@ -37,6 +39,7 @@ function BusinessCultural() {
         setSearch('')
     }
 
+    // formats the date
     const formatDate = (dateString) => {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)

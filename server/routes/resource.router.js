@@ -2,11 +2,14 @@ const express = require('express');
 const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
+const {
+    rejectUnauthenticatedAdmin,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// gets the data for a specific timeline by the category_id
+// gets the data for the resources
 router.get('/', (req, res) => {
     console.log("resource", req.params)
     const query = `
@@ -21,7 +24,8 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
+// gets a specific resource for editing
+router.get('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log("resource", req.params.id)
     const query = `
     SELECT * FROM "resources" WHERE id =$1
@@ -35,7 +39,8 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+// posts a new resource
+router.post('/', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log("in POST resource:", req.params)
     const query = `
     INSERT INTO "resources" ("name", "phoneNumber", "address", "category_id")
@@ -49,7 +54,8 @@ VALUES  ($1, $2, $3, $4)
     })
 });
 
-router.put('/:id', rejectUnauthenticated, (req, res) => {
+// updates a resource
+router.put('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     console.log("edit resource:", req.body)
     const query = `
     UPDATE "resources"
@@ -64,7 +70,8 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
+// deletes a resource
+router.delete('/:id', rejectUnauthenticated, rejectUnauthenticatedAdmin, (req, res) => {
     const query = `
     DELETE FROM "resources"
     WHERE "id" = $1

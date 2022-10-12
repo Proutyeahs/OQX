@@ -51,24 +51,24 @@ function UserStoriesReview() {
                                         {story.story}
                                     </TableCell>
                                     <TableCell align="right">
-                                    <Stack direction="row" spacing={2}>
-                                        {/* pushes to edit user story page */}
-                                        <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() =>
-                                            dispatch({
-                                                type: 'APPROVE_USER_STORY',
-                                                payload: story.id
-                                            })}>Approve</EditIcon>
+                                        <Stack direction="row" spacing={2}>
+                                            {/* pushes to edit user story page */}
+                                            <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() =>
+                                                dispatch({
+                                                    type: 'APPROVE_USER_STORY',
+                                                    payload: story.id
+                                                })}>Approve</EditIcon>
 
-                                        {/* Space between buttons */}
-                                        &nbsp;
+                                            {/* Space between buttons */}
+                                            &nbsp;
 
-                                        {/* dispatches delete request */}
-                                        <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
-                                            dispatch({
-                                                type: 'DELETE_STORY',
-                                                payload: story.id
-                                            })}>Delete</DeleteIcon>
-                                            </Stack>
+                                            {/* dispatches delete request */}
+                                            <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
+                                                dispatch({
+                                                    type: 'DELETE_STORY',
+                                                    payload: story.id
+                                                })}>Delete</DeleteIcon>
+                                        </Stack>
                                     </TableCell>
                                 </TableRow>
                             ))}

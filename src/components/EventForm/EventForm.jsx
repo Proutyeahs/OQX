@@ -23,7 +23,6 @@ function EventForm() {
     const [event, setEvent] = useState({ title: '', date: '', image: '', info: '', references: '', category_id: '' })
 
     // uploads the image to cloudinary and saves the url in local state
-    // *********** change for leos account ***********
     const uploadImage = (e) => {
         console.log(e.target.files[0])
         const formData = new FormData();
@@ -52,7 +51,6 @@ function EventForm() {
                 history.push('/medicalScientific')
             }, 500)
         }
-
     }
 
     return (
@@ -61,64 +59,60 @@ function EventForm() {
 
             <div className="center">
 
-             
+                {/* EVENT TITLE */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                </div>
 
-                            {/* EVENT TITLE */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
-                            </div>
+                {/* DATE  */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                </div>
 
-                            {/* DATE  */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
-                            </div>
+                {/* UPLOAD IMAGE */}
+                <div>
+                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                    </Button>
+                </div>
 
-                            {/* UPLOAD IMAGE */}
-                            <div>
-                                <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
-                                    <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
-                                </Button>
-                            </div>
+                {/* renders the image if it exists */}
+                {event.image != '' &&
+                    <img src={event.image} />}
 
-                            {/* renders the image if it exists */}
-                            {event.image != '' &&
-                                <img src={event.image} />}
+                {/* EVENT INFO */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+                </div>
 
-                            {/* EVENT INFO */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
-                            </div>
+                {/* EVENT REFERENCES */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                </div>
 
-                            {/* EVENT REFERENCES */}
-                            <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
-                            </div>
+                {/* DROPDOWN TO CHOOSE TIMELINE */}
+                <div>
+                    <Box >
+                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                            <InputLabel> Select category </InputLabel>
+                            <Select label="Select category"
 
-                            {/* DROPDOWN TO CHOOSE TIMELINE */}
-                            <div>
-                                <Box >
-                                    <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
-                                        <InputLabel> Select category </InputLabel>
-                                        <Select label="Select category"
+                                defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                                <MenuItem value="1"> Political/Legal
+                                </MenuItem>
+                                <MenuItem value="2"> Medical/Scientific
+                                </MenuItem>
+                                <MenuItem value="3"> Business/Cultural
+                                </MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </div>
 
-                                            defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
-                                            <MenuItem value="1"> Political/Legal
-                                            </MenuItem>
-                                            <MenuItem value="2"> Medical/Scientific
-                                            </MenuItem>
-                                            <MenuItem value="3"> Business/Cultural
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Box>
-                            </div>
-
-                            {/* SUBMIT */}
-                            <div>
-                                <Button variant="contained" color="success" onClick={submit}>Submit</Button>
-                            </div>
-
-                        
+                {/* SUBMIT */}
+                <div>
+                    <Button variant="contained" color="success" onClick={submit}>Submit</Button>
+                </div>
             </div>
         </>
     )

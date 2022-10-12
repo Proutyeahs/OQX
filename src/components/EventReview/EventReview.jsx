@@ -113,13 +113,10 @@ function EventReview() {
                                         <br></br>
                                         {event.info}
                                     </StyledTableCell>
-
-
                                     <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
                                             {/* pushes to edit event page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
-
 
                                             {/* dispatches delete request */}
                                             <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() =>
@@ -129,8 +126,6 @@ function EventReview() {
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
                                     </StyledTableCell>
-
-
                                 </StyledTableRow>
                             ))}
                         </TableBody>
