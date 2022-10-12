@@ -63,6 +63,7 @@ function* putEvent(action) {
     console.log(action.payload)
     try {
         yield axios.put(`/api/event/${action.payload.id}`, action.payload)
+        yield put({ type: 'CLEAR'})
     } catch (error) {
         console.log(error)
     }

@@ -16,6 +16,10 @@ const specificEventReducer = (state = { category_id: '' }, action) => {
           id: event.id
         };
 
+    //clears reducer
+    case 'CLEAR':
+      return { category_id: '' };
+
     // updates the title upon change
     case 'PUT_TITLE':
       console.log(state)
