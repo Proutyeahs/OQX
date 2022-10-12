@@ -65,17 +65,6 @@ function EventFormEdit() {
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
 
-    // delete request for a specific event
-    const handleDelete = () => {
-        dispatch({
-            type: 'DELETE_EVENT',
-            payload: specificEvent
-        })
-        setTimeout(() => {
-            history.push('/eventReview')
-        }, 500)
-    }
-
     return (
         <>
             <h1 className="font-bold">Edit Event</h1>
@@ -156,10 +145,6 @@ function EventFormEdit() {
                 <div>
                     <Button variant="contained" color="success" onClick={submit}>Submit</Button>
                 </div>
-
-                {/* dispatches delete request */}
-                <DeleteIcon className="left" style={{ cursor: 'pointer' }} variant="contained" color="error"
-                    onClick={handleDelete}>Delete</DeleteIcon>
             </div>
         </>
     )
