@@ -78,7 +78,10 @@ function EventForm() {
 
                 {/* renders the image if it exists */}
                 {event.image != '' &&
-                    <img src={event.image} />}
+                    <div className="center">
+                        <img className="size" src={event.image} />
+                    </div>
+                }
 
                 {/* EVENT INFO */}
                 <div>
