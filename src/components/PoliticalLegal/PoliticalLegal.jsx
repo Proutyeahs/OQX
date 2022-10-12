@@ -42,27 +42,12 @@ function PoliticalLegal() {
         const options = { month: "long", day: "numeric", year: 'numeric' }
         return new Date(dateString).toLocaleDateString(undefined, options)
     }
-    // Created a variable that contains CSS to then style the timeline itself.    
-    // const divStyle = {
-    //     left: '5%',
-    //     // right: '50%',
-    //     border: '4px solid #1D68DE',
-
-    //     width: '1px'
-    // };
-
-    const divStyle = {
-        left: '0%',
-        // right: '50%',
-        border: '4px solid #1D68DE',
-        width: '2px'
-    };
 
     const point = {
         height: '25px',
         width: '25px',
-        borderColor: '#ba300c',
-        borderWidth: '4px',
+        borderColor: '#1D68DE',
+        borderWidth: '5px',
         backgroundColor: 'white',
         borderRadius: '50%',
         marginRight: '100px'
@@ -114,28 +99,30 @@ function PoliticalLegal() {
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
-                                <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden">
-                                    {events.map(event => (
-                                        <div key={event.id}>
-                                            <div onClick={() => handleClick(event.id)}>
-                                                {/* The line below is the actual line for the timeline */}
-                                                <div className="absolute h-full" style={divStyle}>
-                                                    <div style={point}></div>
+                            <div className="relative border-l-[10px] border-[#1D68DE] dark:border-gray-700">
+                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden">
+                                        {events.map(event => (
+                                            <div key={event.id}>
+                                                <div onClick={() => handleClick(event.id)}>
+                                                    {/* The line below is the actual line for the timeline */}
+                                                    {/* <div className="absolute h-full" style={divStyle}> */}
+                                                    </div>
+                                                    <div className="flex items-center">
+                                                        <div className="absolute -left-3.5" style={point}></div>
+                                                        {/* <div className="flex items-center ml-5" style={point}></div> */}
+                                                        <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
+                                                    </div>
+    
+                                                    {event.image != '' &&
+                                                        <img className="rounded-t-lg" src={event.image} />}
+                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
+                                                        <p className="font-bold text-xl mb-2">{event.title}</p>
+                                                        <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
+                                                    </div>
                                                 </div>
-                                                <div className="flex items-center">
-                                                    {/* <div className="flex items-center ml-5" style={point}></div> */}
-                                                    <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
-                                                </div>
-
-                                                {event.image != '' &&
-                                                    <img className="rounded-t-lg" src={event.image} />}
-                                                <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
-                                                    <p className="font-bold text-xl mb-2">{event.title}</p>
-                                                    <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
-                                                </div>
-                                            </div>
-                                        </div >
-                                    ))}
+                                            // </div >
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
