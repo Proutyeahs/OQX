@@ -63,28 +63,13 @@ function PoliticalLegal() {
 
     return (
         <>
-
             <section>
-                {/* This first chunk of DIVs contains the header for the page.*/}
-                {/* SEARCH BAR */}
-                {/* <form onSubmit={handleSubmit}>
-                    <TextField
-                        name="outlined"
-                        label="Search"
-                        type="outlined"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}>
-                    </TextField>
-                    <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
-                </form> */}
-                {/* END SEARCH BAR */}
-
                 <div className="bg-white text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
                             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Political Legal</p>
-                            <p className="text-sm md:text-base text-gray-900 mb-4"></p>
+                            <p className="text-sm md:text-base text-gray-900 mb-4">Filler text</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
                                     name="outlined"
@@ -93,6 +78,8 @@ function PoliticalLegal() {
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}>
                                 </TextField>
+                            </form>
+                            <form onSubmit={handleSubmit}>
                                 <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
                             </form>
                         </div>
@@ -104,15 +91,11 @@ function PoliticalLegal() {
                                         {events.map(event => (
                                             <div key={event.id}>
                                                 <div onClick={() => handleClick(event.id)}>
-                                                    {/* The line below is the actual line for the timeline */}
-                                                    {/* <div className="absolute h-full" style={divStyle}> */}
                                                     </div>
                                                     <div className="flex items-center">
                                                         <div className="absolute -left-3.5" style={point}></div>
-                                                        {/* <div className="flex items-center ml-5" style={point}></div> */}
                                                         <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
                                                     </div>
-    
                                                     {event.image != '' &&
                                                         <img className="rounded-t-lg" src={event.image} />}
                                                     <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
@@ -120,7 +103,6 @@ function PoliticalLegal() {
                                                         <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                     </div>
                                                 </div>
-                                            // </div >
                                         ))}
                                     </div>
                                 </div>
