@@ -1,12 +1,19 @@
 const express = require('express');
+
+// verifies user is logged in
 const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
-const pool = require('../modules/pool');
 
+// verifies admin is logged in
+const {
+    rejectUnauthenticatedAdmin,
+} = require('../modules/authenticationAdmin-middleware');
+
+const pool = require('../modules/pool');
 const router = express.Router();
 
-// gets the data for a specific timeline by the category_id
+// resources available for everyone to view
 router.get('/', (req, res) => {
     console.log("resource", req.params)
     const query = `
@@ -21,7 +28,8 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
+// resources available for admin to edit and delete
+router.get('/:id', rejectUnauthenticatedAdmin, (req, res) => {
     console.log("resource", req.params.id)
     const query = `
     SELECT * FROM "resources" WHERE id =$1
@@ -35,7 +43,8 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+// posting new resources by admin only
+router.post('/', rejectUnauthenticatedAdmin, (req, res) => {
     console.log("in POST resource:", req.params)
     const query = `
     INSERT INTO "resources" ("name", "phoneNumber", "address", "category_id")
@@ -49,7 +58,8 @@ VALUES  ($1, $2, $3, $4)
     })
 });
 
-router.put('/:id', rejectUnauthenticated, (req, res) => {
+// updating resource by admin only
+router.put('/:id', rejectUnauthenticatedAdmin, (req, res) => {
     console.log("edit resource:", req.body)
     const query = `
     UPDATE "resources"
@@ -64,7 +74,8 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
+// deleting resource by admin only
+router.delete('/:id', rejectUnauthenticatedAdmin, (req, res) => {
     const query = `
     DELETE FROM "resources"
     WHERE "id" = $1
