@@ -17,12 +17,34 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 
+// TABLE MUI FUNCTIONS
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.text.secondary,
+        color: theme.palette.common.white,
+        fontSize: 20
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+        border: 0,
+    },
+})); // END TABLE MUI FUNCTIONS
+
 function SponsorsReview() {
 
     // get the data for sponsors on page load/reload
     useEffect(() => {
-        dispatch({ type: 'FETCH_SPONSOR'})
- }, [dispatch])
+        dispatch({ type: 'FETCH_SPONSOR' })
+    }, [dispatch])
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -33,31 +55,29 @@ function SponsorsReview() {
     return (
         <>
             <div className="center">
-                <TableContainer >
-                    <Table>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
                         <TableHead>
-                            <TableRow>
-                                <TableCell>
+                            <StyledTableRow>
+                                <StyledTableCell>
                                     Sponsors
-                                </TableCell>
-                                <TableCell>
+                                </StyledTableCell>
+                                <StyledTableCell align="right">
                                     Review
-                                </TableCell>
-                            </TableRow>
+                                </StyledTableCell>
+                            </StyledTableRow>
                         </TableHead>
                         <TableBody className='outline'>
 
                             {/* loop to render info on dom */}
                             {sponsors.map(sponsor => (
-                                <TableRow key={sponsor.id}>
-                                    <TableCell>
+                                <StyledTableRow key={sponsor.id}>
+                                    <StyledTableCell>
                                         {sponsor.company}:
                                         <br></br>
                                         {sponsor.levelOfDonation}
-                                    </TableCell>
-                                    <TableCell>
-
-                                 
+                                    </StyledTableCell>
+                                    <StyledTableCell>
                                         <Stack direction="row" spacing={2}>
                                             {/* pushes to edit sponsor page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/sponsorFormEdit/${sponsor.id}`)}>Edit</EditIcon>
@@ -73,9 +93,8 @@ function SponsorsReview() {
                                                     payload: sponsor
                                                 })}>Delete</DeleteIcon>
                                         </Stack>
-                               
-                                    </TableCell>
-                                </TableRow>
+                                    </StyledTableCell>
+                                </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
