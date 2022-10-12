@@ -35,19 +35,19 @@ router.get('/', (req, res) => {
 //     })
 // });
 
-// router.post('/', (req, res) => {
-//     console.log("in POST resource:", req.params)
-//     const query = `
-//     INSERT INTO "resources" ("name", "phoneNumber", "address", "category_id")
-// VALUES  ($1, $2, $3, $4)
-//     `;
-//     pool.query(query, [req.body.name, req.body.phoneNumber, req.body.address, req.body.category_id]).then(result => {
-//         res.sendStatus(200)
-//     }).catch(err => {
-//         console.log(err)
-//         res.sendStatus(500)
-//     })
-// });
+router.post('/', (req, res) => {
+    console.log("in POST sponsor:", req.params)
+    const query = `
+    INSERT INTO "sponsor" ("company", "image", "levelOfDonation")
+VALUES  ($1, $2, $3)
+    `;
+    pool.query(query, [req.body.company, req.body.image, req.body.levelOfDonation]).then(result => {
+        res.sendStatus(200)
+    }).catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+    })
+});
 
 // router.put('/:id', rejectUnauthenticated, (req, res) => {
 //     console.log("edit resource:", req.body)
