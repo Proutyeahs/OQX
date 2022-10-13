@@ -169,6 +169,14 @@ function Nav() {
             </Link>
           </MenuItem>
 
+          <MenuItem onClick={handleClose}>
+            <Link to="/eventForm">
+              <ListItem>
+                Create Timeline Event
+              </ListItem>
+            </Link>
+          </MenuItem>
+
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
 
