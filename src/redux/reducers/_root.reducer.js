@@ -8,6 +8,7 @@ import resource from './resource.reducer'
 import resourceSpecific from './resourceSpecific.reducer'
 import sponsor from './sponsor.reducer';
 import sponsorSpecific from './sponsorSpecific.reducer';
+import aboutReducer from './about.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   resourceSpecific,
   sponsor,
   sponsorSpecific,
+  aboutReducer
 });
 
 export default rootReducer;

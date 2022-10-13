@@ -1,13 +1,10 @@
-const reducerTemplate = (state = {}, action) => { 
+const aboutReducer = (state = [], action) => { 
   switch (action.type) {
-    case 'THIS_WILL_TRIGGER_A_REDUCER': 
-    return { ...state, ...payload }
-
+    case 'GET_ABOUT': 
+    return action.payload;
     default:
       return state;
   }
 };
 
-
-
-export default reducerTemplate;
+export default aboutReducer;

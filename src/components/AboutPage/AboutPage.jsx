@@ -8,6 +8,8 @@ import '@fontsource/roboto';
 // or even care what the redux state is'
 
 function AboutPage() {
+
+  
   return (
 
     <>

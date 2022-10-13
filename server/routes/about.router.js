@@ -9,10 +9,10 @@ const {
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    console.log("", req.params)
     const query = `SELECT * FROM "aboutCRUD";`;
     pool.query(query)
     .then(result => {
+        console.log('Get on the about.router');
         console.log(result.rows)
         res.send(result.rows)
     })

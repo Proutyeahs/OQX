@@ -7,7 +7,11 @@ function* aboutSaga() {
 
 function* getAboutPage(action) {
     try {
-        yield axios.get('/api/about')
+        const response = yield axios.get('/api/about')
+        yield put({
+            type: 'GET_ABOUT',
+            payload: response.data
+        })
     }
     catch (error) {
         ('error in SAGA, this is what you were trying to send:', action.payload)
