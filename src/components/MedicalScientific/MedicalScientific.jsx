@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import TextField from '@mui/material/TextField'; // MUI TEXTFIELD FOR SEARCH BAR
 import SearchIcon from '@mui/icons-material/Search'; // MUI SEARCH ICON FOR SEARCH BAR
+import { red } from "@mui/material/colors";
 
 const MedicalScientific = () => {
 
@@ -36,6 +37,10 @@ const MedicalScientific = () => {
             }
         })
         setSearch('')
+    }
+
+    const styles = {
+        color: "CustomRed"
     }
 
     // formats the date
@@ -78,6 +83,7 @@ const MedicalScientific = () => {
                                     label="Search"
                                     type="outlined"
                                     value={search}
+                                    sx={{borderColor: 'green'}}
                                     onChange={(e) => setSearch(e.target.value)}>
                                 </TextField>
                             </form>
