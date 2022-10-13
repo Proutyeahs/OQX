@@ -21,10 +21,11 @@ function SponsorsPage() {
         })
     }, [])
 
-
+// these are our categories for sponsorship tiers
     let gold = []
     let silver = []
     let bronze = []
+// this function sorts all of the sponsors into their categories to be displayed
     const sort = () => {
         for (let sponsor of sponsors) {
             console.log(sponsor)
@@ -40,51 +41,8 @@ function SponsorsPage() {
         } 
     } return console.log (gold, silver, bronze)
 }
-
+//run the sorting function
 sort()
-
-
-//console.log(sponsors)
-//TODO: loop and organize sponsors by tier
-const tier1 = () => {
-    for (let sponsor of sponsors) {
-        console.log(sponsor)
-        if (sponsor.levelOfDonation === 1) {
-            return <ul key={sponsor.id}>
-                <li>{sponsor.company}</li>
-                <img src={sponsor.image} />
-            </ul>
-        }
-    }
-} //end tier1
-
-const tier2 = () => {
-    for (let sponsor of sponsors) {
-        console.log(sponsor)
-        if (sponsor.levelOfDonation === 2) {
-            return <ul key={sponsor.id}>
-                <li>{sponsor.company}</li>
-                <img src={sponsor.image} />
-            </ul>
-        }
-    }
-} //end tier2
-
-const tier3 = () => {
-    for (let sponsor of sponsors) {
-        console.log(sponsor)
-        if (sponsor.levelOfDonation === 3) {
-            return <ul key={sponsor.id}>
-                <li>{sponsor.company}</li>
-                <img src={sponsor.image} />
-            </ul>
-        }
-    }
-} //end tier3
-
-
-
-
 
 return (
     <>
@@ -96,7 +54,7 @@ return (
             <a className="text-gray-300" href="https://atelierlks.com/stunning-examples-fake-logos/">source for images used</a>
         </div>
 
-        <div class="bg-cyan-300">
+        <div>
             tier 1<br></br>
             <div>
                 {gold.map(sponsor =>
@@ -108,7 +66,7 @@ return (
             </div>
         </div>
 
-        <div class="bg-cyan-400">
+        <div>
             tier 2<br></br>
             <div>
                 {silver.map(sponsor =>
@@ -120,7 +78,7 @@ return (
             </div>
         </div>
 
-        <div class="bg-cyan-500">
+        <div>
             tier 3<br></br>
             <div>
                 {bronze.map(sponsor =>
@@ -131,8 +89,6 @@ return (
                     </ul>)}
             </div>
         </div>
-
-
 
         {/* <div className="sponsor">
                 {sponsors.map(sponsor =>
