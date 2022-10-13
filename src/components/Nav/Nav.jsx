@@ -29,7 +29,6 @@ function Nav() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-
   //MENU THINGS----------------------------------------
   //declares anchor as boolean value
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -179,7 +178,6 @@ function Nav() {
 
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
-
           {user.admin && (
             <MenuItem onClick={handleClose}>
               <Link to="/admin">
@@ -189,8 +187,6 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
-
-
 
         </Menu>
       </div>
