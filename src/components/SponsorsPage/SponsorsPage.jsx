@@ -28,6 +28,7 @@ function SponsorsPage() {
         console.log(sponsor)
     }
 
+
     tier()
 
     return (
@@ -43,7 +44,7 @@ function SponsorsPage() {
             <div class="bg-cyan-300">
                 <br></br>
 
-                {/* <img src="../generic-images/companylogo.png" class="object-scale-down h-48 ; rounded-full"/> */}
+                <img src="../generic-images/companylogo.png" class="object-scale-down h-48 ; rounded-full"/>
 
                 <p class="text-2xl">Crown Sponsor</p>
 
@@ -69,6 +70,15 @@ function SponsorsPage() {
                 <img src="../generic-images/99gen_swooshyman.png" class="object-scale-down h-24 ; rounded-full" />
                 <img src="../generic-images/99gen_tree.png" class="object-scale-down h-24 ; rounded-full" />
                 <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-24 ; rounded-full" /> */}
+            </div>
+
+            <div className="sponsor">
+                {sponsors.map(sponsor =>
+                    <ul key={sponsor.id}>
+                        <li>{sponsor.company}</li>
+                        <img src={sponsor.image}/>
+                        <li>{sponsor.levelOfDonation}</li>
+                    </ul>)}
             </div>
         </>
     );
