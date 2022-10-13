@@ -178,7 +178,6 @@ function Nav() {
 
           {/* ADMIN CONDITIONAL RENDER */}
           {/* IF ADMIN IS LOGGED IN, SHOW THESE LINKS */}
-
           {user.admin && (
             <MenuItem onClick={handleClose}>
               <Link to="/admin">
