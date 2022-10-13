@@ -25,24 +25,24 @@ function ResourcesPage() {
     let legal = []
     let health = []
     let business = []
-// this function sorts all of the resources into their categories to be displayed
-const sort = () => {
-    for (let resource of resources) {
-        console.log(resource)
-    
-    if (resource.category_id === 1) {
-        legal.push(resource);
+    // this function sorts all of the resources into their categories to be displayed
+    const sort = () => {
+        for (let resource of resources) {
+            console.log(resource)
+
+            if (resource.category_id === 1) {
+                legal.push(resource);
+            }
+            if (resource.category_id === 2) {
+                health.push(resource);
+            }
+            if (resource.category_id === 3) {
+                business.push(resource);
+            }
+        } return console.log(legal, health, business)
     }
-    if (resource.category_id === 2) {
-        health.push(resource);
-    }
-    if (resource.category_id === 3) {
-        business.push(resource);
-    } 
-} return console.log (legal, health, business)
-}
-//run the sorting function
-sort()
+    //run the sorting function
+    sort()
 
     return (
         <>
