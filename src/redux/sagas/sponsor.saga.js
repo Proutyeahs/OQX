@@ -41,6 +41,7 @@ function* putSponsor(action) {
     console.log(action.payload)
     try {
         yield axios.put(`/api/sponsor/${action.payload.id}`, action.payload)
+        yield put({ type: 'CLEAR_SPONSOR'})
     } catch (error) {
         console.log(error)
     }

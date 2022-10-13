@@ -84,7 +84,7 @@ function ResourceFormEdit() {
                                 value={specificResource.category_id}
                                 onChange={(e) =>
                                     dispatch({
-                                        type: 'PUT_CATEGORY_ID',
+                                        type: 'PUT_CATEGORY_ID_SPONSOR',
                                         payload: e.target.value
                                     })}>
                                 <MenuItem value={1}> Political/Legal

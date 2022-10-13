@@ -101,7 +101,10 @@ function EventFormEdit() {
 
                     {/* renders the image if it exists */}
                     {specificEvent.image != '' &&
-                        <img src={specificEvent.image} />}
+                        <div className="center">
+                            <img className="size" src={specificEvent.image} />
+                        </div>
+                    }
                 </div>
                 <div>
                     <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth

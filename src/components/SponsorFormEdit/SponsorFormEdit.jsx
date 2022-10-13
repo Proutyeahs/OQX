@@ -42,6 +42,20 @@ function SponsorFormEdit() {
         }, 500)
     }
 
+    // uploads the image to cloudinary and saves the url in local state
+    const uploadImage = (e) => {
+        console.log(e.target.files[0])
+        const formData = new FormData();
+        formData.append("file", e.target.files[0])
+        formData.append("upload_preset", "OQX_Images")
+        axios.post("https://api.cloudinary.com/v1_1/dycuh9yxe/image/upload", formData).then((response) => {
+            dispatch({
+                type: 'PUT_IMAGE_SPONSOR',
+                payload: response.data.url
+            })
+            console.log('yo', response.data)
+        })
+    }
 
     return (
         <>
@@ -61,16 +75,20 @@ function SponsorFormEdit() {
                 </div>
 
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth
-                        multiline
-                        rows={5} defaultValue={specificSponsor.image} type="text"
-                        onChange={(e) =>
-                            dispatch({
-                                type: 'PUT_IMAGE',
-                                payload: e.target.value
-                            })} />
+                    {/* IMAGE URL  */}
+                <div>
+                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                    </Button>
                 </div>
 
+                {/* renders the image if it exists */}
+                {specificSponsor.image != '' &&
+                    <div className="center">
+                        <img className="size" src={specificSponsor.image} />
+                    </div>
+                }
+                </div>
                 <div className="center">
                     <Box >
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
