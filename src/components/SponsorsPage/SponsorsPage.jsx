@@ -23,13 +23,45 @@ function SponsorsPage() {
 
     //console.log(sponsors)
     //TODO: loop and organize sponsors by tier
-    const tier = () => {
-        for (let sponsor of sponsors)
-        console.log(sponsor)
-    }
+    const tier1 = () => {
+        for (let sponsor of sponsors) {
+            console.log(sponsor)
+            if (sponsor.levelOfDonation === 1) {
+                return <ul key={sponsor.id}>
+                    <li>{sponsor.company}</li>
+                    <img src={sponsor.image} />
+                </ul>
+            }
+        }
+    } //end tier1
+
+    const tier2 = () => {
+        for (let sponsor of sponsors) {
+            console.log(sponsor)
+            if (sponsor.levelOfDonation === 2) {
+                return <ul key={sponsor.id}>
+                    <li>{sponsor.company}</li>
+                    <img src={sponsor.image} />
+                </ul>
+            }
+        }
+    } //end tier2
+
+    const tier3 = () => {
+        for (let sponsor of sponsors) {
+            console.log(sponsor)
+            if (sponsor.levelOfDonation === 3) {
+                return <ul key={sponsor.id}>
+                    <li>{sponsor.company}</li>
+                    <img src={sponsor.image} />
+                </ul>
+            }
+        }
+    } //end tier3
 
 
-    tier()
+
+
 
     return (
         <>
@@ -42,44 +74,30 @@ function SponsorsPage() {
             </div>
 
             <div class="bg-cyan-300">
-                <br></br>
-
-                <img src="../generic-images/companylogo.png" class="object-scale-down h-48 ; rounded-full"/>
-
-                <p class="text-2xl">Crown Sponsor</p>
-
                 tier 1<br></br>
-                {/* <img src="../generic-images/companylogo.png" class="rounded-full" /> */}
-
+                {tier1()}
             </div>
+            
             <div class="bg-cyan-400">
                 tier 2<br></br>
-                {/* <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-32 ; rounded-full" />
-                <img src="../generic-images/99gen_gear.png" class="object-scale-down h-32 ; rounded-full" />
-                <img src="../generic-images/99gen_sphere.png" class="object-scale-down h-32 ; rounded-full" /> */}
+                {tier2()}
             </div>
 
             <div class="bg-cyan-500">
                 tier 3<br></br>
-                {/* <img src="../generic-images/99gen_swooshyman.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_tree.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_gear.png" class="object-scale-down h-24 ; rounded-full" />
-                <br></br>
-                <img src="../generic-images/99gen_sphere.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_swooshyman.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_tree.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-24 ; rounded-full" /> */}
+                {tier3()}
             </div>
 
-            <div className="sponsor">
+
+
+            {/* <div className="sponsor">
                 {sponsors.map(sponsor =>
                     <ul key={sponsor.id}>
                         <li>{sponsor.company}</li>
-                        <img src={sponsor.image}/>
+                        <img src={sponsor.image} />
                         <li>{sponsor.levelOfDonation}</li>
                     </ul>)}
-            </div>
+            </div> */}
         </>
     );
 }
