@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './ResourcesPage.css';
 
+
 //This Page displays resources sponsors as well as their categories
 
 function ResourcesPage() {
