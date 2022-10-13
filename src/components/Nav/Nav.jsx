@@ -29,7 +29,6 @@ function Nav() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-
   //MENU THINGS----------------------------------------
   //declares anchor as boolean value
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -189,7 +188,6 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
-
 
         </Menu>
       </div>
