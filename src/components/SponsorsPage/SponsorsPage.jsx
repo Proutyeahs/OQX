@@ -89,15 +89,6 @@ return (
                     </ul>)}
             </div>
         </div>
-
-        {/* <div className="sponsor">
-                {sponsors.map(sponsor =>
-                    <ul key={sponsor.id}>
-                        <li>{sponsor.company}</li>
-                        <img src={sponsor.image} />
-                        <li>{sponsor.levelOfDonation}</li>
-                    </ul>)}
-            </div> */}
     </>
 );
 }
