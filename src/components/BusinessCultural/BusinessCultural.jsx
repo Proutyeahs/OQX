@@ -93,7 +93,7 @@ function BusinessCultural() {
                                             <div key={event.id}>
                                                 <div onClick={() => handleClick(event.id)}>
                                                     <div className="flex items-center">
-                                                        <div className="absolute -left-3.5" style={point}></div>
+                                                        <div className="absolute -left-[17px]" style={point}></div>
                                                         <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
                                                     </div>
                                                     {event.image != '' &&
