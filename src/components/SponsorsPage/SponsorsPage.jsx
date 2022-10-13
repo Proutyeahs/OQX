@@ -78,28 +78,19 @@ function SponsorsPage() {
                 </div>
             </div>
 
+        <div>
+            tier 3<br></br>
             <div>
-                tier 3<br></br>
-                <div>
-                    {bronze.map(sponsor =>
-                        <ul key={sponsor.id}>
-                            <li>{sponsor.company}</li>
-                            <img src={sponsor.image} />
-                            <li>{sponsor.levelOfDonation}</li>
-                        </ul>)}
-                </div>
-            </div>
-
-            {/* <div className="sponsor">
-                {sponsors.map(sponsor =>
+                {bronze.map(sponsor =>
                     <ul key={sponsor.id}>
                         <li>{sponsor.company}</li>
                         <img src={sponsor.image} />
                         <li>{sponsor.levelOfDonation}</li>
                     </ul>)}
-            </div> */}
-        </>
-    );
+            </div>
+        </div>
+    </>
+);
 }
 
 export default SponsorsPage;
