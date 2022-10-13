@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPageCRUD from '../AboutPage/AboutPageCRUD';
+import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -61,7 +61,7 @@ function App() {
             exact
             path="/about"
           >
-            <AboutPageCRUD />
+            <AboutPage />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -291,7 +291,7 @@ function App() {
             {user.admin ?
               <AdminDash />
               :
-              <AboutPageCRUD />
+              <AboutPage />
             }
           </ProtectedRoute>
 

@@ -12,16 +12,21 @@ const AboutPageCRUD = () => {
     })
   }, [])
 
+  const handleAboutUs = () => {
+    console.log('Handle About Us');
+  }
 
   return (
     <>
       <div>
         {aboutReducer.map(about => (
-          <>
-            <div key={about.id}>
+          <div key={about.id}>
 
-              <p className='text-2xl font-semibold mt-4' key={about.id}>About Us:</p>
-              <p>{about.aboutUs}</p>
+            <>
+
+              <p className='text-2xl font-semibold mt-4'>About Us:</p>
+              <p className="mx-[2rem]" onClick={handleAboutUs}>{about.aboutUs}</p>
+              {/* Could dispatch individual requests for each portion :/ */}
 
               <p className='text-2xl font-semibold mt-4'>Who are we?</p>
               <p>{about.whoAreWe}</p>
@@ -34,7 +39,7 @@ const AboutPageCRUD = () => {
 
               <p className='text-2xl font-semibold mt-4'>Dr.Rider Bio:</p>
               <p>{about.DrRiderBio}</p>
-              
+
               <p className='text-2xl font-semibold mt-4'>Dr.Rider Photo:</p>
               <p>{about.DrRiderPhoto}</p>
 
@@ -42,19 +47,23 @@ const AboutPageCRUD = () => {
               <p>{about.WhatIsOQX}</p>
 
               <p className='text-2xl font-semibold mt-4'>Our Mission:</p>
-              <p>{about.mission}</p>
+              <p className='mb-4'>{about.mission}</p>
+              <div key={about.id}>
+                {about.getInvolved.map(list => (
+                  <p>{list}</p>
+                ))}</div>
 
-              <p className='text-2xl font-semibold'>Where does your information go to?</p>
+              <p className='text-2xl font-semibold mt-4'>Where does your information go to?</p>
               <p>{about.whereInfo}</p>
 
-              <p className='text-2xl font-semibold'>Where does your money go to?</p>
+              <p className='text-2xl font-semibold mt-4'>Where does your money go to?</p>
               <p>{about.whereMoney}</p>
 
-              <p className='text-2xl font-semibold'>Is OQX a non-profit?</p>
+              <p className='text-2xl font-semibold mt-4'>Is OQX a non-profit?</p>
               <p>{about.nonprofit}</p>
+            </>
 
-            </div>
-          </>
+          </div>
         ))}
       </div>
 
