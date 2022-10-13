@@ -21,67 +21,85 @@ function SponsorsPage() {
         })
     }, [])
 
-    //console.log(sponsors)
-    //TODO: loop and organize sponsors by tier
-    const tier = () => {
-        for (let sponsor of sponsors)
-        console.log(sponsor)
-    }
+// these are our categories for sponsorship tiers
+    let gold = []
+    let silver = []
+    let bronze = []
+// this function sorts all of the sponsors into their categories to be displayed
+    const sort = () => {
+        for (let sponsor of sponsors) {
+            console.log(sponsor)
+        
+        if (sponsor.levelOfDonation === 1) {
+            gold.push(sponsor);
+        }
+        if (sponsor.levelOfDonation === 2) {
+            silver.push(sponsor);
+        }
+        if (sponsor.levelOfDonation === 3) {
+            bronze.push(sponsor);
+        } 
+    } return console.log (gold, silver, bronze)
+}
+//run the sorting function
+sort()
 
+return (
+    <>
+        <div>
+            <h2>{heading}</h2>
+        </div>
 
-    tier()
+        <div >
+            <a className="text-gray-300" href="https://atelierlks.com/stunning-examples-fake-logos/">source for images used</a>
+        </div>
 
-    return (
-        <>
+        <div>
+            tier 1<br></br>
             <div>
-                <h2>{heading}</h2>
-            </div>
-
-            <div >
-                <a className="text-gray-300" href="https://atelierlks.com/stunning-examples-fake-logos/">source for images used</a>
-            </div>
-
-            <div class="bg-cyan-300">
-                <br></br>
-
-                <img src="../generic-images/companylogo.png" class="object-scale-down h-48 ; rounded-full"/>
-
-                <p class="text-2xl">Crown Sponsor</p>
-
-                tier 1<br></br>
-                {/* <img src="../generic-images/companylogo.png" class="rounded-full" /> */}
-
-            </div>
-            <div class="bg-cyan-400">
-                tier 2<br></br>
-                {/* <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-32 ; rounded-full" />
-                <img src="../generic-images/99gen_gear.png" class="object-scale-down h-32 ; rounded-full" />
-                <img src="../generic-images/99gen_sphere.png" class="object-scale-down h-32 ; rounded-full" /> */}
-            </div>
-
-            <div class="bg-cyan-500">
-                tier 3<br></br>
-                {/* <img src="../generic-images/99gen_swooshyman.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_tree.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_gear.png" class="object-scale-down h-24 ; rounded-full" />
-                <br></br>
-                <img src="../generic-images/99gen_sphere.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_swooshyman.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_tree.png" class="object-scale-down h-24 ; rounded-full" />
-                <img src="../generic-images/99gen_circlein.png" class="object-scale-down h-24 ; rounded-full" /> */}
-            </div>
-
-            <div className="sponsor">
-                {sponsors.map(sponsor =>
+                {gold.map(sponsor =>
                     <ul key={sponsor.id}>
                         <li>{sponsor.company}</li>
-                        <img src={sponsor.image}/>
+                        <img src={sponsor.image} />
                         <li>{sponsor.levelOfDonation}</li>
                     </ul>)}
             </div>
-        </>
-    );
+        </div>
+
+        <div>
+            tier 2<br></br>
+            <div>
+                {silver.map(sponsor =>
+                    <ul key={sponsor.id}>
+                        <li>{sponsor.company}</li>
+                        <img src={sponsor.image} />
+                        <li>{sponsor.levelOfDonation}</li>
+                    </ul>)}
+            </div>
+        </div>
+
+        <div>
+            tier 3<br></br>
+            <div>
+                {bronze.map(sponsor =>
+                    <ul key={sponsor.id}>
+                        <li>{sponsor.company}</li>
+                        <img src={sponsor.image} />
+                        <li>{sponsor.levelOfDonation}</li>
+                    </ul>)}
+            </div>
+        </div>
+
+        {/* <div className="sponsor">
+                {sponsors.map(sponsor =>
+                    <ul key={sponsor.id}>
+                        <li>{sponsor.company}</li>
+                        <img src={sponsor.image} />
+                        <li>{sponsor.levelOfDonation}</li>
+                    </ul>)}
+            </div> */}
+    </>
+);
 }
 
 export default SponsorsPage;
