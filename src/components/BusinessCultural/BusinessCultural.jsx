@@ -70,7 +70,7 @@ function BusinessCultural() {
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
                             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Business Cultural</p>
-                            <p className="text-sm md:text-base text-gray-900 mb-4">Filler text</p>
+                            <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential business and cultural events of queer history.</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
                                     name="outlined"
