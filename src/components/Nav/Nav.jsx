@@ -74,26 +74,11 @@ function Nav() {
 
   return (
 
-    // <div className="nav">
-    //   <div>
-    //   </div>
-
-    //   <Link to="/about">
-    //     <h2 className="nav-title">OQX</h2>
-    //   </Link>
-
       <div className="nav">
 
       <Link to="/about">
         <img src='/OurQueerHxstory.png' className="nav-title"/>
       </Link>
-
-
-      {/* <Link className="navLink" to="/user">
-        <IconButton aria-label="back">
-          <ArrowBackOutlinedIcon />
-        </IconButton>
-      </Link> */}
 
       {/* changed to dispatch politicalLegal get request on click */}
       <IconButton className="navLink" onClick={PL} aria-label="political">

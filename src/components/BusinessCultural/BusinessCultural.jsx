@@ -76,6 +76,7 @@ function BusinessCultural() {
                                     name="outlined"
                                     label="Search"
                                     type="outlined"
+                                    root-background="white"
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}>
                                 </TextField>
@@ -98,7 +99,7 @@ function BusinessCultural() {
                                                     </div>
                                                     {event.image != '' &&
                                                         <img className="rounded-t-lg" src={event.image} />}
-                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
+                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl  bg-white" key={event.id}>
                                                         <p className="font-bold text-xl mb-2">{event.title}</p>
                                                         <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                     </div>
