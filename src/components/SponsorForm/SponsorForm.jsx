@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
-
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-
-
 
 function SponsorForm() {
 
@@ -56,7 +53,6 @@ function SponsorForm() {
     return (
         <>
             <h1 className="font-bold">Submit New Sponsor</h1>
-
             <div className="center">
 
                 {/* SPONSOR NAME */}
@@ -84,7 +80,6 @@ function SponsorForm() {
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
                             <InputLabel> Select category </InputLabel>
                             <Select label="Select Sponsorship Tier"
-
                                 defaultValue={''} onChange={(e) => setSponsor({ ...sponsor, levelOfDonation: e.target.value })}>
                                 <MenuItem value="1"> Gold
                                 </MenuItem>
@@ -101,7 +96,6 @@ function SponsorForm() {
                 <div>
                     <Button variant="outlined" color="success" onClick={submit}>Submit</Button>
                 </div>
-
             </div>
         </>
     )

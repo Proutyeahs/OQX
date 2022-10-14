@@ -21,7 +21,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './EventReview.css'
 import Stack from '@mui/material/Stack';
 
-
 // TABLE MUI FUNCTIONS
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -43,7 +42,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
         border: 0,
     },
 })); // END TABLE MUI FUNCTIONS
-
 
 function EventReview() {
 
@@ -115,6 +113,7 @@ function EventReview() {
                                     </StyledTableCell>
                                     <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
+
                                             {/* pushes to edit event page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
 

@@ -1,14 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
@@ -79,6 +77,7 @@ function ResourcesReview() {
                                     </StyledTableCell>
                                     <StyledTableCell>
                                         <Stack direction="row" spacing={2}>
+
                                             {/* pushes to edit resource page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/resourceFormEdit/${resource.id}`)}>Edit</EditIcon>
 
