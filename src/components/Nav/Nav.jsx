@@ -21,6 +21,7 @@ import MenuItem from '@mui/material/MenuItem'; //each line on the menu
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu icon
 import ListItem from '@mui/material/ListItem';
 
+
 function Nav() {
   //is the user logged in? who are they?
   const user = useSelector((store) => store.user);
@@ -73,13 +74,20 @@ function Nav() {
 
   return (
 
-    <div className="nav">
-      <div>
-      </div>
+    // <div className="nav">
+    //   <div>
+    //   </div>
+
+    //   <Link to="/about">
+    //     <h2 className="nav-title">OQX</h2>
+    //   </Link>
+
+      <div className="nav">
 
       <Link to="/about">
-        <h2 className="nav-title">OQX</h2>
+        <img src='/OurQueerHxstory.png' className="nav-title"/>
       </Link>
+
 
       {/* <Link className="navLink" to="/user">
         <IconButton aria-label="back">

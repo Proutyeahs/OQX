@@ -65,8 +65,8 @@ function BusinessCultural() {
     return (
         <>
             <section>
-                <div className="bg-white text-black">
-                    <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
+                <div className=" text-black">
+                    <div className="container mx-auto flex flex-col items-start md:flex-row">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
                             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Business Cultural</p>
