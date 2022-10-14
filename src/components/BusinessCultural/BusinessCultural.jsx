@@ -54,6 +54,12 @@ function BusinessCultural() {
         borderColor: '#F3D73C',
     }
 
+    // display text if searched result is empty
+    const noFoundEvents = () => {
+        if (events.length === 0) {
+            return <p>No Results Found!</p>
+        }
+    }
 
     useEffect(() => {
         dispatch({
@@ -83,6 +89,7 @@ function BusinessCultural() {
                             <form onSubmit={handleSubmit}>
                                 <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
                             </form>
+                            {noFoundEvents()}
                         </div>
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
