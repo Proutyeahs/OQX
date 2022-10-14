@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdminDash.css';
 import '@fontsource/roboto';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 function AdminDash() {

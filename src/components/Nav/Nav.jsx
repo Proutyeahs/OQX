@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 
 //MUI ICONS HERE
 import { IconButton } from '@mui/material';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'; //back button
 
 //TIMELINE ICONS
 import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined'; //political/legal timeline
@@ -20,7 +19,6 @@ import Menu from '@mui/material/Menu'; //burger menu box/functionality
 import MenuItem from '@mui/material/MenuItem'; //each line on the menu
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu icon
 import ListItem from '@mui/material/ListItem';
-
 
 function Nav() {
   //is the user logged in? who are they?
@@ -73,27 +71,10 @@ function Nav() {
   }
 
   return (
-
-    // <div className="nav">
-    //   <div>
-    //   </div>
-
-    //   <Link to="/about">
-    //     <h2 className="nav-title">OQX</h2>
-    //   </Link>
-
-      <div className="nav">
-
+    <div className="nav">
       <Link to="/about">
-        <img src='/OurQueerHxstory.png' className="nav-title"/>
+        <img src='/OurQueerHxstory.png' className="nav-title" />
       </Link>
-
-
-      {/* <Link className="navLink" to="/user">
-        <IconButton aria-label="back">
-          <ArrowBackOutlinedIcon />
-        </IconButton>
-      </Link> */}
 
       {/* changed to dispatch politicalLegal get request on click */}
       <IconButton className="navLink" onClick={PL} aria-label="political">

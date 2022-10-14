@@ -11,8 +11,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
-
-
 function EventForm() {
 
     const dispatch = useDispatch();
@@ -56,7 +54,6 @@ function EventForm() {
     return (
         <>
             <h1 className="font-bold">Submit Event</h1>
-
             <div className="center">
 
                 {/* EVENT TITLE */}
@@ -99,7 +96,6 @@ function EventForm() {
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
                             <InputLabel> Select category </InputLabel>
                             <Select label="Select category"
-
                                 defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
                                 <MenuItem value="1"> Political/Legal
                                 </MenuItem>

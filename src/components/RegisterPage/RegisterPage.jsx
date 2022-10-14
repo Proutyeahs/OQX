@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 //MUI BUTTON
@@ -11,7 +10,6 @@ function RegisterPage() {
   return (
     <div>
       <RegisterForm />
-
       <center>
         <Button variant='(default)'
           type="button"

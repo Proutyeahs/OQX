@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import TextField from '@mui/material/TextField'; // MUI TEXTFIELD FOR SEARCH BAR
 import SearchIcon from '@mui/icons-material/Search'; // MUI ICON FOR SEARCH BAR
 
-
 function PoliticalLegal() {
 
     const events = useSelector((store) => store.event)
@@ -55,6 +54,12 @@ function PoliticalLegal() {
         marginRight: '100px'
     }
 
+    // display text if searched result is empty
+    const noFoundEvents = () => {
+        if (events.length === 0) {
+            return <p>No Results Found!</p>
+        }
+    }
 
     useEffect(() => {
         dispatch({
@@ -84,7 +89,9 @@ function PoliticalLegal() {
                             <form onSubmit={handleSubmit}>
                                 <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
                             </form>
+                            {noFoundEvents()}
                         </div>
+
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
@@ -107,11 +114,11 @@ function PoliticalLegal() {
                                             </div>
                                         ))}
                                     </div>
-                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
         </>
     )
