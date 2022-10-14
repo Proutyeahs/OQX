@@ -79,7 +79,7 @@ function UserStoriesForm() {
 
                             {/* SUBMIT */}
                             <div>
-                                <Button variant="contained" color="success" onClick={submit}>Submit</Button>
+                                <Button variant="outlined" color="success" onClick={submit}>Submit</Button>
                             </div>
 
                             {/* MUI STACK END */}
