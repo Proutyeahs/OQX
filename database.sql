@@ -93,3 +93,7 @@ CREATE TABLE "about" (
     "ownerImage1" VARCHAR (65535) NOT NULL,
     "ownerImage2" VARCHAR (65535) NOT NULL
 );
+
+-- blank stories insert statement 
+INSERT INTO "stories" ("user_id", "story", "authorized", "timeline_id")
+    VALUES (3, 'story', true, 'timeLineEventId#Here');
