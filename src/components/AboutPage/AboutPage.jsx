@@ -1,6 +1,11 @@
 import React from 'react';
 import './AboutPage.css';
 import '@fontsource/roboto';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -10,70 +15,146 @@ import '@fontsource/roboto';
 function AboutPage() {
   return (
     <>
-      <p>About Us:</p>
-      <p>
-        Welcome to Our Queer HxStory, we are so happy to see you taking some time to explore our site.  Take a minute to look over who and what we are.  We are here with a mission to provide free access to life transforming information for everyone!
+    
+      <div className='m-[60px]'>
+        <p className='mb-[20px]'>About Us:</p>
+        <p>
+          Welcome to Our Queer HxStory, we are so happy to see you taking some time to explore our site.  Take a minute to look over who and what we are.  We are here with a mission to provide free access to life transforming information for everyone!
 
-        The following information is intended for a broad audience, which includes people of all ages and backgrounds. For more detailed information, please do not hesitate to contact us at adminoqx@ourqueerhxstory.com.
-      </p>
+          The following information is intended for a broad audience, which includes people of all ages and backgrounds. For more detailed information, please do not hesitate to contact us at adminoqx@ourqueerhxstory.com.
+        </p>
+      </div>
 
-      <p>Who are we?</p>
-      <p>
-        Our names are Leonardo Candelario-Perez PhD and Nic G. Rider PhD.  We are the cofounders of OQX.  Between us we have more than 2 decades in the fields of sexual, gender and mental health. We have dedicated our careers to helping people of all walks of life find betterment and wellbeing for themselves and loved ones.  We have now decided to take our passion for empowering marginalized people to a broader level.
-      </p>
+      <div className='mx-[60px]'>
+        {/* <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>About Us:</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Welcome to Our Queer HxStory, we are so happy to see you taking some time to explore our site.  Take a minute to look over who and what we are.  We are here with a mission to provide free access to life transforming information for everyone!
 
-      <p>Dr. Leo</p>
-      <p>
-        Hola! I am Leo (Spanish or English pronunciation is fine). I am the originator, Co-founder, and CEO of OQX. I am a licensed clinical psychologist specializing in gender and sexual health working in the Twin Cities Minnesota, I am an adjunct professor for the University of Minnesota and an LGBTQIA+ consultant and educators for several non-profits.  I am from Guaynabo Puerto Rico and a proud queer, Boricua, bi-cultural, bi-lingual, nonbinary, femme person.
+              The following information is intended for a broad audience, which includes people of all ages and backgrounds. For more detailed information, please do not hesitate to contact us at adminoqx@ourqueerhxstory.com.
+            </Typography>
+          </AccordionDetails>
+        </Accordion> */}
 
-        When I am not being Dr. Leo as I am called when I am wearing my work hat, I am usually surrounded by family and friends.  Some have said I have a lot of “mom” energy, which I wear like a badge of honor.  My interests are varied, and I don’t do subtle in any aspect of my life. I love all things nature; thus, I have a problematically large amount of house plants, love fish tanks and aqua scaping, learning about history and science and have a passion for cooking for others.
-      </p>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>Who are we?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Our names are Leonardo Candelario-Perez PhD and Nic G. Rider PhD.  We are the cofounders of OQX.  Between us we have more than 2 decades in the fields of sexual, gender and mental health. We have dedicated our careers to helping people of all walks of life find betterment and wellbeing for themselves and loved ones.  We have now decided to take our passion for empowering marginalized people to a broader level.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
 
-      <p>Dr. Rider</p>
-      <p>
-        TBD
-      </p>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>Dr. Leo</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Hola! I am Leo (Spanish or English pronunciation is fine). I am the originator, Co-founder, and CEO of OQX. I am a licensed clinical psychologist specializing in gender and sexual health working in the Twin Cities Minnesota, I am an adjunct professor for the University of Minnesota and an LGBTQIA+ consultant and educators for several non-profits.  I am from Guaynabo Puerto Rico and a proud queer, Boricua, bi-cultural, bi-lingual, nonbinary, femme person.
 
-      <p>What is our Queer HxStory?</p>
-      <p> At its core OQX is a free to use online resource for the national queer community to have an active role in documenting important events and people that have impacted the lives of marginalized people since 1900.
+              When I am not being Dr. Leo as I am called when I am wearing my work hat, I am usually surrounded by family and friends.  Some have said I have a lot of “mom” energy, which I wear like a badge of honor.  My interests are varied, and I don’t do subtle in any aspect of my life. I love all things nature; thus, I have a problematically large amount of house plants, love fish tanks and aqua scaping, learning about history and science and have a passion for cooking for others.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
 
-        OQX revolves around three central, interactive, and searchable living timelines which span the fields of:
-      </p>
-      <ol className='ml-4'>
-        <li>•	Politics & Law</li>
-        <li>•	Medicine & Science</li>
-        <li>•	Culture & and Business</li>
-      </ol>
-      <p>
-        We call OQX a living timeline since it is always being verified and updated by us the administrators and by people like you!
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>Dr. Rider</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              TBD
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
 
-        If you are 18 or older and wish to suggest an event, person or just want to share a story about why something is important to you, just register and submit! We will review your information, verify it with other reputable sources and once approved it will be immortalized in one of the three timelines!  You can do this anonymously or can accept to have your name posted.
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>What is our Queer HxStory?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              At its core OQX is a free to use online resource for the national queer community to have an active role in documenting important events and people that have impacted the lives of marginalized people since 1900.
 
-        All information found in OQX is fact and scientifically checked.
+              OQX revolves around three central, interactive, and searchable living timelines which span the fields of:
 
-        Information is provided at a 6th grade reading level. With that said this is made to be used by people across the life span and of any educational level.  How you use OQX is up to you.  You can search for fun queer facts, do research on a specific project, or use it as a teaching or advocacy tool for students, clients, or patients.
+              <ol>
+                <li>•	Politics & Law</li>
+                <li>•	Medicine & Science</li>
+                <li>•	Culture & and Business</li>
+              </ol>
 
-        You will also find a resources section, where you will be able to see legal and health care resources in your area which have met our queer cultural competency and humility standards of training and practice.
+              We call OQX a living timeline since it is always being verified and updated by us the administrators and by people like you!
 
-        Currently, we are still in the developing stage of this company.  We have a vision to expand into the fields of research, social media, education, and consultation.  Check the website or follow us on social media for updates on our journey!
-      </p>
+              If you are 18 or older and wish to suggest an event, person or just want to share a story about why something is important to you, just register and submit! We will review your information, verify it with other reputable sources and once approved it will be immortalized in one of the three timelines!  You can do this anonymously or can accept to have your name posted.
 
-      <p>Our Mission:</p>
-      <p>
-        Our mission is simple!
+              All information found in OQX is fact and scientifically checked.
 
-        We seek to provide verified, and fact checked information for free on important events and people in the story of Queer people in the USA and its territories for anyone to use.
+              Information is provided at a 6th grade reading level. With that said this is made to be used by people across the life span and of any educational level.  How you use OQX is up to you.  You can search for fun queer facts, do research on a specific project, or use it as a teaching or advocacy tool for students, clients, or patients.
 
-        In addition to minimizing barriers to access this information, we seek to highlight and emphasize voices and events which decentralize whiteness and colonialism.
+              You will also find a resources section, where you will be able to see legal and health care resources in your area which have met our queer cultural competency and humility standards of training and practice.
 
-        Finally, we seek to build a greater sense of community within local communities and at a national level by helping people access life changing resources close to them.
+              Currently, we are still in the developing stage of this company.  We have a vision to expand into the fields of research, social media, education, and consultation.  Check the website or follow us on social media for updates on our journey!
 
-        How can you help?
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
 
-        There are many ways to help!
-      </p>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>Our Mission:</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Our mission is simple!
 
-      <ol className='ml-4'>
+              We seek to provide verified, and fact checked information for free on important events and people in the story of Queer people in the USA and its territories for anyone to use.
+
+              In addition to minimizing barriers to access this information, we seek to highlight and emphasize voices and events which decentralize whiteness and colonialism.
+
+              Finally, we seek to build a greater sense of community within local communities and at a national level by helping people access life changing resources close to them.
+
+              How can you help?
+
+              There are many ways to help!
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+
+
+
+      {/* <ol className='ml-4'>
         <li>1. Follow us on Social Media</li>
         <li>2. If you are 18 or older, register.</li>
         <li>3. Accessing the website on a continual basis, helps us justify our existance.</li>
@@ -85,7 +166,7 @@ function AboutPage() {
         <li>9. Become an approved resource! </li>
       </ol>
 
-      <p>Where does your information go to?</p>
+      <p className='font-bold'>Where does your information go to?</p>
       <p>
         OQX will manage any information provided to us with the deepest sense of respect and protection.  Your information safety is central to our cause. We recognize that the Queer community at large has many reasons to be distrusting of systems.  Historically our information has been used in ways that has caused deep harm and pain.
 
@@ -94,7 +175,7 @@ function AboutPage() {
         Your information will be collected and saved using the highest ethical and secure process possible.
       </p>
 
-      <p>Where does your money go to?</p>
+      <p className='font-bold'>Where does your money go to?</p>
       <p>
         If you are in the position to help OQX with financial resources, through any of the forementioned way, the money will go to the following:
         <ol className='ml-4'>
@@ -106,7 +187,7 @@ function AboutPage() {
         </ol>
       </p>
 
-      <p>Is OQX a non-profit?</p>
+      <p className='font-bold'>Is OQX a non-profit?</p> */}
     </>
   );
 }
