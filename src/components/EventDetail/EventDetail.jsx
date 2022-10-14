@@ -88,7 +88,7 @@ function EventDetail(event) {
     return (
         <>
 
-{/* <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
+            {/* <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
     <li class="mb-10 ml-6">            
         <div class="justify-between items-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
             {/* <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">just now</time> */}
@@ -131,22 +131,25 @@ function EventDetail(event) {
                             <img src={event.image} />
                         </div>
                     ))}
-                    <br></br>
+
                     <div className="px-6 pt-1 pb-2 ">
 
                         {[eventDetail].map(event => (
                             <div key={event.id}>
                                 <p className="text-gray-800 text-base text-left">{event.info}</p>
                             </div>
+
+                        ))}
+
+                        {[eventDetail].map(event => (
+                            <div className="pt-2 max-w-sm text-left" key={event.id}>
+                                <p>References: {event.references}</p>
+
+                            </div>
                         ))}
                     </div>
                 </div>
-                {[eventDetail].map(event => (
-                    <div className="px-6 pt-4 pb-2 max-w-sm rounded overflow-hidden shadow-lg text-left" key={event.id}>
-                        <p>References: {event.references}</p>
-
-                    </div>
-                ))}
+                
 
                 <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg">
                     <div >
@@ -169,7 +172,7 @@ function EventDetail(event) {
                 </div>
 
             </div>
-            
+
         </>
     )
 }
