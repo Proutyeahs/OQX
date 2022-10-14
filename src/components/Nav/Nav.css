@@ -3,13 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin: 0 0 30px;
   background-color: #ffffff;
   overflow: hidden;
-
   border-bottom-width: 2px;
-
 }
 
 .nav a {
@@ -17,7 +14,7 @@
 }
 
 .nav-title {
-  max-height: 200px;
+  max-height: 125px;
   color: #313030;
   padding-left: 10px;
   margin: 0;

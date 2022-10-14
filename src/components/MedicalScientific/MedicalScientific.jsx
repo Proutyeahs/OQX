@@ -79,9 +79,12 @@ const MedicalScientific = () => {
                             <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential medical and scientific events of queer history.</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
+                                    sx={{backgroundColor:"white" }} 
                                     name="outlined"
                                     label="Search"
-                                    type="outlined"
+                                    type="filled"
+                                    variant="outlined"
+                                    
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}>
                                 </TextField>
@@ -106,7 +109,7 @@ const MedicalScientific = () => {
                                                     </div>
                                                     {event.image != '' &&
                                                         <img className="rounded-t-lg" src={event.image} />}
-                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
+                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl  bg-white" key={event.id}>
                                                         <p className="font-bold text-xl mb-2">{event.title}</p>
                                                         <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                     </div>

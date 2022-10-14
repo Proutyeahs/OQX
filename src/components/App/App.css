@@ -121,5 +121,4 @@ input {
   background-image: url(/public/left50.png), url(/public/right50.png);
   background-position: left bottom, right top;
   background-repeat: no-repeat;
-  image-opacity: 0.5
 }
