@@ -73,10 +73,10 @@ function BusinessCultural() {
                             <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential business and cultural events of queer history.</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
+                                    sx={{backgroundColor:"white" }} 
                                     name="outlined"
                                     label="Search"
                                     type="outlined"
-                                    root-background="white"
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}>
                                 </TextField>

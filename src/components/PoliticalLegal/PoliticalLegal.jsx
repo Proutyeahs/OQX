@@ -74,6 +74,7 @@ function PoliticalLegal() {
                             <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential political and legal events of queer history.</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
+                                    sx={{ backgroundColor: "white" }}
                                     name="outlined"
                                     label="Search"
                                     type="outlined"
@@ -107,11 +108,11 @@ function PoliticalLegal() {
                                             </div>
                                         ))}
                                     </div>
-                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
         </>
     )
