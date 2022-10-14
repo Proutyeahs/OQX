@@ -73,21 +73,21 @@ function SponsorFormEdit() {
                                 payload: e.target.value
                             })} />
                 </div>
-
                 <div>
+
                     {/* IMAGE URL  */}
-                <div>
-                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
-                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
-                    </Button>
-                </div>
-
-                {/* renders the image if it exists */}
-                {specificSponsor.image != '' &&
-                    <div className="center">
-                        <img className="size" src={specificSponsor.image} />
+                    <div>
+                        <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                            <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                        </Button>
                     </div>
-                }
+
+                    {/* renders the image if it exists */}
+                    {specificSponsor.image != '' &&
+                        <div className="center">
+                            <img className="size" src={specificSponsor.image} />
+                        </div>
+                    }
                 </div>
                 <div className="center">
                     <Box >

@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 
 //MUI ICONS HERE
 import { IconButton } from '@mui/material';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'; //back button
 
 //TIMELINE ICONS
 import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined'; //political/legal timeline
@@ -72,20 +71,12 @@ function Nav() {
   }
 
   return (
-
     <div className="nav">
       <div>
       </div>
-
       <Link to="/about">
         <h2 className="nav-title">OQX</h2>
       </Link>
-
-      {/* <Link className="navLink" to="/user">
-        <IconButton aria-label="back">
-          <ArrowBackOutlinedIcon />
-        </IconButton>
-      </Link> */}
 
       {/* changed to dispatch politicalLegal get request on click */}
       <IconButton className="navLink" onClick={PL} aria-label="political">
@@ -187,7 +178,7 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
-
+          
         </Menu>
       </div>
       <div>

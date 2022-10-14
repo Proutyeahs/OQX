@@ -91,6 +91,7 @@ const MedicalScientific = () => {
                             </form>
                             {noFoundEvents()}
                         </div>
+
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">

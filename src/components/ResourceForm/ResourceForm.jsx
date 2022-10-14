@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
-
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -10,8 +9,6 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-
-
 
 function ResourceForm() {
 
@@ -24,7 +21,6 @@ function ResourceForm() {
 
     // handle dispatch of information
     const submit = () => {
-        //console.log("submitting:", resource)
         dispatch({
             type: 'POST_RESOURCE',
             payload: resource
@@ -44,7 +40,6 @@ function ResourceForm() {
     return (
         <>
             <h1 className="font-bold">Submit New Resource</h1>
-
             <div className="center">
 
                 {/* BUSINESS NAME */}
@@ -68,7 +63,6 @@ function ResourceForm() {
                         <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
                             <InputLabel> Select category </InputLabel>
                             <Select label="Select category"
-
                                 defaultValue={''} onChange={(e) => setResource({ ...resource, category_id: e.target.value })}>
                                 <MenuItem value="1"> Political/Legal
                                 </MenuItem>
