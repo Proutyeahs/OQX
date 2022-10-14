@@ -47,14 +47,14 @@ function ResourcesPage() {
 
     return (
         <>
-            <div>
+            <div class="section">
                 <h2>{heading}</h2>
             </div>
 
             <div>
                 <h2>Legal</h2>
             </div>
-            <div >
+            <div class="section">
                 {legal.map(resource =>
                     <ul key={resource.id}>
                         <li>{resource.name}</li>
@@ -67,7 +67,7 @@ function ResourcesPage() {
             <div>
                 <h2>Health</h2>
             </div>
-            <div >
+            <div class="section">
                 {health.map(resource =>
                     <ul key={resource.id}>
                         <li>{resource.name}</li>
@@ -79,7 +79,7 @@ function ResourcesPage() {
             <div>
                 <h2>Business</h2>
             </div>
-            <div >
+            <div class="section">
                 {business.map(resource =>
                     <ul key={resource.id}>
                         <li>{resource.name}</li>
