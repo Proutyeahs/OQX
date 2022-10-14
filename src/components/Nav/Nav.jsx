@@ -72,10 +72,8 @@ function Nav() {
 
   return (
     <div className="nav">
-      <div>
-      </div>
       <Link to="/about">
-        <h2 className="nav-title">OQX</h2>
+        <img src='/OurQueerHxstory.png' className="nav-title" />
       </Link>
 
       {/* changed to dispatch politicalLegal get request on click */}
@@ -178,7 +176,7 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
-          
+
         </Menu>
       </div>
       <div>

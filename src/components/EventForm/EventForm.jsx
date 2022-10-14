@@ -68,7 +68,7 @@ function EventForm() {
 
                 {/* UPLOAD IMAGE */}
                 <div>
-                    <Button variant="contained" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                    <Button variant="outlined" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
                         <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
                     </Button>
                 </div>
@@ -110,7 +110,7 @@ function EventForm() {
 
                 {/* SUBMIT */}
                 <div>
-                    <Button variant="contained" color="success" onClick={submit}>Submit</Button>
+                    <Button variant="outlined" color="success" onClick={submit}>Submit</Button>
                 </div>
             </div>
         </>
