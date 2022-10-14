@@ -103,21 +103,26 @@ function EventDetail(event) {
                 </div>
             </div>
 
-            main body contains date, event, 
+           
             <div className="grid items-center justify-center y-screen">
+                 {/* main body contains date, event title, image, info on event, and references  */}
                 <div className="max-w-lg rounded overflow-hidden shadow-md">
+
+                    {/* event date */}
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="font-bold text-xl">{formatDate(event.date)}</p>
                         </div>
                     ))}
 
+                    {/* event title */}
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="font-bold text-2xl mb-2">{event.title}</p>
                         </div>
                     ))}
 
+                    {/* image */}
                     {[eventDetail].map(event => (
                         <div className="px-6 pt-1 pb-1" key={event.id}>
                             <img src={event.image} />
@@ -125,14 +130,14 @@ function EventDetail(event) {
                     ))}
 
                     <div className="px-6 pt-1 pb-2 ">
-
+                        {/* event info */}
                         {[eventDetail].map(event => (
                             <div key={event.id}>
                                 <p className="text-gray-800 text-base text-left">{event.info}</p>
                             </div>
 
                         ))}
-
+                        {/* references */}
                         {[eventDetail].map(event => (
                             <div className="pt-2 max-w-md text-left" key={event.id}>
                                 <p>References: {event.references}</p>
@@ -150,6 +155,7 @@ function EventDetail(event) {
                         <div className="pt-2 pb-4">
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
+                        {/* user stories */}
                         {userStories.map(story => (
                             <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600" key={story.id}>
                                 <div className="container mx-auto text-gray-800 text-base">{story.story} 
