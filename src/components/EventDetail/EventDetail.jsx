@@ -87,6 +87,16 @@ function EventDetail(event) {
 
     return (
         <>
+
+{/* <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
+    <li class="mb-10 ml-6">            
+        <div class="justify-between items-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+            {/* <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">just now</time> */}
+            {/* <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Bonnie moved</div>
+        </div>
+    </li>
+    </ol> */}
+
             <div className="px-4" >
                 <div className="text-left"><ArrowBackIosNewIcon variant="contained" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
                 </div>
@@ -102,8 +112,8 @@ function EventDetail(event) {
                 </div>
             </div>
 
-            <div className="grid justify-items-center ...">
-                <div className="max-w-sm rounded overflow-hidden shadow-lg justify-items-center ...">
+            <div className="grid items-center justify-center y-screen">
+                <div className="max-w-sm rounded overflow-hidden shadow-lg">
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="font-bold text-xl">{formatDate(event.date)}</p>
@@ -117,12 +127,12 @@ function EventDetail(event) {
                     ))}
 
                     {[eventDetail].map(event => (
-                        <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg" key={event.id}>
+                        <div className="px-6 pt-1 pb-1" key={event.id}>
                             <img src={event.image} />
                         </div>
                     ))}
                     <br></br>
-                    <div className="px-6 py-4 ">
+                    <div className="px-6 pt-1 pb-2 ">
 
                         {[eventDetail].map(event => (
                             <div key={event.id}>
@@ -131,37 +141,35 @@ function EventDetail(event) {
                         ))}
                     </div>
                 </div>
-                <br></br>
-                <br></br>
-
                 {[eventDetail].map(event => (
-                    <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg text-left" key={event.id}>
-                        <a href={event.references}>References: {event.references}</a>
+                    <div className="px-6 pt-4 pb-2 max-w-sm rounded overflow-hidden shadow-lg text-left" key={event.id}>
+                        <p>References: {event.references}</p>
 
                     </div>
                 ))}
 
                 <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg">
-                    <br></br>
                     <div >
                         {/* button for adding a story */}
                         <div>
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
                         {userStories.map(story => (
-                            <div className="container mx-auto px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg" key={story.id}>
-                                <p className="container mx-auto text-gray-800 text-base text-left">{story.story} {/* delete story if its the users story */}
-                                    {user.id === story.user_id &&
-                                        <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
-                                        || user.admin &&
-                                        <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
-                                    }</p>
+                            <div><p className="container mx-auto text-gray-800 text-base">{story.story} {/* delete story if its the users story */}
+                                {user.id === story.user_id &&
+                                    <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                    || user.admin &&
+                                    <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                }</p>
+                                <div className="mx-auto px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg text-left" key={story.id}>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
             </div>
+            
         </>
     )
 }
