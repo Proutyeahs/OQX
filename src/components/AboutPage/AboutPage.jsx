@@ -13,11 +13,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // or even care what the redux state is'
 
 function AboutPage() {
+
   return (
     <>
-    
+
       <div className='m-[60px]'>
-        <p className='mb-[20px]'>About Us:</p>
+        <p className='mb-[20px] text-[35px]'>About Us:</p>
         <p>
           Welcome to Our Queer HxStory, we are so happy to see you taking some time to explore our site.  Take a minute to look over who and what we are.  We are here with a mission to provide free access to life transforming information for everyone!
 
@@ -26,22 +27,6 @@ function AboutPage() {
       </div>
 
       <div className='mx-[60px]'>
-        {/* <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>About Us:</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Welcome to Our Queer HxStory, we are so happy to see you taking some time to explore our site.  Take a minute to look over who and what we are.  We are here with a mission to provide free access to life transforming information for everyone!
-
-              The following information is intended for a broad audience, which includes people of all ages and backgrounds. For more detailed information, please do not hesitate to contact us at adminoqx@ourqueerhxstory.com.
-            </Typography>
-          </AccordionDetails>
-        </Accordion> */}
 
         <Accordion>
           <AccordionSummary
@@ -49,7 +34,13 @@ function AboutPage() {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Who are we?</Typography>
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >
+              Who are we?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -64,7 +55,13 @@ function AboutPage() {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Dr. Leo</Typography>
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >
+              <p>Dr. Leo</p>
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -81,7 +78,11 @@ function AboutPage() {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Dr. Rider</Typography>
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >Dr. Rider</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -96,7 +97,11 @@ function AboutPage() {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>What is our Queer HxStory?</Typography>
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >What is our Queer HxStory?</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -132,7 +137,11 @@ function AboutPage() {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Our Mission:</Typography>
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >Our Mission:</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -150,44 +159,96 @@ function AboutPage() {
             </Typography>
           </AccordionDetails>
         </Accordion>
+
+        {/* START */}
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >
+              {/* TITLE */}
+              Where does your information go to?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              OQX will manage any information provided to us with the deepest sense of respect and protection.  Your information safety is central to our cause. We recognize that the Queer community at large has many reasons to be distrusting of systems.  Historically our information has been used in ways that has caused deep harm and pain.
+
+              All information consensually collected by OQX will be used to further an understanding of what queer communities need, generate research to improve health outcomes and change policy for the better and ultimately immortalize our impact on the history of the USA.
+
+              Your information will be collected and saved using the highest ethical and secure process possible.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        {/* END */}
+
+
+
+        {/* START */}
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >
+              Where does your money go to?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              If you are in the position to help OQX with financial resources, through any of the forementioned way, the money will go to the following:
+              <ol className='mt-4'>
+                <li>A.	Covering Startup costs, like licenses, materials, and administrative costs.</li>
+                <li>B.	Initially, a large portion of funds will go towards improving the quality and user experience of the Website itself.</li>
+                <li>C.	As we deeply believe in fair compensation for people’s time, energy, and intellect, we will use funds to pay consultants and experts we need as we grow.
+                </li>
+                <li>E.  Lastly, our big goal is to become a B-Corp which is a corporation which meets the highest standards of social and environmental performance, transparency, and accountability.</li>
+              </ol>
+
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        {/* END */}
+
+        {/* START */}
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography
+              sx={{
+                fontSize: 35
+              }}
+            >
+              Is OQX a non-profit?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              TBD
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        {/* END */}
+
+
+
+
       </div>
-
-
-
-      {/* <ol className='ml-4'>
-        <li>1. Follow us on Social Media</li>
-        <li>2. If you are 18 or older, register.</li>
-        <li>3. Accessing the website on a continual basis, helps us justify our existance.</li>
-        <li>4. Suggesting dates or people to add to the timeline.</li>
-        <li>5. Sharing personal stories on why certain events or people are important to you.</li>
-        <li>6. You can donate following the links.</li>
-        <li>7. Become a Sponsor (Click sponsorship in the hamburger menu on the top right corner). </li>
-        <li>8. Market your business on OQX (Email us in the contact us section) </li>
-        <li>9. Become an approved resource! </li>
-      </ol>
-
-      <p className='font-bold'>Where does your information go to?</p>
-      <p>
-        OQX will manage any information provided to us with the deepest sense of respect and protection.  Your information safety is central to our cause. We recognize that the Queer community at large has many reasons to be distrusting of systems.  Historically our information has been used in ways that has caused deep harm and pain.
-
-        All information consensually collected by OQX will be used to further an understanding of what queer communities need, generate research to improve health outcomes and change policy for the better and ultimately immortalize our impact on the history of the USA.
-
-        Your information will be collected and saved using the highest ethical and secure process possible.
-      </p>
-
-      <p className='font-bold'>Where does your money go to?</p>
-      <p>
-        If you are in the position to help OQX with financial resources, through any of the forementioned way, the money will go to the following:
-        <ol className='ml-4'>
-          <li>A.	Covering Startup costs, like licenses, materials, and administrative costs.</li>
-          <li>B.	Initially, a large portion of funds will go towards improving the quality and user experience of the Website itself.</li>
-          <li>C.	As we deeply believe in fair compensation for people’s time, energy, and intellect, we will use funds to pay consultants and experts we need as we grow.</li>
-          <li>D.	As we grow, Dr. Rider and Leo will need to heir more amazing folks to help with the running and managing of the website and all associated endeavors.</li>
-          <li>E.	Lastly, our big goal is to become a B-Corp which is a corporation which meets the highest standards of social and environmental performance, transparency, and accountability.</li>
-        </ol>
-      </p>
-
-      <p className='font-bold'>Is OQX a non-profit?</p> */}
+      
     </>
   );
 }
