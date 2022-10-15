@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
 import TextField from '@mui/material/TextField'; // MUI TEXTFIELD FOR SEARCH BAR
 import SearchIcon from '@mui/icons-material/Search'; // MUI ICON FOR SEARCH BAR
 
@@ -70,6 +71,7 @@ function PoliticalLegal() {
 
     return (
         <>
+            
             <section>
                 <div className=" text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row">
@@ -97,6 +99,7 @@ function PoliticalLegal() {
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
                                 <div className="relative border-l-[10px] border-[#1D68DE] dark:border-gray-700">
+
                                     <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden">
                                         {events.map(event => (
                                             <div key={event.id}>
@@ -115,12 +118,14 @@ function PoliticalLegal() {
                                             </div>
                                         ))}
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            
         </>
     )
 }
