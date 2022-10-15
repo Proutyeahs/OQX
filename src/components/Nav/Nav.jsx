@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 
 //MUI ICONS HERE
 import { IconButton } from '@mui/material';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined'; //back button
 
 //TIMELINE ICONS
 import AccountBalanceOutlinedIcon from '@mui/icons-material/AccountBalanceOutlined'; //political/legal timeline
@@ -19,7 +18,6 @@ import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined
 import Menu from '@mui/material/Menu'; //burger menu box/functionality
 import MenuItem from '@mui/material/MenuItem'; //each line on the menu
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'; //burger menu icon
-import ListItem from '@mui/material/ListItem';
 
 function Nav() {
   //is the user logged in? who are they?
@@ -72,20 +70,10 @@ function Nav() {
   }
 
   return (
-
     <div className="nav">
-      <div>
-      </div>
-
       <Link to="/about">
-        <h2 className="nav-title">OQX</h2>
+        <img src='/OurQueerHxstory.png' className="nav-title" />
       </Link>
-
-      {/* <Link className="navLink" to="/user">
-        <IconButton aria-label="back">
-          <ArrowBackOutlinedIcon />
-        </IconButton>
-      </Link> */}
 
       {/* changed to dispatch politicalLegal get request on click */}
       <IconButton className="navLink" onClick={PL} aria-label="political">
@@ -127,9 +115,7 @@ function Nav() {
             // If there's no user, show login/registration links
             <MenuItem onClick={handleClose}>
               <Link to="/login">
-                <ListItem>
-                  Login / Register
-                </ListItem>
+                Login / Register
               </Link>
             </MenuItem>
           )}
@@ -138,41 +124,31 @@ function Nav() {
           {user.id && (
             <MenuItem
               onClick={() => dispatch({ type: 'LOGOUT' })}>
-              <ListItem>
-                Log Out
-              </ListItem>
+              Log Out
             </MenuItem>
           )}
 
           <MenuItem onClick={handleClose}>
             <Link to="/about">
-              <ListItem>
-                About
-              </ListItem>
+              About
             </Link>
           </MenuItem>
 
           <MenuItem onClick={handleClose}>
             <Link to="/sponsors">
-              <ListItem>
-                Sponsors
-              </ListItem>
+              Sponsors
             </Link>
           </MenuItem>
 
           <MenuItem onClick={handleClose}>
             <Link to="/resources">
-              <ListItem>
-                Resources
-              </ListItem>
+              Resources
             </Link>
           </MenuItem>
 
           <MenuItem onClick={handleClose}>
             <Link to="/eventForm">
-              <ListItem>
-                Create Timeline Event
-              </ListItem>
+              Create Timeline Event
             </Link>
           </MenuItem>
 
@@ -181,9 +157,7 @@ function Nav() {
           {user.admin && (
             <MenuItem onClick={handleClose}>
               <Link to="/admin">
-                <ListItem>
-                  Admin Dashboard
-                </ListItem>
+                Admin Dashboard
               </Link>
             </MenuItem>
           )}

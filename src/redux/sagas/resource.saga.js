@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-
 //admin posting new resource
 function* postResource(action) {
     console.log("in post resource", action.payload)
@@ -44,7 +43,6 @@ function* putResource(action) {
         console.log(error)
     }
 }
-
 
 //admin delete resource info
 function* deleteResource(action) {

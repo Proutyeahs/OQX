@@ -49,8 +49,9 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div >
         <Nav />
+        <div class="bg">
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/medicalScientific" />
@@ -301,6 +302,7 @@ function App() {
           </Route>
         </Switch>
         <Footer />
+      </div>
       </div>
     </Router>
   );

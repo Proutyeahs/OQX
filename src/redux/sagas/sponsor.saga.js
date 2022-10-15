@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-
 //admin posting new sponsor
 function* postSponsor(action) {
     console.log("in post sponsor", action.payload)
@@ -11,7 +10,6 @@ function* postSponsor(action) {
         console.log(err)
     }
 }
-
 
 // gets the resources for all users to view
 function* getSponsor(action) {
@@ -46,6 +44,7 @@ function* putSponsor(action) {
         console.log(error)
     }
 }
+
 //admin delete sponsor info
 function* deleteSponsor(action) {
     console.log(action.payload)
@@ -56,8 +55,6 @@ function* deleteSponsor(action) {
         console.log(err)
     }
 }
-
-
 
 //listens for sagas to be called, then runs the corresponding function
 function* sponsorSaga() {

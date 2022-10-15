@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import TextField from '@mui/material/TextField'; // MUI TEXTFIELD FOR SEARCH BAR
 import SearchIcon from '@mui/icons-material/Search'; // MUI ICON FOR SEARCH BAR
 
-
 function PoliticalLegal() {
 
     const events = useSelector((store) => store.event)
@@ -55,6 +54,12 @@ function PoliticalLegal() {
         marginRight: '100px'
     }
 
+    // display text if searched result is empty
+    const noFoundEvents = () => {
+        if (events.length === 0) {
+            return <p>No Results Found!</p>
+        }
+    }
 
     useEffect(() => {
         dispatch({
@@ -66,14 +71,15 @@ function PoliticalLegal() {
     return (
         <>
             <section>
-                <div className="bg-white text-black">
-                    <div className="container mx-auto flex flex-col items-start md:flex-row md:my-24">
+                <div className=" text-black">
+                    <div className="container mx-auto flex flex-col items-start md:flex-row">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
                             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Politics & Law</p>
                             <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential political and legal events of queer history.</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
+                                    sx={{ backgroundColor: "white" }}
                                     name="outlined"
                                     label="Search"
                                     type="outlined"
@@ -84,7 +90,9 @@ function PoliticalLegal() {
                             <form onSubmit={handleSubmit}>
                                 <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
                             </form>
+                            {noFoundEvents()}
                         </div>
+
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
                             <div className="relative wrap overflow-hidden p-10 h-full">
@@ -99,7 +107,7 @@ function PoliticalLegal() {
                                                     </div>
                                                     {event.image != '' &&
                                                         <img className="rounded-t-lg" src={event.image} />}
-                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
+                                                    <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl  bg-white" key={event.id}>
                                                         <p className="font-bold text-xl mb-2">{event.title}</p>
                                                         <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                     </div>
@@ -107,11 +115,11 @@ function PoliticalLegal() {
                                             </div>
                                         ))}
                                     </div>
-                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
         </>
     )

@@ -11,8 +11,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
-
-
 function EventForm() {
 
     const dispatch = useDispatch();
@@ -56,22 +54,21 @@ function EventForm() {
     return (
         <>
             <h1 className="font-bold">Submit Event</h1>
-
             <div className="center">
 
                 {/* EVENT TITLE */}
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor:"white"}} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
                 </div>
 
                 {/* DATE  */}
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor:"white" }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
                 </div>
 
                 {/* UPLOAD IMAGE */}
                 <div>
-                    <Button variant="outlined" component="label" sx={{ m: 1, minWidth: 120, width: '50%' }} fullWidth>Upload Image
+                    <Button variant="outlined" component="label" sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor:"white" }} fullWidth>Upload Image
                         <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
                     </Button>
                 </div>
@@ -85,21 +82,20 @@ function EventForm() {
 
                 {/* EVENT INFO */}
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' , backgroundColor:"white"}} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
                 </div>
 
                 {/* EVENT REFERENCES */}
                 <div>
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor:"white" }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
                 </div>
 
                 {/* DROPDOWN TO CHOOSE TIMELINE */}
                 <div>
                     <Box >
-                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%' }}>
+                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%' , backgroundColor:"white"}}>
                             <InputLabel> Select category </InputLabel>
                             <Select label="Select category"
-
                                 defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
                                 <MenuItem value="1"> Political/Legal
                                 </MenuItem>
@@ -114,7 +110,7 @@ function EventForm() {
 
                 {/* SUBMIT */}
                 <div>
-                    <Button variant="outlined" color="success" onClick={submit}>Submit</Button>
+                    <Button  sx={{ m: 1, minWidth: 120, width: '50%' , backgroundColor:"white"}} variant="outlined" color="success" onClick={submit}>Submit</Button>
                 </div>
             </div>
         </>
