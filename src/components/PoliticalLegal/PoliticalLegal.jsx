@@ -110,7 +110,7 @@ function PoliticalLegal() {
                                                             </div>
                                                             {event.image != '' &&
                                                                 <img className="rounded-t-lg" src={event.image} />}
-                                                            <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl" key={event.id}>
+                                                            <div className="mb-10 px-6 py-4 text-left max-w-sm rounded-b-lg overflow-hidden shadow-xl bg-white" key={event.id}>
                                                                 <p className="font-bold text-xl mb-2">{event.title}</p>
                                                                 <p className="text-gray-700 text-base">{shortenDescription(event.info)}...</p>
                                                             </div>
