@@ -169,8 +169,6 @@ function EventDetail(event) {
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
-
-
                     </div>
                 </div>
 
@@ -182,9 +180,11 @@ function EventDetail(event) {
                         <div className="text-center pt-2 pb-4">
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
+                        {/* user stories */}
                         {userStories.map(story => (
                             <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 bg-white" key={story.id}>
                                 <div className="container mx-auto text-gray-800 text-base">{story.story}
+
                                     {/* delete story if its the users story */}
                                     {user.id === story.user_id &&
                                         <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
@@ -197,9 +197,7 @@ function EventDetail(event) {
                         ))}
                     </div>
                 </div>
-
             </div>
-
         </>
     )
 }
