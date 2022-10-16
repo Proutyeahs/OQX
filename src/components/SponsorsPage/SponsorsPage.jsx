@@ -43,43 +43,45 @@ function SponsorsPage() {
 
     return (
         <>
-            <div>
-                <h2>{heading}</h2>
-            </div>
-            <div >
-                <a className="text-gray-300" href="https://atelierlks.com/stunning-examples-fake-logos/">source for images used</a>
-            </div>
-            <div>
-                tier 1<br></br>
+            <div className="center">
                 <div>
-                    {gold.map(sponsor =>
-                        <ul key={sponsor.id}>
-                            <li>{sponsor.company}</li>
-                            <img src={sponsor.image} />
-                            <li>{sponsor.levelOfDonation}</li>
-                        </ul>)}
+                    <h2>{heading}</h2>
                 </div>
-            </div>
-            <div>
-                tier 2<br></br>
-                <div>
-                    {silver.map(sponsor =>
-                        <ul key={sponsor.id}>
-                            <li>{sponsor.company}</li>
-                            <img src={sponsor.image} />
-                            <li>{sponsor.levelOfDonation}</li>
-                        </ul>)}
+                <div >
+                    <a className="text-gray-300" href="https://atelierlks.com/stunning-examples-fake-logos/">source for images used</a>
                 </div>
-            </div>
-            <div>
-                tier 3<br></br>
                 <div>
-                    {bronze.map(sponsor =>
-                        <ul key={sponsor.id}>
-                            <li>{sponsor.company}</li>
-                            <img src={sponsor.image} />
-                            <li>{sponsor.levelOfDonation}</li>
-                        </ul>)}
+                    tier 1<br></br>
+                    <div>
+                        {gold.map(sponsor =>
+                            <ul key={sponsor.id}>
+                                <li>{sponsor.company}</li>
+                                <img src={sponsor.image} />
+                                <li>{sponsor.levelOfDonation}</li>
+                            </ul>)}
+                    </div>
+                </div>
+                <div>
+                    tier 2<br></br>
+                    <div>
+                        {silver.map(sponsor =>
+                            <ul key={sponsor.id}>
+                                <li>{sponsor.company}</li>
+                                <img src={sponsor.image} />
+                                <li>{sponsor.levelOfDonation}</li>
+                            </ul>)}
+                    </div>
+                </div>
+                <div>
+                    tier 3<br></br>
+                    <div>
+                        {bronze.map(sponsor =>
+                            <ul key={sponsor.id}>
+                                <li>{sponsor.company}</li>
+                                <img src={sponsor.image} />
+                                <li>{sponsor.levelOfDonation}</li>
+                            </ul>)}
+                    </div>
                 </div>
             </div>
         </>

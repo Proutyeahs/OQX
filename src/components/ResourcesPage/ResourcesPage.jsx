@@ -47,41 +47,43 @@ function ResourcesPage() {
 
     return (
         <>
-            <div>
-                <h2>{heading}</h2>
-            </div>
-            <div>
-                <h2>Legal</h2>
-            </div>
-            <div >
-                {legal.map(resource =>
-                    <ul key={resource.id}>
-                        <li>{resource.name}</li>
-                        <li>{resource.address}</li>
-                        <li>{resource.phoneNumber}</li>
-                    </ul>)}
-            </div>
-            <div>
-                <h2>Health</h2>
-            </div>
-            <div >
-                {health.map(resource =>
-                    <ul key={resource.id}>
-                        <li>{resource.name}</li>
-                        <li>{resource.address}</li>
-                        <li>{resource.phoneNumber}</li>
-                    </ul>)}
-            </div>
-            <div>
-                <h2>Business</h2>
-            </div>
-            <div >
-                {business.map(resource =>
-                    <ul key={resource.id}>
-                        <li>{resource.name}</li>
-                        <li>{resource.address}</li>
-                        <li>{resource.phoneNumber}</li>
-                    </ul>)}
+            <div className='center'>
+                <div>
+                    <h2>{heading}</h2>
+                </div>
+                <div>
+                    <h2>Legal</h2>
+                </div>
+                <div >
+                    {legal.map(resource =>
+                        <ul key={resource.id}>
+                            <li>{resource.name}</li>
+                            <li>{resource.address}</li>
+                            <li>{resource.phoneNumber}</li>
+                        </ul>)}
+                </div>
+                <div>
+                    <h2>Health</h2>
+                </div>
+                <div >
+                    {health.map(resource =>
+                        <ul key={resource.id}>
+                            <li>{resource.name}</li>
+                            <li>{resource.address}</li>
+                            <li>{resource.phoneNumber}</li>
+                        </ul>)}
+                </div>
+                <div>
+                    <h2>Business</h2>
+                </div>
+                <div >
+                    {business.map(resource =>
+                        <ul key={resource.id}>
+                            <li>{resource.name}</li>
+                            <li>{resource.address}</li>
+                            <li>{resource.phoneNumber}</li>
+                        </ul>)}
+                </div>
             </div>
         </>
     );
