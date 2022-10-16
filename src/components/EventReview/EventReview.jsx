@@ -51,6 +51,9 @@ function EventReview() {
             type: 'GET_EVENT_ADMIN',
             payload: 1
         })
+        dispatch({
+            type: 'CLEAR'
+        })
     }, [])
 
     const dispatch = useDispatch();
