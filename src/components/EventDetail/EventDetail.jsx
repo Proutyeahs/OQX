@@ -7,6 +7,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './EventDetail.css';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import AddIcon from '@mui/icons-material/Add';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function EventDetail(event) {
     //Declare history, dispatch, params, useSelectors
@@ -105,7 +110,7 @@ function EventDetail(event) {
 
 
             <div className="grid items-center justify-center y-screen">
-                <div className="max-w-lg rounded overflow-hidden shadow-md bg-white">
+                <div className="px-4 max-w-lg rounded overflow-hidden shadow-md bg-white">
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="font-bold text-xl">{formatDate(event.date)}</p>
@@ -128,17 +133,37 @@ function EventDetail(event) {
 
                         {[eventDetail].map(event => (
                             <div key={event.id}>
-                                <p className="text-gray-800 text-base text-left">{event.info}</p>
+                                <p className="text-gray-800 text-base text-left mb-4">{event.info}</p>
                             </div>
 
                         ))}
+                        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography
+              sx={{
+                fontSize: 18
+              }}
+            >
+              <p>References</p>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+            {[eventDetail].map(event => (
+                            
+                                <p>{event.references}</p>
 
-                        {[eventDetail].map(event => (
-                            <div className="pt-2 max-w-md text-left" key={event.id}>
-                                <p>References: {event.references}</p>
-
-                            </div>
+                            
                         ))}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+
+                       
                     </div>
                 </div>
 
