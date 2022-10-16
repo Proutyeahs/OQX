@@ -103,9 +103,9 @@ function EventDetail(event) {
                 </div>
             </div>
 
-            main body contains date, event, 
+
             <div className="grid items-center justify-center y-screen">
-                <div className="max-w-lg rounded overflow-hidden shadow-md">
+                <div className="max-w-lg rounded overflow-hidden shadow-md bg-white">
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="font-bold text-xl">{formatDate(event.date)}</p>
@@ -143,7 +143,7 @@ function EventDetail(event) {
                 </div>
 
                 <br></br>
-                <div className="px-6 py-4 max-w-lg rounded overflow-hidden shadow-md">
+                <div className="px-6 py-4 max-w-lg rounded overflow-hidden shadow-md bg-white">
 
                     <div >
                         {/* button for adding a story */}
@@ -151,7 +151,7 @@ function EventDetail(event) {
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
                         {userStories.map(story => (
-                            <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600" key={story.id}>
+                            <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 bg-white" key={story.id}>
                                 <div className="container mx-auto text-gray-800 text-base">{story.story} 
                                     {/* delete story if its the users story */}
                                     {user.id === story.user_id &&
