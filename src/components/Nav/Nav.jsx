@@ -71,6 +71,7 @@ function Nav() {
 
   return (
     <div className="nav">
+      <div></div>
       <Link to="/about">
         <img src='/OurQueerHxstory.png' className="nav-title" />
       </Link>
@@ -98,7 +99,7 @@ function Nav() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}>
-          <MenuRoundedIcon />
+          <MenuRoundedIcon className="burger"/>
         </IconButton>
 
         <Menu
