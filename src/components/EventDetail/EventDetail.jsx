@@ -87,6 +87,7 @@ function EventDetail(event) {
 
     return (
         <>
+
             <div className="grid items-center justify-center y-screen">
                 {/* main body contains date, event title, image, info on event, and references  */}
                 <div className="max-w-lg rounded overflow-hidden shadow-md">
@@ -109,6 +110,7 @@ function EventDetail(event) {
                     </div>
 
                     {/* event date */}
+
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="font-bold text-2xl pb-2">{formatDate(event.date)}</p>
@@ -148,7 +150,7 @@ function EventDetail(event) {
                 </div>
 
                 <br></br>
-                <div className="px-6 py-4 max-w-lg rounded overflow-hidden shadow-md">
+                <div className="px-6 py-4 max-w-lg rounded overflow-hidden shadow-md bg-white">
 
                     <div >
                         {/* button for adding a story */}
@@ -157,8 +159,10 @@ function EventDetail(event) {
                         </div>
                         {/* user stories */}
                         {userStories.map(story => (
+
                             <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 text-left" key={story.id}>
                                 <div className="text-base">{story.story}
+
                                     {/* delete story if its the users story */}
                                     {user.id === story.user_id &&
                                         <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
