@@ -95,7 +95,7 @@ function EventDetail(event) {
 
             <div className="grid items-center justify-center y-screen">
                 {/* main body contains date, event title, image, info on event, and references  */}
-                <div className="max-w-lg rounded overflow-hidden shadow-md">
+                <div className="max-w-lg rounded overflow-hidden shadow-md bg-white">
                     {/* back arrow button */}
                     <div className="text-left"><ArrowBackIosNewIcon style={{ cursor: 'pointer' }} variant="outlined" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
                     </div>
