@@ -81,11 +81,11 @@ function EventReview() {
                                     type: 'GET_EVENT_ADMIN',
                                     payload: e.target.value
                                 })}>
-                            <MenuItem value="1"> Political/Legal
+                            <MenuItem value="1"> Politics/Law
                             </MenuItem>
-                            <MenuItem value="2"> Medical/Scientific
+                            <MenuItem value="2"> Medicine/Science
                             </MenuItem>
-                            <MenuItem value="3"> Business/Cultural
+                            <MenuItem value="3"> Cultural/Business
                             </MenuItem>
                         </Select>
                     </FormControl>
