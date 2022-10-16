@@ -1,10 +1,18 @@
--- Database name OQX_app
+--DATABASE NAME: OQX_app
+---DO NOT DROP-----------
+DROP TABLE "category";
+DROP TABLE "sponsor";
+DROP TABLE "donationLevels";
+DROP TABLE "resources";
+DROP TABLE "user";
+--------------------------
 
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "admin" BOOLEAN DEFAULT FALSE
+    "admin" BOOLEAN DEFAULT FALSE,
+    "18+" BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE "category" (
@@ -13,12 +21,63 @@ CREATE TABLE "category" (
 );
 
 INSERT INTO "category" ("categoryName")
-    VALUES ('Political/Legal');
-INSERT INTO "category" ("categoryName")
-    VALUES ('Medical/Scientific');
-INSERT INTO "category" ("categoryName")
-    VALUES ('Business/Cultural');
+    VALUES ('Political/Legal'), ('Medical/Scientific'), ('Business/Cultural');
+    
 
+CREATE TABLE "donationLevels" (
+"id" SERIAL PRIMARY KEY,
+"tiers" VARCHAR (1000) NOT NULL
+);
+
+INSERT INTO "donationLevels" ("tiers")
+	VALUES ('gold'), ('silver'), ('bronze');
+
+CREATE TABLE "resources" (
+"id" SERIAL PRIMARY KEY,
+"name" VARCHAR (1000) NOT NULL,
+"phoneNumber" VARCHAR (1000),
+"address" VARCHAR (1000),
+"category_id" INT REFERENCES "category"
+);
+
+INSERT INTO "resources" ("name", "phoneNumber", "address", "category_id")
+VALUES  ('Lawful Lawfirms', '(612)-123-4567', '123 Business Street, Minneapolis, MN', 1),
+		('Healthy Happenings', '(612) 345-6789', '456 Wellness Ave, St.Paul, MN', 2),
+		('The Culture Business', '(612) 678-9123', '789 Boulevard Lane, Minneapolis, MN', 3);
+
+CREATE TABLE "sponsor" (
+"id" SERIAL PRIMARY KEY,
+"company" VARCHAR (1000) NOT NULL,
+"image" VARCHAR (1000),
+"levelOfDonation" INT REFERENCES "donationLevels"
+);
+
+INSERT INTO "sponsor" ("company", "image", "levelOfDonation")
+VALUES ('Crown Sponsor', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_satisf.png', 1),
+	('Silver', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_gear.png', 2),
+	('Silver', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_gear.png', 2),
+	('Silver', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_gear.png', 2),
+	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
+	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
+	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
+	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
+	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
+	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3);
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+---RESET--------------------------------------------------------------------------------------
+DROP TABLE "stories";
+DROP TABLE "timeline";
+
+---CREATE TIMELINES---
 CREATE TABLE "timeline" (
     "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (100) NOT NULL,
@@ -29,78 +88,6 @@ CREATE TABLE "timeline" (
     "category_id" INT REFERENCES "category",
     "authorized" BOOLEAN DEFAULT FALSE
 );
-
-INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/1948', 'image', 'Sexual Behavior in the Human Male, statistical study published by A.C. Kinsey. ', 'references', 2);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '4/27/1952', 'image', 'President Dwight D. Eisenhower signs an executive order that bans homosexual people from working for the federal government, saying they are a security risk.', 'references', 1);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/1952', 'image', 'Sexual Behavior in the Human female, statistical study published by A.C. Kinsey. ', 'references', 2);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '7/1/1961', 'image', 'Illinois becomes the first state to decriminalize homosexuality by repealing their sodomy laws.                           ', 'references', 1);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '9/11/1961', 'image', 'The Rejected aired.  This was the first US-televised documentary about homosexuality airs on a local station in California.', 'references', 3);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/1968', 'image', 'DSM-II (Diagnostic & Statistical Manual of Mental Health Disorders considered homosexiality a mental health disorder ', 'references', 2);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '6/28/1969', 'image', 'Police raid the Stonewall Inn in New York City. Protests and demonstrations begin, and it later becomes known as the impetus for the gay civil rights movement in the United States.', 'references', 1);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/1973', 'image', 'Maryland becomes the first state to statutorily ban same-sex marriage.', 'references', 1);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/1973', 'image', 'The American Psychiatric Association removed homosexuality as a mental disorder, but replaced it with "sexual orientation disturbance."', 'references', 2);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/1987', 'image', 'The APA published the DSM-III-R,. In this edition, the ego-dystonic homosexuality classification was removed. In its place, persistent and marked distress about ones sexual orientation was added.', 'references', 2);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '6/26/2014', 'image', 'the U.S. Supreme Court struck down all state bans on same-sex marriage, legalized it in all fifty states, and required states to honor out-of-state same-sex marriage licenses in the case Obergefell v. Hodges.', 'references', 1);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '1/1/2021', 'image', 'The Tampa Bay Buccaneers have signed outside linebacker Carl Nassib, who became the NFLs first active player to come out as gay. ', 'references', 3);
-    INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id")
-    VALUES ('title', '6/24/2022', 'image', 'Supream Court overturned Roe v Wade ', 'references', 1);
-
-CREATE TABLE "stories" (
-    "id" SERIAL PRIMARY KEY,
-    "user_id" INT REFERENCES "user",
-    "story" VARCHAR (65535) NOT NULL,
-    "authorized" BOOLEAN DEFAULT FALSE,
-    "timeline_id" INT REFERENCES "timeline"
-);
-
-CREATE TABLE "resources" (
-    "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR (1000) NOT NULL,
-    "phoneNumber" VARCHAR (1000),
-    "address" VARCHAR (1000),
-    "category_id" INT REFERENCES "category"
-);
-
-CREATE TABLE "donationLevels" (
-    "id" SERIAL PRIMARY KEY,
-    "tiers" VARCHAR (1000) NOT NULL
-);
-
-CREATE TABLE "sponsor" (
-    "id" SERIAL PRIMARY KEY,
-    "company" VARCHAR (1000) NOT NULL,
-    "image" VARCHAR (1000),
-    "levelOfDonation" INT REFERENCES "donationLevels"
-);
-
-CREATE TABLE "about" (
-    "id" SERIAL PRIMARY KEY,
-    "aboutOQX" VARCHAR (65535) NOT NULL,
-    "ownerBio1" VARCHAR (65535) NOT NULL,
-    "ownerBio2" VARCHAR (65535) NOT NULL,
-    "ownerImage1" VARCHAR (65535) NOT NULL,
-    "ownerImage2" VARCHAR (65535) NOT NULL
-);
-
--- blank stories insert statement 
-INSERT INTO "stories" ("user_id", "story", "authorized", "timeline_id")
-    VALUES (3, 'story', true, 'timeLineEventId#Here');
-
-
-
--- DUMMY DATA: 
 
 INSERT INTO "timeline" ("title", "date", "image", "info", "references", "category_id", "authorized")
 VALUES 
@@ -140,3 +127,12 @@ educating others about the virus, attitudes began to change.', 'references', 2, 
 ('National March on Washington', '01/01/1980', 'image', 'An estimated 75,000 people participate in the National March on Washington for Lesbian and Gay Rights. LGBT people and straight allies demand equal civil rights and urge for the passage of protective civil rights legislature.', 'references', 3, true),
 ('Wisconsin outlaws discrimination', '01/01/1980', 'image', 'Wisconsin becomes the first U.S. state to outlaw discrimination on the basis of sexual orientation.', 'references', 3, true),
 ('Don''t Ask Don''t Tell', '01/01/1980', 'image', 'The U.S. Senate votes 65-31 to repeal "Don''t Ask, Don''t Tell" policy, allowing gays and lesbians to serve openly in the U.S. Military.', 'references', 3, true);
+
+
+CREATE TABLE "stories" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user",
+    "story" VARCHAR (65535) NOT NULL,
+    "authorized" BOOLEAN DEFAULT FALSE,
+    "timeline_id" INT REFERENCES "timeline"
+);
