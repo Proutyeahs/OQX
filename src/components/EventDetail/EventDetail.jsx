@@ -87,37 +87,44 @@ function EventDetail(event) {
 
     return (
         <>
-            {/* back arrow button */}
-            <div className="px-4" >
-                <div className="text-left"><ArrowBackIosNewIcon style={{ cursor: 'pointer' }} variant="contained" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
-                </div>
-                <div className="text-right">
-                    {/* edit event button if admin */}
-                    {user.admin &&
-                        <div><EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}></EditIcon>
-                            {/* dispatches delete request */}
-                            <DeleteIcon style={{ cursor: 'pointer' }} variant="contained" color="error"
-                                onClick={handleDeleteEvent}></DeleteIcon>
-                        </div>
-                    }
-                </div>
-            </div>
-
 
             <div className="grid items-center justify-center y-screen">
-                <div className="max-w-lg rounded overflow-hidden shadow-md bg-white">
-                    {[eventDetail].map(event => (
-                        <div key={event.id}>
-                            <p className="font-bold text-xl">{formatDate(event.date)}</p>
-                        </div>
-                    ))}
+                {/* main body contains date, event title, image, info on event, and references  */}
+                <div className="max-w-lg rounded overflow-hidden shadow-md">
+                    {/* back arrow button */}
+                    <div className="text-left"><ArrowBackIosNewIcon style={{ cursor: 'pointer' }} variant="outlined" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
+                    </div>
+
+                    <div className="pb-2 max-w-lg font-bold text-xl">
+                    
+                        {/* edit event button if admin */}
+                        {user.admin &&
+                            
+                            <div className="pt-2 space-x-6">Admin:<br></br><Button style={{ cursor: 'pointer' }} variant="outlined" startIcon={<EditIcon />} color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
+                                {/* dispatches delete request */} 
+                                <Button style={{ cursor: 'pointer' }} variant="outlined" startIcon={<DeleteIcon />} color="error"
+                                    onClick={handleDeleteEvent}>Delete Event</Button>
+                            </div>
+                        }
+
+                    </div>
+
+                    {/* event date */}
 
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className="font-bold text-2xl mb-2">{event.title}</p>
+                            <p className="font-bold text-2xl pb-2">{formatDate(event.date)}</p>
                         </div>
                     ))}
 
+                    {/* event title */}
+                    {[eventDetail].map(event => (
+                        <div key={event.id}>
+                            <p className="px-4 font-bold text-3xl mb-2 text-left">{event.title}</p>
+                        </div>
+                    ))}
+
+                    {/* image */}
                     {[eventDetail].map(event => (
                         <div className="px-6 pt-1 pb-1" key={event.id}>
                             <img src={event.image} />
@@ -125,14 +132,14 @@ function EventDetail(event) {
                     ))}
 
                     <div className="px-6 pt-1 pb-2 ">
-
+                        {/* event info */}
                         {[eventDetail].map(event => (
                             <div key={event.id}>
                                 <p className="text-gray-800 text-base text-left">{event.info}</p>
                             </div>
 
                         ))}
-
+                        {/* references */}
                         {[eventDetail].map(event => (
                             <div className="pt-2 max-w-md text-left" key={event.id}>
                                 <p>References: {event.references}</p>
@@ -150,9 +157,12 @@ function EventDetail(event) {
                         <div className="pt-2 pb-4">
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
+                        {/* user stories */}
                         {userStories.map(story => (
-                            <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 bg-white" key={story.id}>
-                                <div className="container mx-auto text-gray-800 text-base">{story.story} 
+
+                            <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 text-left" key={story.id}>
+                                <div className="text-base">{story.story}
+
                                     {/* delete story if its the users story */}
                                     {user.id === story.user_id &&
                                         <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
@@ -165,9 +175,7 @@ function EventDetail(event) {
                         ))}
                     </div>
                 </div>
-
             </div>
-
         </>
     )
 }
