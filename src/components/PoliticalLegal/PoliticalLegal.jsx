@@ -87,10 +87,9 @@ function PoliticalLegal() {
                         <div className="flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
 
-                                <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2 flex text-center justify-center text-overflow">Politics & Law</p>
+                                <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2 flex text-center justify-center text-overflow" onClick={handleDummyData}>Politics & Law</p>
                                 <p className="flex text-center text-sm md:text-base text-gray-900 mb-4">Explore the consequential political and legal events of queer history.</p>
                             <form onSubmit={handleSubmit} className="flex justify-center">
-
                                 <TextField
                                     sx={{ backgroundColor: "white" }}
                                     name="outlined"
