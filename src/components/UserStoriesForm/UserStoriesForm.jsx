@@ -40,6 +40,13 @@ function UserStoriesForm() {
 
     // local state of information to be submitted
     const [story, setStory] = useState({ user_id: user.id, story: '', timelineEvent: Number(id) })
+    
+    // TODO: Delete this block before handoff:
+    const handleDummyData = () => {
+        console.log('HandleDummyData')
+        setStory({user_id: user.id, story: 'Dummy Data for Story', timelineEvent: Number(id)})
+        console.log(story);
+    }
 
     // handle dispatch of information
     const submit = () => {
@@ -54,9 +61,11 @@ function UserStoriesForm() {
         }, 500)
     }
 
+    console.log(story);
+
     return (
         <>
-            <h1 className="font-bold">Submit A Story</h1>
+            <h1 className="font-bold" onClick={handleDummyData}>Submit A Story</h1>
             <div className="center">
 
                 {/* MUI STACK */}
@@ -66,7 +75,8 @@ function UserStoriesForm() {
 
                             {/* User Story */}
                             <div>
-                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={3} type="text" placeholder="User Story" onChange={(e) => setStory({ ...story, story: e.target.value })} />
+                                {/* <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={3} type="text" placeholder="User Story" onChange={(e) => setStory({ ...story, story: e.target.value })} /> */}
+                                <TextField sx={{ m: 1, minWidth: 120, width: '50%' }} multiline rows={3} type="text" placeholder="User Story" value = {story.story} onChange={(e) => setStory(e.target.value)} />
                             </div>
 
                             {/* SUBMIT */}
