@@ -21,7 +21,7 @@ function PoliticalLegal() {
     // TODO: Delete this block before handoff:
     const handleDummyData = () => {
         console.log('HandleDummyData')
-        setSearch('Test')
+        setSearch('Matthew Shepard')
         console.log(search);
     }
 
@@ -43,7 +43,9 @@ function PoliticalLegal() {
                 category: 1
             }
         })
-        setSearch('')
+        // setSearch('')
+        // TODO: Replace this.
+        setSearch('Matthew Shepard')
     }
 
     // formats date

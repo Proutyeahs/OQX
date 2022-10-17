@@ -41,10 +41,12 @@ const MedicalScientific = () => {
             type: 'GET_SEARCHED_EVENTS',
             payload: {
                 payload: ('%' + search + '%'),
-                category: 2
+                category: 1
             }
         })
-        setSearch('')
+        // setSearch('')
+        // TODO: Replace this.
+        setSearch('Matthew Shepard')
     }
 
     // formats the date
