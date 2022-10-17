@@ -20,11 +20,11 @@ const MedicalScientific = () => {
 
 
     // TODO: Delete this block before handoff:
-    const handleDummyData = () => {
-        console.log('HandleDummyData')
-        setSearch('Sophie')
-        console.log(search);
-    }
+    // const handleDummyData = () => {
+    //     console.log('HandleDummyData')
+    //     setSearch('Sophie')
+    //     console.log(search);
+    // }
 
     // moves the user to details page
     const handleClick = (id) => {
@@ -44,9 +44,7 @@ const MedicalScientific = () => {
                 category: 1
             }
         })
-        // setSearch('')
-        // TODO: Replace this.
-        setSearch('Matthew Shepard')
+        setSearch('')
     }
 
     // formats the date
@@ -86,7 +84,7 @@ const MedicalScientific = () => {
                     <div className="container mx-auto flex flex-col items-start md:flex-row">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
-                            <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2" onClick={handleDummyData}>Medicine & Science</p>
+                            <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Medicine & Science</p>
                             <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential medical and scientific events of queer history.</p>
                             <form onSubmit={handleSubmit}>
                                 <TextField
