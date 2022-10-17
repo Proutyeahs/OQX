@@ -1,15 +1,18 @@
-.law {
+.section {
    padding: 20px;
+   text-align: center;
 }
 
 .health {
     padding: 20px;
+    text-align: center;
 }
 
 .culture {
     padding: 20px;
+    text-align: center;
 }
 
-.center {
+.header {
     text-align: center;
 }
