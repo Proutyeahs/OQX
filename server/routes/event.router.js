@@ -109,7 +109,8 @@ router.post('/search', (req, res) => {
     const queryItems = [req.body.payload, req.body.category, 'true']
     const queryText = `
     SELECT * FROM "timeline"
-    WHERE ("timeline".title ILIKE $1 OR "timeline".info ILIKE $1) AND ("timeline".category_id = $2 AND "timeline".authorized = $3);
+    WHERE ("timeline".title ILIKE $1 OR "timeline".info ILIKE $1) AND ("timeline".category_id = $2 AND "timeline".authorized = $3)
+    ORDER BY "date" ASC;
     `;
 
     pool.query(queryText, queryItems)

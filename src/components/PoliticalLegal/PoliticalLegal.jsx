@@ -43,9 +43,8 @@ function PoliticalLegal() {
                 category: 1
             }
         })
-        // setSearch('')
+        setSearch('')
         // TODO: Replace this.
-        setSearch('Matthew Shepard')
     }
 
     // formats date
