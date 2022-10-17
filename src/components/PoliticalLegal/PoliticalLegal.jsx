@@ -18,6 +18,13 @@ function PoliticalLegal() {
         return (description.split(' ').slice(0, 10).join(' '));
     }
 
+    // TODO: Delete this block before handoff:
+    const handleDummyData = () => {
+        console.log('HandleDummyData')
+        setSearch('Matthew Shepard')
+        console.log(search);
+    }
+
     // move the user to the details page
     const handleClick = (id) => {
         console.log('Handle Click');
@@ -36,7 +43,9 @@ function PoliticalLegal() {
                 category: 1
             }
         })
-        setSearch('')
+        // setSearch('')
+        // TODO: Replace this.
+        setSearch('Matthew Shepard')
     }
 
     // formats date
@@ -77,9 +86,17 @@ function PoliticalLegal() {
                     <div className="container mx-auto flex flex-col items-start md:flex-row">
                         <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
-                            <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Politics & Law</p>
+                            <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2" onClick={handleDummyData}>Politics & Law</p>
                             <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential political and legal events of queer history.</p>
                             <form onSubmit={handleSubmit}>
+                                {/* <TextField
+                                    sx={{ backgroundColor: "white" }}
+                                    name="outlined"
+                                    label="Search"
+                                    type="outlined"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}>
+                                </TextField> */}
                                 <TextField
                                     sx={{ backgroundColor: "white" }}
                                     name="outlined"
