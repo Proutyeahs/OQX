@@ -1,6 +1,6 @@
 
 # OQX
-Our Queer Hxtory
+Our Queer HxStory
 
 LGBTQ literature and educational resources are often barred behind paywalls and complex language.
 
