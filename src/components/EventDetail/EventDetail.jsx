@@ -118,20 +118,20 @@ function EventDetail(event) {
 
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className="text-center font-bold text-2xl pb-2">{formatDate(event.date)}</p>
+                            <p className="text-left font-bold text-1xl pb-2 ml-[30px] mt-4 ">{formatDate(event.date)}</p>
                         </div>
                     ))}
 
                     {/* event title */}
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className="px-4 font-bold text-3xl mb-2 text-left">{event.title}</p>
+                            <p className="px-4 font-bold text-xl my-4 text-center">{event.title}</p>
                         </div>
                     ))}
 
                     {/* image */}
                     {[eventDetail].map(event => (
-                        <div className="px-6 pt-1 pb-1" key={event.id}>
+                        <div className="px-6 pt-1 mb-4" key={event.id}>
                             <img src={event.image} />
                         </div>
                     ))}

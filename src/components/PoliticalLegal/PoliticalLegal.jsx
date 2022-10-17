@@ -75,11 +75,11 @@ function PoliticalLegal() {
             <section>
                 <div className=" text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row">
-                        <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
+                        <div className="flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
                             <p className="text-gray-900 uppercase tracking-loose w-30"></p>
-                            <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Politics & Law</p>
-                            <p className="text-sm md:text-base text-gray-900 mb-4">Explore the consequential political and legal events of queer history.</p>
-                            <form onSubmit={handleSubmit}>
+                                <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2 flex text-center justify-center text-overflow">Politics & Law</p>
+                                <p className="flex text-center text-sm md:text-base text-gray-900 mb-4">Explore the consequential political and legal events of queer history.</p>
+                            <form onSubmit={handleSubmit} className="flex justify-center">
                                 <TextField
                                     sx={{ backgroundColor: "white" }}
                                     name="outlined"
@@ -89,7 +89,7 @@ function PoliticalLegal() {
                                     onChange={(e) => setSearch(e.target.value)}>
                                 </TextField>
                             </form>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className="flex justify-center">
                                 <SearchIcon style={{ cursor: 'pointer' }} className="mt-4" variant="standard" onClick={handleSubmit}>Submit</SearchIcon>
                             </form>
                             {noFoundEvents()}
@@ -106,7 +106,7 @@ function PoliticalLegal() {
                                                     <Fade bottom>
                                                         <div onClick={() => handleClick(event.id)}>
                                                             <div className="flex items-center">
-                                                                <p className="text-gray-700 text-base text-left py-4">{formatDate(event.date)}</p>
+                                                                <p className="text-base text-left py-4 font-bold text-1xl">{formatDate(event.date)}</p>
                                                             </div>
                                                             {event.image != '' &&
                                                                 <img className="rounded-t-lg" src={event.image} />}
