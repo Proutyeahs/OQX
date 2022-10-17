@@ -60,18 +60,27 @@ function EventForm() {
 
     return (
         <>
-        <h1 className="font-bold" onClick={handleDummyData}>Submit Event</h1>
-        <div className="center">
 
-            {/* EVENT TITLE */}
-            <div>
-                <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} multiline type="text" placeholder="Event Title" value = {event.title} onChange={(e) => setEvent(e.target.value)} />
-            </div>
+            <div className="center">
+                <h1 className="font-bold">Submit Event</h1>
 
-            {/* DATE  */}
-            <div>
-                <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} type="date" value = {event.date} onChange={(e) => setEvent(e.target.value)} />
-            </div>
+                {/* EVENT TITLE */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} multiline type="text" placeholder="Event Title" onChange={(e) => setEvent({ ...event, title: e.target.value })} />
+                </div>
+
+                {/* DATE  */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} type="date" onChange={(e) => setEvent({ ...event, date: e.target.value })} />
+                </div>
+
+                {/* UPLOAD IMAGE */}
+                <div>
+                    <Button variant="outlined" component="label" sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} fullWidth>Upload Image
+                        <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                    </Button>
+                </div>
+
 
             {/* UPLOAD IMAGE */}
             <div>
@@ -80,12 +89,41 @@ function EventForm() {
                 </Button>
             </div>
 
-            {/* renders the image if it exists */}
-            {event.image != '' &&
-                <div className="center">
-                    <img className="size" src={event.image} />
+
+                {/* EVENT INFO */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} multiline rows={5} type="text" placeholder="Event Info" onChange={(e) => setEvent({ ...event, info: e.target.value })} />
+
                 </div>
-            }
+
+
+                {/* EVENT REFERENCES */}
+                <div>
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} multiline rows={2} type="text" placeholder="Event References" onChange={(e) => setEvent({ ...event, references: e.target.value })} />
+                </div>
+
+                {/* DROPDOWN TO CHOOSE TIMELINE */}
+                <div>
+                    <Box >
+                        <FormControl sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }}>
+                            <InputLabel> Select category </InputLabel>
+                            <Select label="Select category"
+                                defaultValue={''} onChange={(e) => setEvent({ ...event, category_id: e.target.value })}>
+                                <MenuItem value="1"> Political/Legal
+                                </MenuItem>
+                                <MenuItem value="2"> Medical/Scientific
+                                </MenuItem>
+                                <MenuItem value="3"> Business/Cultural
+                                </MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </div>
+
+                {/* SUBMIT */}
+                <div>
+                    <Button sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} variant="outlined" color="success" onClick={submit}>Submit</Button>
+                </div>
 
             {/* EVENT INFO */}
             <div>
@@ -118,6 +156,7 @@ function EventForm() {
             {/* SUBMIT */}
             <div>
                 <Button sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} variant="outlined" color="success" onClick={submit}>Submit</Button>
+
             </div>
         </div>
     </>
