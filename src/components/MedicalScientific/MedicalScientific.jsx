@@ -18,6 +18,14 @@ const MedicalScientific = () => {
         return (description.split(' ').slice(0, 10).join(' '));
     }
 
+
+    // TODO: Delete this block before handoff:
+    // const handleDummyData = () => {
+    //     console.log('HandleDummyData')
+    //     setSearch('Sophie')
+    //     console.log(search);
+    // }
+
     // moves the user to details page
     const handleClick = (id) => {
         console.log('Handle Click');
@@ -33,7 +41,7 @@ const MedicalScientific = () => {
             type: 'GET_SEARCHED_EVENTS',
             payload: {
                 payload: ('%' + search + '%'),
-                category: 2
+                category: 1
             }
         })
         setSearch('')
