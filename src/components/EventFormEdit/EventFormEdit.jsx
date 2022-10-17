@@ -67,12 +67,13 @@ function EventFormEdit() {
 
     return (
         <>
-            <h1 className="font-bold">Edit Event</h1>
+
             <div className="center">
+                <h1 className="font-bold">Edit Event</h1>
                 <div>
 
                     {/* the defaultValue is rendered with the title from the specificEvent object stored in the reducer */}
-                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor:"white" }} fullWidth multiline defaultValue={specificEvent.title} type="text"
+                    <TextField sx={{ m: 1, minWidth: 120, width: '50%', backgroundColor: "white" }} fullWidth multiline defaultValue={specificEvent.title} type="text"
                         onChange={(e) =>
 
                             // dispatch sends the new data for the edited title to the object in the reducer
@@ -146,7 +147,7 @@ function EventFormEdit() {
                     </Box>
                 </div>
                 <div>
-                    <Button sx={{backgroundColor:"white"}} variant="outlined" color="success" onClick={submit}>Submit</Button>
+                    <Button sx={{ backgroundColor: "white" }} variant="outlined" color="success" onClick={submit}>Submit</Button>
                 </div>
             </div>
         </>
