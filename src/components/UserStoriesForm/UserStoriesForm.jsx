@@ -44,7 +44,7 @@ function UserStoriesForm() {
     // TODO: Delete this block before handoff:
     const handleDummyData = () => {
         console.log('HandleDummyData')
-        setStory({user_id: user.id, story: 'Dummy Data for Story', timelineEvent: Number(id)})
+        setStory({user_id: user.id, story: 'At first, I was absolutely terrified, because I thought it could/would happen to me if I ever came out. However, the subsequent outpouring of support and advocacy ended up making me more comfortable and empowered to come out when I did. The work that the Mathew Shepard Foundation does, has likely saved the lives of hundreds if not thousands of young queer people.', timelineEvent: Number(id)})
         console.log(story);
     }
 

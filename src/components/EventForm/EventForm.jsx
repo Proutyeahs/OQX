@@ -36,7 +36,7 @@ function EventForm() {
     // TODO: Delete this block before handoff:
     const handleDummyData = () => {
         console.log('HandleDummyData')
-        setEvent({title: 'Sophie', date: '2022-10-21', image: 'https://eastofborneo.org/wp-content/uploads/2021/02/sophie_renata.jpg', info: 'Sophie Xeon, known as Sophie, was a Scottish music producer, songwriter and DJ. Known for a brash and experimental take on pop music that helped pioneer the 2010s hyperpop genre', references: ' Day, Laurence. "SOPHIE reveals piercing new single "L.O.V.E."". The Line of Best Fit. Archived from the original on 15 August 2016. Retrieved 12 July 2016.', category_id: '3' })
+        setEvent({title: 'Sophie Xeon', date: '2021-01-30', image: 'https://eastofborneo.org/wp-content/uploads/2021/02/sophie_renata.jpg', info: 'Sophie Xeon (17 September 1986 – 30 January 2021), known mononymously as Sophie (stylised in all caps), was a Scottish music producer, singer and DJ. Known for a brash and experimental take on pop music that helped pioneer the 2010s hyperpop genre Originally working anonymously, SOPHIE later came out as a trans-woman and would rise to prominence. In 2018, she won the Association of Independent Musics Innovator Award for her self titled album "Sophie" Sophie died in Athens, Greece following an accidental fall while trying to take a picture of the full moon. Many popular artists expressed their condolences such as Rihanna, Sam Smith, Vince Staples, Charli XCX, as well as others. On 16 June 2021, the International Astronomical Union announced that the minor planet 1980 RE1 was given the permanent name Sophiexeon.', references: '',category_id: '3' })
         console.log(event);
     }
     // handle dispatch of information
