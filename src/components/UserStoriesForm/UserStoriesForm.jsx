@@ -65,7 +65,7 @@ function UserStoriesForm() {
 
     return (
         <>
-            <h1 className="font-bold" onClick={handleDummyData}>Submit A Story</h1>
+            <h1 className="font-bold text-center" onClick={handleDummyData}>Submit A Story</h1>
             <div className="center">
 
                 {/* MUI STACK */}
