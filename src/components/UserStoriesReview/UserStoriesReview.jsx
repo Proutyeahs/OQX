@@ -7,7 +7,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import Stack from '@mui/material/Stack';
@@ -48,8 +47,6 @@ function UserStoriesReview() {
     }, [])
 
     const dispatch = useDispatch();
-    const history = useHistory();
-
     const userStories = useSelector((store) => store.userStories)
 
     return (
@@ -79,6 +76,7 @@ function UserStoriesReview() {
                                     </TableCell>
                                     <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
+
                                             {/* pushes to edit user story page */}
                                             <AddTaskIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() =>
                                                 dispatch({

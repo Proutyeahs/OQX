@@ -114,3 +114,11 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+
+.bg {
+  background-color: white;
+  background-image: url(/public/left50.png), url(/public/right50.png);
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
+}

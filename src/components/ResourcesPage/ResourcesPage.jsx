@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './ResourcesPage.css';
 
-
 //This Page displays resources sponsors as well as their categories
 
 function ResourcesPage() {
@@ -26,11 +25,11 @@ function ResourcesPage() {
     let legal = []
     let health = []
     let business = []
+
     // this function sorts all of the resources into their categories to be displayed
     const sort = () => {
         for (let resource of resources) {
             console.log(resource)
-
             if (resource.category_id === 1) {
                 legal.push(resource);
             }
@@ -42,6 +41,7 @@ function ResourcesPage() {
             }
         } return console.log(legal, health, business)
     }
+
     //run the sorting function
     sort()
 
@@ -51,7 +51,7 @@ function ResourcesPage() {
                 <h2>{heading}</h2>
             </div>
 
-            <div>
+            <div class="header">
                 <h2>Legal</h2>
             </div>
             <div class="section">
@@ -64,7 +64,7 @@ function ResourcesPage() {
             </div>
 
 
-            <div>
+            <div class="header">
                 <h2>Health</h2>
             </div>
             <div class="section">
@@ -76,7 +76,7 @@ function ResourcesPage() {
                     </ul>)}
             </div>
 
-            <div>
+            <div class="header">
                 <h2>Business</h2>
             </div>
             <div class="section">

@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdminDash.css';
 import '@fontsource/roboto';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 function AdminDash() {
@@ -9,33 +9,35 @@ function AdminDash() {
     const history = useHistory();
 
     return (
-        <div className="dash">
-            <h1>Admin Dashboard</h1>
-            <h1>Review</h1>
+        <div className="center">
+        <h1 id="title" className="font-bold">Admin Dashboard</h1>
 
-            <Button className="link" variant="outlined" onClick={() => history.push('/eventReview')}>
+            
+            <h2 className="font-bold">Review</h2>
+
+            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/eventReview')}>
                 Review Events
             </Button>
 
-            <Button className="link" variant="outlined" onClick={() => history.push('/userStoriesReview')}>
+            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/userStoriesReview')}>
                 Review Stories
             </Button>
 
-            <h2>Create</h2>
+            <h2 className="font-bold">Create</h2>
 
-            <Button className="link" variant="outlined" color="success" onClick={() => history.push('/resourceForm')}>
+            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" color="success" onClick={() => history.push('/resourceForm')}>
                 Add Resource
             </Button>
 
-            <Button className="link" variant="outlined" color="success" onClick={() => history.push('/sponsorForm')}>
+            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" color="success" onClick={() => history.push('/sponsorForm')}>
                 Add Sponsor
             </Button>
             <br></br>
-            <Button className="link" variant="outlined" onClick={() => history.push('/resourceReview')}>
+            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/resourceReview')}>
                 Review Resources
             </Button>
 
-            <Button className="link" variant="outlined" onClick={() => history.push('/sponsorReview')}>
+            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/sponsorReview')}>
                 Review Sponsors
             </Button>
 

@@ -7,6 +7,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './EventDetail.css';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import AddIcon from '@mui/icons-material/Add';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function EventDetail(event) {
     //Declare history, dispatch, params, useSelectors
@@ -88,88 +93,111 @@ function EventDetail(event) {
     return (
         <>
 
-{/* <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
-    <li class="mb-10 ml-6">            
-        <div class="justify-between items-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
-            {/* <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">just now</time> */}
-            {/* <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Bonnie moved</div>
-        </div>
-    </li>
-    </ol> */}
-
-            <div className="px-4" >
-                <div className="text-left"><ArrowBackIosNewIcon variant="contained" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
-                </div>
-                <div className="text-right">
-                    {/* edit event button if admin */}
-                    {user.admin &&
-                        <div><EditIcon variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}></EditIcon>
-                            {/* dispatches delete request */}
-                            <DeleteIcon variant="contained" color="error"
-                                onClick={handleDeleteEvent}></DeleteIcon>
-                        </div>
-                    }
-                </div>
-            </div>
-
             <div className="grid items-center justify-center y-screen">
-                <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                    {[eventDetail].map(event => (
-                        <div key={event.id}>
-                            <p className="font-bold text-xl">{formatDate(event.date)}</p>
-                        </div>
-                    ))}
+                {/* main body contains date, event title, image, info on event, and references  */}
+                <div className="max-w-lg rounded overflow-hidden shadow-md bg-white">
+                    {/* back arrow button */}
+                    <div className="text-left"><ArrowBackIosNewIcon style={{ cursor: 'pointer' }} variant="outlined" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
+                    </div>
+
+                    <div className="pb-2 max-w-lg font-bold text-xl">
+
+                        {/* edit event button if admin */}
+                        {user.admin &&
+
+                            <div className="pt-2 space-x-6 text-center">Admin:<br></br><Button style={{ cursor: 'pointer' }} variant="outlined" startIcon={<EditIcon />} color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
+                                {/* dispatches delete request */}
+                                <Button style={{ cursor: 'pointer' }} variant="outlined" startIcon={<DeleteIcon />} color="error"
+                                    onClick={handleDeleteEvent}>Delete Event</Button>
+                            </div>
+                        }
+
+                    </div>
+
+                    {/* event date */}
 
                     {[eventDetail].map(event => (
                         <div key={event.id}>
-                            <p className="font-bold text-2xl mb-2">{event.title}</p>
+                            <p className="text-left font-bold text-1xl pb-2 ml-[30px] mt-4 ">{formatDate(event.date)}</p>
                         </div>
                     ))}
 
+                    {/* event title */}
                     {[eventDetail].map(event => (
-                        <div className="px-6 pt-1 pb-1" key={event.id}>
+                        <div key={event.id}>
+                            <p className="px-4 font-bold text-xl my-4 text-center">{event.title}</p>
+                        </div>
+                    ))}
+
+                    {/* image */}
+                    {[eventDetail].map(event => (
+                        <div className="px-6 pt-1 mb-4" key={event.id}>
                             <img src={event.image} />
                         </div>
                     ))}
-                    <br></br>
-                    <div className="px-6 pt-1 pb-2 ">
 
+                    <div className="px-6 pt-1 pb-4">
+                        {/* event info */}
                         {[eventDetail].map(event => (
-                            <div key={event.id}>
+                            <div className="mb-4" key={event.id}>
                                 <p className="text-gray-800 text-base text-left">{event.info}</p>
                             </div>
+
                         ))}
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel2a-content"
+                                id="panel2a-header"
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: 18
+                                    }}
+                                >
+                                    <p>References</p>
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {[eventDetail].map(event => (
+
+                                        <p>{event.references}</p>
+
+
+                                    ))}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
                     </div>
                 </div>
-                {[eventDetail].map(event => (
-                    <div className="px-6 pt-4 pb-2 max-w-sm rounded overflow-hidden shadow-lg text-left" key={event.id}>
-                        <p>References: {event.references}</p>
 
-                    </div>
-                ))}
+                <br></br>
+                <div className="px-6 py-4 max-w-lg rounded overflow-hidden shadow-md bg-white">
 
-                <div className="px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg">
                     <div >
                         {/* button for adding a story */}
-                        <div>
+                        <div className="text-center pt-2 pb-4">
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
+                        {/* user stories */}
                         {userStories.map(story => (
-                            <div><p className="container mx-auto text-gray-800 text-base">{story.story} {/* delete story if its the users story */}
-                                {user.id === story.user_id &&
-                                    <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
-                                    || user.admin &&
-                                    <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
-                                }</p>
-                                <div className="mx-auto px-6 py-4 max-w-sm rounded overflow-hidden shadow-lg text-left" key={story.id}>
+                            <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 bg-white" key={story.id}>
+                                <div className="container mx-auto text-gray-800 text-base">{story.story}
+
+                                    {/* delete story if its the users story */}
+                                    {user.id === story.user_id &&
+                                        <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                        || user.admin &&
+                                        <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
+                                    }
                                 </div>
+
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
-            
         </>
     )
 }

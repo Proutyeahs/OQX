@@ -3,10 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin: 0 0 30px;
-  background-color: #F3BFCE;
+  background-color: #ffffff;
   overflow: hidden;
+  border-bottom-width: 2px;
 }
 
 .nav a {
@@ -14,8 +14,7 @@
 }
 
 .nav-title {
-  font-size: 24px;
-  font-weight: 700;
+  max-height: 125px;
   color: #313030;
   padding-left: 10px;
   margin: 0;
@@ -23,13 +22,11 @@
 
 .navLink {
   display: inline-block;
-  color: #F3BFCE;
-  background-color: #F3BFCE;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
-
+  transform: scale(2);
   /* these last two make the logout button in
   the nav bar look like another link */
   border: none;
@@ -43,12 +40,22 @@
 
 .medical {
   color: #F44C1D;
+  stroke: #c30b0b;
+  
 }
 
 .business {
   color: #F3D73C;
+  stroke: #716153;
 }
 
 .political {
-  color: #1D68DE
+  color: #1D68DE;
+  stroke: #0e17bd;
+}
+
+.burger {
+  color: #a1acbb;
+  stroke: #7f8289;
+  transform: scale(2);
 }

@@ -21,7 +21,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './EventReview.css'
 import Stack from '@mui/material/Stack';
 
-
 // TABLE MUI FUNCTIONS
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -44,7 +43,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 })); // END TABLE MUI FUNCTIONS
 
-
 function EventReview() {
 
     // get the event data on page load/reload
@@ -52,6 +50,9 @@ function EventReview() {
         dispatch({
             type: 'GET_EVENT_ADMIN',
             payload: 1
+        })
+        dispatch({
+            type: 'CLEAR'
         })
     }, [])
 
@@ -80,11 +81,11 @@ function EventReview() {
                                     type: 'GET_EVENT_ADMIN',
                                     payload: e.target.value
                                 })}>
-                            <MenuItem value="1"> Political/Legal
+                            <MenuItem value="1"> Politics/Law
                             </MenuItem>
-                            <MenuItem value="2"> Medical/Scientific
+                            <MenuItem value="2"> Medicine/Science
                             </MenuItem>
-                            <MenuItem value="3"> Business/Cultural
+                            <MenuItem value="3"> Cultural/Business
                             </MenuItem>
                         </Select>
                     </FormControl>
@@ -115,6 +116,7 @@ function EventReview() {
                                     </StyledTableCell>
                                     <StyledTableCell align="right">
                                         <Stack direction="row" spacing={2}>
+
                                             {/* pushes to edit event page */}
                                             <EditIcon style={{ cursor: 'pointer' }} variant="contained" color="success" onClick={() => history.push(`/eventFormEdit/${event.id}`)}>Edit</EditIcon>
 
