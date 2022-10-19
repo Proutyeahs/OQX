@@ -49,7 +49,7 @@ This project should run in your chosen IDE
 ## Usage
 
 Once everything is installed and running it should open in your default browser - if not, navigate to `http://localhost:3000/#/`.
-Video walkthrough of application usage:
+Video walkthrough of application usage: [Instructional Video](https://youtu.be/WRLI0xG9uQU)
 
 ## Technologies used:
 
