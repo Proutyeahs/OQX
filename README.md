@@ -1,12 +1,33 @@
 
 # OQX
-Our Queer HxStory
+## Our Queer HxStory
+
+## Table of Contents
+- Description
+- Built With
+- Prerequisites
+- Installation
+- Usage
+
+## Description
 
 LGBTQ literature and educational resources are often barred behind paywalls and complex language.
 
 Our Queer Hxstory creates a platform for people to access three educational timelines: political/legal, medical/scientific, and business/cultural. All at no cost and accessible for people as young as ten.
 
 Now, the LGBTQ story is available to all reading levels and all educational levels. OQX gives you clean timelines that you can click into and explore the consequential events that still impact us all today. Whether you are discovering queer history for the first time, or diving deep into the research, Our Queer Hxstory opens the doors for you.
+
+## Built With
+
+![]https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png()
+
+
+
+
+
+
+
+
 
 ## Development Setup Instructions
 
