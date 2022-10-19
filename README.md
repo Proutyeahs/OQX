@@ -3,7 +3,7 @@
 ## Our Queer HxStory
 
 ## Table of Contents
-- Description
+- [Description](https://github.com/Proutyeahs/OQX/blob/main/README.md#description)
 - Built With
 - Prerequisites
 - Installation
