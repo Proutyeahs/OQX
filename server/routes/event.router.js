@@ -59,7 +59,6 @@ router.get('/:id', (req, res) => {
     SELECT * FROM "timeline"
     WHERE ("timeline".category_id = $1 AND "timeline".authorized = $2)
     ORDER BY "date" ASC;
-
   ;`;
     pool.query(query, [req.params.id, 'true']).then(result => {
         console.log("timeline", result.rows)
@@ -105,14 +104,12 @@ router.get('/specific/:id', (req, res) => {
 // Gets the Events based on the user's input.
 router.post('/search', (req, res) => {
     console.log("In router. Getting events based on this search: ", req.body.payload, req.body.category);
-
     const queryItems = [req.body.payload, req.body.category, 'true']
     const queryText = `
     SELECT * FROM "timeline"
     WHERE ("timeline".title ILIKE $1 OR "timeline".info ILIKE $1) AND ("timeline".category_id = $2 AND "timeline".authorized = $3)
     ORDER BY "date" ASC;
     `;
-
     pool.query(queryText, queryItems)
         .then(result => {
             console.log('Result', result.rows);

@@ -71,8 +71,7 @@ function PoliticalLegal() {
 
     return (
         <>
-
-<section>
+            <section>
                 <div className=" text-black">
                     <div className="container mx-auto flex flex-col items-start md:flex-row">
                         <div className="flex-col w-full sticky md:top-36 lg:w-1/3 md:mt-12 px-8">
@@ -93,6 +92,7 @@ function PoliticalLegal() {
                             </form>
                             {noFoundEvents()}
                         </div>
+
                         {/* This second chunk of DIVs contains the card for each individual item from the DB for the respective timeline*/}
                         <Fade bottom>
                             <div className="ml-0 md:ml-12 lg:w-2/3 sticky ">
@@ -127,7 +127,6 @@ function PoliticalLegal() {
                     </div>
                 </div>
             </section >
-
         </>
     )
 }

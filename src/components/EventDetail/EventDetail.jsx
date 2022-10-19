@@ -79,6 +79,7 @@ function EventDetail(event) {
                 break;
         }
     }
+
     //Deletes entire event from timeline
     const handleDeleteEvent = () => {
         dispatch({
@@ -92,30 +93,27 @@ function EventDetail(event) {
 
     return (
         <>
-
             <div className="grid items-center justify-center y-screen">
+
                 {/* main body contains date, event title, image, info on event, and references  */}
                 <div className="max-w-lg rounded overflow-hidden shadow-md bg-white">
+
                     {/* back arrow button */}
                     <div className="text-left"><ArrowBackIosNewIcon style={{ cursor: 'pointer' }} variant="outlined" onClick={() => handleBack(eventDetail.category_id)}></ArrowBackIosNewIcon>
                     </div>
-
                     <div className="pb-2 max-w-lg font-bold text-xl">
 
                         {/* edit event button if admin */}
                         {user.admin &&
-
                             <div className="pt-2 space-x-6 text-center">Admin:<br></br><Button style={{ cursor: 'pointer' }} variant="outlined" startIcon={<EditIcon />} color="success" onClick={() => history.push(`/eventFormEdit/${eventDetail.id}`)}>Edit Event</Button>
                                 {/* dispatches delete request */}
                                 <Button style={{ cursor: 'pointer' }} variant="outlined" startIcon={<DeleteIcon />} color="error"
                                     onClick={handleDeleteEvent}>Delete Event</Button>
                             </div>
                         }
-
                     </div>
 
                     {/* event date */}
-
                     {[eventDetail].map(event => (
                         <div key={event.id}>
                             <p className="text-left font-bold text-1xl pb-2 ml-[30px] mt-4 ">{formatDate(event.date)}</p>
@@ -135,14 +133,13 @@ function EventDetail(event) {
                             <img src={event.image} />
                         </div>
                     ))}
-
                     <div className="px-6 pt-1 pb-4">
+
                         {/* event info */}
                         {[eventDetail].map(event => (
                             <div className="mb-4" key={event.id}>
                                 <p className="text-gray-800 text-base text-left">{event.info}</p>
                             </div>
-
                         ))}
                         <Accordion>
                             <AccordionSummary
@@ -161,25 +158,22 @@ function EventDetail(event) {
                             <AccordionDetails>
                                 <Typography>
                                     {[eventDetail].map(event => (
-
                                         <p>{event.references}</p>
-
-
                                     ))}
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
                     </div>
                 </div>
-
                 <br></br>
                 <div className="px-6 py-4 max-w-lg rounded overflow-hidden shadow-md bg-white">
-
                     <div >
+
                         {/* button for adding a story */}
                         <div className="text-center pt-2 pb-4">
                             <Button variant="outlined" startIcon={<AddIcon />} color="success" onClick={() => history.push(`/userStoriesForm/${eventDetail.id}`)}>Share Your Story</Button>
                         </div>
+
                         {/* user stories */}
                         {userStories.map(story => (
                             <div className="px-6 py-4 mb-5 ml-3 justify-between items-center p-2 bg-white rounded-lg border border-gray-200 shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600 bg-white" key={story.id}>
@@ -192,7 +186,6 @@ function EventDetail(event) {
                                         <DeleteIcon className='text-right' style={{ cursor: 'pointer' }} variant="contained" color="error" onClick={() => handleDelete(story.id)}>Delete</DeleteIcon>
                                     }
                                 </div>
-
                             </div>
                         ))}
                     </div>

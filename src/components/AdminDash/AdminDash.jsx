@@ -10,34 +10,32 @@ function AdminDash() {
 
     return (
         <div className="center">
-        <h1 id="title" className="font-bold">Admin Dashboard</h1>
-
-            
+            <h1 id="title" className="font-bold">Admin Dashboard</h1>
             <h2 className="font-bold">Review</h2>
 
-            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/eventReview')}>
+            <Button sx={{ backgroundColor: "white" }} className="link" variant="outlined" onClick={() => history.push('/eventReview')}>
                 Review Events
             </Button>
 
-            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/userStoriesReview')}>
+            <Button sx={{ backgroundColor: "white" }} className="link" variant="outlined" onClick={() => history.push('/userStoriesReview')}>
                 Review Stories
             </Button>
 
             <h2 className="font-bold">Create</h2>
 
-            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" color="success" onClick={() => history.push('/resourceForm')}>
+            <Button sx={{ backgroundColor: "white" }} className="link" variant="outlined" color="success" onClick={() => history.push('/resourceForm')}>
                 Add Resource
             </Button>
 
-            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" color="success" onClick={() => history.push('/sponsorForm')}>
+            <Button sx={{ backgroundColor: "white" }} className="link" variant="outlined" color="success" onClick={() => history.push('/sponsorForm')}>
                 Add Sponsor
             </Button>
             <br></br>
-            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/resourceReview')}>
+            <Button sx={{ backgroundColor: "white" }} className="link" variant="outlined" onClick={() => history.push('/resourceReview')}>
                 Review Resources
             </Button>
 
-            <Button sx={{backgroundColor:"white"}} className="link" variant="outlined" onClick={() => history.push('/sponsorReview')}>
+            <Button sx={{ backgroundColor: "white" }} className="link" variant="outlined" onClick={() => history.push('/sponsorReview')}>
                 Review Sponsors
             </Button>
 

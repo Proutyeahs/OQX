@@ -9,10 +9,8 @@ import './ResourcesPage.css';
 
 function ResourcesPage() {
     const resources = useSelector((store) => store.resource)
-    const store = useSelector((store) => store);
     const [heading, setHeading] = useState('Resources');
     const dispatch = useDispatch();
-    const history = useHistory();
 
     //on load, fetch resources
     useEffect(() => {
@@ -50,7 +48,6 @@ function ResourcesPage() {
             <div class="section">
                 <h2>{heading}</h2>
             </div>
-
             <div class="header">
                 <h2>Legal</h2>
             </div>
@@ -62,8 +59,6 @@ function ResourcesPage() {
                         <li>{resource.phoneNumber}</li>
                     </ul>)}
             </div>
-
-
             <div class="header">
                 <h2>Health</h2>
             </div>
@@ -75,7 +70,6 @@ function ResourcesPage() {
                         <li>{resource.phoneNumber}</li>
                     </ul>)}
             </div>
-
             <div class="header">
                 <h2>Business</h2>
             </div>
