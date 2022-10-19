@@ -19,7 +19,7 @@ Now, the LGBTQ story is available to all reading levels and all educational leve
 
 ## Built With
 
-<img src="https://user-images.githubusercontent.com/25181517/192107854-765620d7-f909-4953-a6da-36e1ef69eea6.png" alt="HTML" height= 24 width=auto > 
+<img src="https://user-images.githubusercontent.com/25181517/192107854-765620d7-f909-4953-a6da-36e1ef69eea6.png" alt="HTML" height= 48 width=auto > 
 <img src="url" alt="alternatetext"> 
 <img src="url" alt="alternatetext"> 
 <img src="url" alt="alternatetext"> 
