@@ -1,6 +1,5 @@
 --DATABASE NAME: OQX_app
 
----DO NOT DROP-----------
 
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
@@ -58,21 +57,8 @@ VALUES ('Crown Sponsor', 'https://atelierlks.com/wp-content/uploads/2020/10/99ge
 	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
 	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3),
 	('Bronze', 'https://atelierlks.com/wp-content/uploads/2020/10/99gen_circle.png', 3);
---------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
-
----RESET--------------------------------------------------------------------------------------
-DROP TABLE "stories";
-DROP TABLE "timeline";
-
----CREATE TIMELINES---
 CREATE TABLE "timeline" (
     "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (100) NOT NULL,
