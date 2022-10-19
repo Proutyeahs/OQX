@@ -63,4 +63,4 @@ Node.js, React, Redux, Express, Passport, and PostgreSQL
 
 ## Link to hosted application:
 
-https://calm-savannah-19126.herokuapp.com/#/medicalScientific
+[Link to Deployed Site] (https://calm-savannah-19126.herokuapp.com/#/medicalScientific)
