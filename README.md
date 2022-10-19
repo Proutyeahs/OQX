@@ -6,8 +6,8 @@
 - [Description](https://github.com/Proutyeahs/OQX/blob/main/README.md#description)
 - [Built With](https://github.com/Proutyeahs/OQX/blob/main/README.md#built-with)
 - [Prerequisites](https://github.com/Proutyeahs/OQX/blob/main/README.md#prerequisites)
-- Installation
-- Usage
+- [Installation](https://github.com/Proutyeahs/OQX/blob/main/README.md#installation)
+- [Usage](https://github.com/Proutyeahs/OQX/blob/main/README.md#usage)
 
 ## Description
 
