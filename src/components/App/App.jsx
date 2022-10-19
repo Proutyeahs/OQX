@@ -5,14 +5,10 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -37,7 +33,6 @@ import SponsorFormEdit from '../SponsorFormEdit/SponsorFormEdit';
 import AdminDash from '../AdminDash/AdminDash';
 import './App.css';
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -53,10 +48,9 @@ function App() {
         <Nav />
         <div className="bg">
           <Switch>
+
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/medicalScientific" />
-
-
 
             {/* Visiting localhost:3000/about will show the about page. */}
             <Route
@@ -79,7 +73,6 @@ function App() {
               <UserPage />
             </ProtectedRoute>
 
-
             {/* LOGIN AND REGISTER BUTTON  */}
             <Route
               exact
@@ -94,7 +87,6 @@ function App() {
                 <LoginPage />
               }
             </Route>
-
 
             <Route
               exact
@@ -129,8 +121,8 @@ function App() {
               path="/medicalScientific"
             >
               <MedicalScientific />
-
             </Route>
+
             <Route
               // shows AboutPage at all times (logged in or not)
               exact
@@ -191,7 +183,6 @@ function App() {
                 <SponsorsPage />
               }
             </ProtectedRoute>
-
 
             <ProtectedRoute
               exact
@@ -297,7 +288,6 @@ function App() {
                 <MedicalScientific />
               }
             </ProtectedRoute>
-
 
             <ProtectedRoute
               exact

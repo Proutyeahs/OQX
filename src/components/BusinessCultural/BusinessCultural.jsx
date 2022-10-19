@@ -85,7 +85,6 @@ function BusinessCultural() {
                             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2 flex text-center justify-center">Cultural & Business</p>
                             <p className="flex text-center text-sm md:text-base text-gray-900 mb-4">Explore the consequential business and cultural events of queer history.</p>
                             <form onSubmit={handleSubmit} className="flex justify-center">
-
                                 <TextField
                                     sx={{ backgroundColor: "white" }}
                                     name="outlined"
@@ -135,7 +134,6 @@ function BusinessCultural() {
                     </div>
                 </div>
             </section >
-
         </>
     )
 }

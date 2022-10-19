@@ -16,7 +16,6 @@ function AboutPage() {
 
   return (
     <>
-
       <div className='m-[60px]'>
         <p className='mb-[20px] text-[35px]'>About Us:</p>
         <p>
@@ -188,8 +187,6 @@ function AboutPage() {
         </Accordion>
         {/* END */}
 
-
-
         {/* START */}
         <Accordion>
           <AccordionSummary
@@ -244,11 +241,7 @@ function AboutPage() {
         </Accordion>
         {/* END */}
 
-
-
-
       </div>
-      
     </>
   );
 }

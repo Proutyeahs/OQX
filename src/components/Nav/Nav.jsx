@@ -99,7 +99,7 @@ function Nav() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}>
-          <MenuRoundedIcon className="burger"/>
+          <MenuRoundedIcon className="burger" />
         </IconButton>
 
         <Menu
@@ -162,7 +162,6 @@ function Nav() {
               </Link>
             </MenuItem>
           )}
-
         </Menu>
       </div>
       <div>

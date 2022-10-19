@@ -18,7 +18,6 @@ const MedicalScientific = () => {
         return (description.split(' ').slice(0, 10).join(' '));
     }
 
-
     // TODO: Delete this block before handoff:
     // const handleDummyData = () => {
     //     console.log('HandleDummyData')
@@ -135,7 +134,6 @@ const MedicalScientific = () => {
                     </div>
                 </div>
             </section >
-
         </>
     )
 }

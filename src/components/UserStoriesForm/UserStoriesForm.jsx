@@ -41,7 +41,6 @@ function UserStoriesForm() {
     // local state of information to be submitted
     const [story, setStory] = useState({ user_id: user.id, story: '', timelineEvent: Number(id) })
     
-
     // handle dispatch of information
     const submit = () => {
         console.log(story)
