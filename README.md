@@ -32,8 +32,7 @@ This project should run in your chosen IDE
 
 ### Prerequisites
 
-Link to software that is required to install the app:
-Node.js https://nodejs.org/en/
+[Link to software that is required to install the app](https://nodejs.org/en/)
 
 ### Installation
 
