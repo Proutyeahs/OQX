@@ -30,12 +30,12 @@ Now, the LGBTQ story is available to all reading levels and all educational leve
 
 This project should run in your chosen IDE
 
-## Prerequisites
+### Prerequisites
 
 Link to software that is required to install the app:
 Node.js https://nodejs.org/en/
 
-## Installation
+### Installation
 
 1. Fork the repository
 2. Copy the SSH key in your new repository
